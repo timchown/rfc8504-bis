@@ -19,18 +19,17 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
-category: info
+title: "IPv6 Node Requirements"
+category: bcp
 
-docname: draft-todo-yourname-protocol-latest
+docname: draft-clw-6man-rfc8504-bis-00
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
 consensus: true
 v: 3
-area: AREA
-workgroup: WG Working Group
+area: INT
+workgroup: 6man
 keyword:
  - next generation
  - unicorn
