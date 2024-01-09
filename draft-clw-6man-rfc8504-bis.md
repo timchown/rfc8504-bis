@@ -31,7 +31,6 @@ title: IPv6 Node Requirements
 area: Internet
 workgroup: "IPv6 Maintenance"
 kw: IPv6
-date: 2024-01
 
 author:
 - name: Tim Chown
@@ -196,7 +195,7 @@ situations.  Specifying the requirements for IPv6 nodes allows
 IPv6 to function well and interoperate in a large number of
 situations and deployments.
 
-This document obsoletes RFC 6434, and in turn RFC 4294.
+This document obsoletes RFC 8504, and in turn RFC 6434 and its predecessor, RFC 4294.
 
 --- middle
 
@@ -341,7 +340,7 @@ functionality MAY be supported.
 Nodes MUST always be able to send, receive, and process
 Fragment headers.
 
-IPv6 nodes MUST not create
+IPv6 nodes MUST NOT create
 overlapping fragments.  Also, when reassembling an IPv6
 datagram, if one or more of its constituent fragments is
 determined to be an overlapping fragment, the entire datagram
