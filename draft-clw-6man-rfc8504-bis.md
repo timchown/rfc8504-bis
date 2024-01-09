@@ -8,19 +8,19 @@ number:
 date:
 consensus: true
 v: 3
-area: INT
-workgroup: 6man
+area: "Internet"
+workgroup: "IPv6 Maintenance"
 keyword:
  - next generation
  - unicorn
  - sparkling distributed ledger
 venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
+  group: "IPv6 Maintenance"
+  type: "Working Group"
+  mail: "ipv6@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/ipv6/"
+  github: "timchown/rfc8504-bis"
+  latest: "https://timchown.github.io/rfc8504-bis/draft-clw-6man-rfc8504-bis.html"
 
 author:
  -
