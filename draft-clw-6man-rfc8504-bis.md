@@ -2,7 +2,7 @@
 title: "IPv6 Node Requirements"
 category: bcp
 
-docname: draft-clw-6man-rfc8504-bis-latest
+docname: draft-clw-6man-rfc8504-bis-00
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
@@ -10,10 +10,7 @@ consensus: true
 v: 3
 area: "Internet"
 workgroup: "IPv6 Maintenance"
-keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
+obsoletes: 8504
 venue:
   group: "IPv6 Maintenance"
   type: "Working Group"
@@ -23,10 +20,11 @@ venue:
   latest: "https://timchown.github.io/rfc8504-bis/draft-clw-6man-rfc8504-bis.html"
 
 author:
- -
-    fullname: "Tim Chown"
-    organization: Your Organization Here
-    email: "tim.chown@jisc.ac.uk"
+      -
+        ins: T. Chown
+        name: Tim Chown
+        org: Jisc
+        email: Tim.Chown@jisc.ac.uk
 
 normative:
 
