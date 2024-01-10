@@ -1346,7 +1346,7 @@ comprehensive list of all changes.
 
 
 1. Restructured sections.
-   
+
 1. Added 6LoWPAN to link layers as it has some deployment.
 
 1. Removed the Downstream-on-Demand (DoD) IPv6 Profile as it hasn't been updated.
