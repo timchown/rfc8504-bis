@@ -1,6 +1,6 @@
 ---
 v: 3
-docname: draft-clw-6man-rfc8504-bis-latest
+docname: draft-clw-6man-rfc8504-bis-00
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
