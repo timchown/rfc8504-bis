@@ -379,7 +379,7 @@ of the IPv6 header.
 
 Any unrecognized extension headers or options MUST be
 processed as described in RFC 8200. Note that where
-{{Section 4 of RFC 8200}}
+{{Section 4 of RFC8200}}
 refers to the action to be taken when a Next Header value
 in the current header is not recognized by a node, that action
 applies whether the value is an unrecognized extension
@@ -417,7 +417,7 @@ a new option for that IPv6 extension header.  A proposal to specify a
 new IPv6 extension header MUST include a detailed technical
 explanation of why an existing IPv6 extension header can not be used
 for the desired new function, and in such cases, it needs to follow the format
-described in {{Section 8 of RFC 8200}}.  For further background
+described in {{Section 8 of RFC8200}}.  For further background
 reading on this topic, see {{RFC6564}}.
 
 
@@ -762,7 +762,7 @@ interface.
 
 
 All nodes MUST implement Duplicate Address Detection. Quoting
-from {{Section 5.4 of RFC 4862}}:
+from {{Section 5.4 of RFC4862}}:
 
 >
 Duplicate Address Detection MUST
@@ -843,7 +843,7 @@ and other configuration information, as described in {{Section
 Where devices are likely to be carried by users and attached
 to multiple visited networks, DHCPv6 client
 anonymity profiles SHOULD be supported as described in {{RFC7844}} to minimize the disclosure of identifying information.
-{{Section 5 of RFC 7844}} describes operational considerations on the use of
+{{Section 5 of RFC7844}} describes operational considerations on the use of
 such anonymity profiles.
 
 
@@ -1116,7 +1116,7 @@ architecture {{RFC4301}} a SHOULD for all IPv6 nodes, and this document retains 
 Note that
 the IPsec Architecture requires the
 implementation of both manual and automatic key management (e.g., {{Section
-4.5 of RFC 4301}}).
+4.5 of RFC4301}}).
 Currently, the recommended automated key-management protocol to
 implement is IKEv2 {{RFC7296}}.
 
