@@ -321,8 +321,8 @@ include:
 
 - Teredo: Tunneling IPv6 over UDP through Network Address Translations
   (NATs) {{RFC4380}}
-- Basic Transition Mechanisms for IPv6 Hosts and Routers (see Section
-  3 of {{RFC4213}})
+- Basic Transition Mechanisms for IPv6 Hosts and Routers (see {{Section
+  3 of RFC4213}})
 
 
 # IP Layer
@@ -379,7 +379,7 @@ of the IPv6 header.
 
 Any unrecognized extension headers or options MUST be
 processed as described in RFC 8200. Note that where
-Section 4 of RFC 8200
+{{Section 4 of RFC 8200}}
 refers to the action to be taken when a Next Header value
 in the current header is not recognized by a node, that action
 applies whether the value is an unrecognized extension
@@ -417,7 +417,7 @@ a new option for that IPv6 extension header.  A proposal to specify a
 new IPv6 extension header MUST include a detailed technical
 explanation of why an existing IPv6 extension header can not be used
 for the desired new function, and in such cases, it needs to follow the format
-described in Section 8 of RFC 8200.  For further background
+described in {{Section 8 of RFC 8200}}.  For further background
 reading on this topic, see {{RFC6564}}.
 
 
@@ -762,7 +762,7 @@ interface.
 
 
 All nodes MUST implement Duplicate Address Detection. Quoting
-from Section 5.4 of RFC 4862:
+from {{Section 5.4 of RFC 4862}}:
 
 >
 Duplicate Address Detection MUST
@@ -837,13 +837,13 @@ via DHCPv6.
 
 In the absence of observed Router Advertisement messages, IPv6 nodes
 MAY initiate DHCP to obtain IPv6 addresses
-and other configuration information, as described in Section
-5.5.2 of {{RFC4862}}.
+and other configuration information, as described in {{Section
+5.5.2 of RFC4862}}.
 
 Where devices are likely to be carried by users and attached
 to multiple visited networks, DHCPv6 client
 anonymity profiles SHOULD be supported as described in {{RFC7844}} to minimize the disclosure of identifying information.
-Section 5 of RFC 7844 describes operational considerations on the use of
+{{Section 5 of RFC 7844}} describes operational considerations on the use of
 such anonymity profiles.
 
 
@@ -1115,8 +1115,8 @@ by making support of the IPsec
 architecture {{RFC4301}} a SHOULD for all IPv6 nodes, and this document retains that recommendation.
 Note that
 the IPsec Architecture requires the
-implementation of both manual and automatic key management (e.g., Section
-4.5 of RFC 4301).
+implementation of both manual and automatic key management (e.g., {{Section
+4.5 of RFC 4301}}).
 Currently, the recommended automated key-management protocol to
 implement is IKEv2 {{RFC7296}}.
 
@@ -1138,7 +1138,7 @@ that are ostensibly IPv4 only; see {{RFC7123}} for guidance on this area.
 "Security Architecture for the Internet Protocol" {{RFC4301}} SHOULD be supported by all IPv6
 nodes. Note that the IPsec Architecture requires the implementation of both
 manual and automatic key
-management  (e.g., Section 4.5 of {{RFC4301}}).  Currently, the default automated key-management
+management  (e.g., {{Section 4.5 of RFC4301}}).  Currently, the default automated key-management
 protocol to implement is IKEv2. As required in {{RFC4301}}, IPv6
 nodes implementing the IPsec Architecture MUST implement ESP {{RFC4303}} and MAY implement AH {{RFC4302}}.
 
@@ -1183,7 +1183,7 @@ use are implemented.  See {{mld}}.
 Sending Router Advertisements and processing Router
 Solicitations MUST be supported.
 
-Section 7 of {{RFC6275}} includes some mobility-specific
+{{Section 7 of RFC6275}} includes some mobility-specific
 extensions to Neighbor Discovery.
 Routers SHOULD implement
 Sections 7.3 and 7.5, even if they do not implement home
@@ -1224,7 +1224,7 @@ server function in IPv6 Customer Edge (CE) routers.
 
 Forwarding nodes MUST conform to BCP 198 {{RFC7608}};
 thus, IPv6 implementations of nodes that may forward packets
-MUST conform to the rules specified in Section 5.1 of {{RFC4632}}.
+MUST conform to the rules specified in {{Section 5.1 of RFC4632}}.
 
 
 
