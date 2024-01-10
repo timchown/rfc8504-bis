@@ -61,10 +61,8 @@ normative:
   RFC2711:
   RFC2863:
   RFC3168:
-  RFC3315:
   RFC3411:
   RFC3596:
-  RFC3736:
   RFC3810:
   RFC4033:
   RFC4034:
@@ -81,7 +79,6 @@ normative:
   RFC4632:
   RFC4861:
   RFC4862:
-  RFC4941:
   RFC5095:
   RFC5453:
   RFC5722:
@@ -105,7 +102,6 @@ normative:
   RFC7527:
   RFC7559:
   RFC7608:
-  RFC8021:
   RFC8028:
   RFC8040:
   RFC8064:
@@ -116,6 +112,8 @@ normative:
   RFC8247:
   RFC8343:
   RFC8344:
+  RFC8415:
+  RFC8981:
 informative:
   RFC0793:
   RFC2205:
@@ -164,6 +162,7 @@ informative:
   RFC7772:
   RFC7844:
   RFC7934:
+  RFC8021:
   RFC8087:
   RFC8096:
   RFC8273:
@@ -789,7 +788,7 @@ used by DAD. Nodes SHOULD implement this behavior where such
 detection is beneficial.
 
 
-## Privacy Extensions for Address Configuration in IPv6 - RFC 4941
+## Privacy Extensions for Address Configuration in IPv6 - RFC 8981
 
 A node using Stateless Address
 Autoconfiguration {{RFC4862}} to form a globally
@@ -800,7 +799,7 @@ Thus, it is possible for a third-party device to track the activities of
 the node they
 communicate with, as that node moves around the network.  Privacy Extensions
 for Stateless Address
-Autoconfiguration {{RFC4941}} address this
+Autoconfiguration {{RFC8981}} address this
 concern by allowing nodes to configure an additional temporary address
 where the IID is effectively randomly generated.  Privacy addresses
 are then used as source addresses for new communications initiated by the
@@ -809,25 +808,25 @@ node.
 General issues regarding privacy issues for IPv6 addressing are discussed
 in {{RFC7721}}.
 
-RFC 4941 SHOULD be supported.  In some scenarios,
+RFC 8981 SHOULD be supported.  In some scenarios,
 such as dedicated servers in a data
 center, it provides limited or no benefit, or it may complicate network management.
 Thus, devices implementing this specification MUST provide a way for the
 end user to explicitly enable or disable the use of such temporary
 addresses.
 
-Note that RFC 4941 can be used independently of traditional SLAAC or independently
+Note that RFC 8981 can be used independently of traditional SLAAC or independently
 of SLAAC that is based on RFC 7217.
 
-Implementers of RFC 4941 should be aware that certain
+Implementers of RFC 8981 should be aware that certain
 addresses are reserved and should not be chosen for use as
 temporary addresses. Consult "Reserved IPv6 Interface
 Identifiers" {{RFC5453}} for more details.
 
 
-## Stateful Address Autoconfiguration (DHCPv6) - RFC 3315 {#stateful1}
+## Stateful Address Autoconfiguration (DHCPv6) - RFC 8415 {#stateful1}
 
-DHCPv6 {{RFC3315}} can be used to obtain and
+DHCPv6 {{RFC8415}} can be used to obtain and
 configure addresses. In general, a network may provide for the
 configuration of addresses through SLAAC,
 DHCPv6, or both.  There will be a wide range of IPv6 deployment
@@ -890,7 +889,7 @@ A6 Resource Records {{RFC2874}} are classified as Historic per {{RFC6563}}.  The
 
 ## DHCP for Other Configuration Information
 
-DHCP {{RFC3315}} specifies a mechanism for IPv6 nodes to obtain
+DHCP {{RFC8415}} specifies a mechanism for IPv6 nodes to obtain
 address configuration information (see {{stateful1}}) and to
 obtain additional (non-address) configuration.  If a host
 implementation supports applications or other protocols that
@@ -899,7 +898,7 @@ SHOULD implement DHCP. For specialized devices on which no
 such configuration need is present, DHCP may not be
 necessary.
 
-An IPv6 node can use the subset of DHCP (described in {{RFC3736}}) to obtain other configuration
+An IPv6 node can use the subset of DHCP (described in {{RFC8415}}) to obtain other configuration
 information.
 
 If an IPv6 node implements DHCP, it MUST implement the DNS options {{RFC3646}} as most deployments will expect that these options are available.
@@ -1191,9 +1190,9 @@ Sections 7.3 and 7.5, even if they do not implement home
 agent functionality.
 
 
-## Stateful Address Autoconfiguration (DHCPv6) - RFC 3315
+## Stateful Address Autoconfiguration (DHCPv6) - RFC 8415
 
-A single DHCP server ({{RFC3315}} or {{RFC4862}}) can provide configuration information to
+A single DHCP server ({{RFC8415}} or {{RFC4862}}) can provide configuration information to
 devices directly attached to a shared link, as well as to
 devices located elsewhere within a site. Communication between
 a client and a DHCP server located on different links requires
@@ -1327,7 +1326,17 @@ This document has no IANA actions.
 
 --- back
 
-# Changes from RFC 6434
+# Changes from RFC 8504
+
+This section highlights the changes since RFC 8504. It is not a complete list of all changes.
+
+1. Updated obsoleted RFCs including 3315 and 3736 (both to 8415) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.
+
+2. Made RFC 8021 informative, though this document cites it in a normative style.
+
+
+
+# Changes from RFC 6434 to RFC 8504
 
 There have been many editorial clarifications as well as
 significant additions and updates. While this section highlights
@@ -1337,7 +1346,7 @@ comprehensive list of all changes.
 
 
 1. Restructured sections.
-
+   
 1. Added 6LoWPAN to link layers as it has some deployment.
 
 1. Removed the Downstream-on-Demand (DoD) IPv6 Profile as it hasn't been updated.
@@ -1422,7 +1431,7 @@ comprehensive list of all changes.
 
 1. Added a section on SEND (it is a MAY).
 
-1. Revised the section on Privacy Extensions {{RFC4941}} to add more
+1. Revised the section on Privacy Extensions to add more
   nuance to the recommendation.
 
 1. Completely revised the IPsec/IKEv2 section, downgrading the overall
