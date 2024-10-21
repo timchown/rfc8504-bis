@@ -16,24 +16,23 @@ IPv6 to function well and interoperate in a large number of
 situations and deployments. 
        This document obsoletes RFC 8504, and in turn RFC 6434 and its predecessor, RFC 4294. 
     " name="description">
-<meta content="xml2rfc 3.19.0" name="generator">
+<meta content="xml2rfc 3.23.2" name="generator">
 <meta content="IPv6" name="keyword">
 <meta content="draft-clw-6man-rfc8504-bis-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.19.0
-    Python 3.11.6
+  xml2rfc 3.23.2
+    Python 3.12.7
     ConfigArgParse 1.7
-    google-i18n-address 3.1.0
+    google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.2
-    lxml 4.9.3
-    platformdirs 4.1.0
+    Jinja2 3.1.4
+    lxml 4.9.4
+    platformdirs 4.3.6
     pycountry 22.3.5
     PyYAML 6.0.1
-    requests 2.31.0
-    setuptools 68.2.2
-    six 1.16.0
-    wcwidth 0.2.12
+    requests 2.32.3
+    setuptools 70.3.0
+    wcwidth 0.2.13
 -->
 <link href="draft-clw-6man-rfc8504-bis.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1032,11 +1031,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">IPv6 Node Requirements</td>
-<td class="right">January 2024</td>
+<td class="right">October 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Chown, et al.</td>
-<td class="center">Expires 13 July 2024</td>
+<td class="center">Expires 24 April 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1054,12 +1053,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8504" class="eref">8504</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-01-10" class="published">10 January 2024</time>
+<time datetime="2024-10-21" class="published">21 October 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Best Current Practice</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-07-13">13 July 2024</time></dd>
+<dd class="expires"><time datetime="2025-04-24">24 April 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1072,7 +1071,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </div>
 <div class="author">
       <div class="author-name">T. Winters</div>
-<div class="org">UNH-IOL</div>
+<div class="org">QA Cafe</div>
 </div>
 </dd>
 </dl>
@@ -1122,7 +1121,7 @@ situations and deployments.<a href="#section-abstract-1" class="pilcrow">¶</a><
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 13 July 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 24 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1187,36 +1186,33 @@ situations and deployments.<a href="#section-abstract-1" class="pilcrow">¶</a><
                 <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-neighbor-discovery-for-ipv6" class="internal xref">Neighbor Discovery for IPv6 - RFC 4861</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.5">
-                <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="auto internal xref">5.5</a>.  <a href="#name-secure-neighbor-discovery-s" class="internal xref">SEcure Neighbor Discovery (SEND) - RFC 3971</a></p>
+                <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="auto internal xref">5.5</a>.  <a href="#name-ipv6-router-advertisement-f" class="internal xref">IPv6 Router Advertisement Flags Option - RFC 5175</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.6">
-                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="auto internal xref">5.6</a>.  <a href="#name-ipv6-router-advertisement-f" class="internal xref">IPv6 Router Advertisement Flags Option - RFC 5175</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.7">
-                <p id="section-toc.1-1.5.2.7.1"><a href="#section-5.7" class="auto internal xref">5.7</a>.  <a href="#name-path-mtu-discovery-and-pack" class="internal xref">Path MTU Discovery and Packet Size</a></p>
+                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="auto internal xref">5.6</a>.  <a href="#name-path-mtu-discovery-and-pack" class="internal xref">Path MTU Discovery and Packet Size</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.7.2.1">
-                    <p id="section-toc.1-1.5.2.7.2.1.1"><a href="#section-5.7.1" class="auto internal xref">5.7.1</a>.  <a href="#name-path-mtu-discovery-rfc-8201" class="internal xref">Path MTU Discovery - RFC 8201</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.6.2.1">
+                    <p id="section-toc.1-1.5.2.6.2.1.1"><a href="#section-5.6.1" class="auto internal xref">5.6.1</a>.  <a href="#name-path-mtu-discovery-rfc-8201" class="internal xref">Path MTU Discovery - RFC 8201</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.7.2.2">
-                    <p id="section-toc.1-1.5.2.7.2.2.1"><a href="#section-5.7.2" class="auto internal xref">5.7.2</a>.  <a href="#name-minimum-mtu-considerations" class="internal xref">Minimum MTU Considerations</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.6.2.2">
+                    <p id="section-toc.1-1.5.2.6.2.2.1"><a href="#section-5.6.2" class="auto internal xref">5.6.2</a>.  <a href="#name-minimum-mtu-considerations" class="internal xref">Minimum MTU Considerations</a></p>
 </li>
                 </ul>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.7">
+                <p id="section-toc.1-1.5.2.7.1"><a href="#section-5.7" class="auto internal xref">5.7</a>.  <a href="#name-icmp-for-the-internet-proto" class="internal xref">ICMP for the Internet Protocol Version 6 (IPv6) - RFC 4443</a></p>
+</li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.8">
-                <p id="section-toc.1-1.5.2.8.1"><a href="#section-5.8" class="auto internal xref">5.8</a>.  <a href="#name-icmp-for-the-internet-proto" class="internal xref">ICMP for the Internet Protocol Version 6 (IPv6) - RFC 4443</a></p>
+                <p id="section-toc.1-1.5.2.8.1"><a href="#section-5.8" class="auto internal xref">5.8</a>.  <a href="#name-default-router-preferences-" class="internal xref">Default Router Preferences and More-Specific Routes - RFC 4191</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.9">
-                <p id="section-toc.1-1.5.2.9.1"><a href="#section-5.9" class="auto internal xref">5.9</a>.  <a href="#name-default-router-preferences-" class="internal xref">Default Router Preferences and More-Specific Routes - RFC 4191</a></p>
+                <p id="section-toc.1-1.5.2.9.1"><a href="#section-5.9" class="auto internal xref">5.9</a>.  <a href="#name-first-hop-router-selection-" class="internal xref">First-Hop Router Selection - RFC 8028</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.10">
-                <p id="section-toc.1-1.5.2.10.1"><a href="#section-5.10" class="auto internal xref">5.10</a>. <a href="#name-first-hop-router-selection-" class="internal xref">First-Hop Router Selection - RFC 8028</a></p>
+                <p id="section-toc.1-1.5.2.10.1"><a href="#section-5.10" class="auto internal xref">5.10</a>. <a href="#name-multicast-listener-discover" class="internal xref">Multicast Listener Discovery (MLD) for IPv6 - RFC 3810</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.11">
-                <p id="section-toc.1-1.5.2.11.1"><a href="#section-5.11" class="auto internal xref">5.11</a>. <a href="#name-multicast-listener-discover" class="internal xref">Multicast Listener Discovery (MLD) for IPv6 - RFC 3810</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.12">
-                <p id="section-toc.1-1.5.2.12.1"><a href="#section-5.12" class="auto internal xref">5.12</a>. <a href="#name-explicit-congestion-notific" class="internal xref">Explicit Congestion Notification (ECN) - RFC 3168</a></p>
+                <p id="section-toc.1-1.5.2.11.1"><a href="#section-5.11" class="auto internal xref">5.11</a>. <a href="#name-explicit-congestion-notific" class="internal xref">Explicit Congestion Notification (ECN) - RFC 3168</a></p>
 </li>
             </ul>
 </li>
@@ -1291,100 +1287,97 @@ situations and deployments.<a href="#section-abstract-1" class="pilcrow">¶</a><
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-mobility" class="internal xref">Mobility</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-security" class="internal xref">Security</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.1">
+                <p id="section-toc.1-1.12.2.1.1"><a href="#section-12.1" class="auto internal xref">12.1</a>.  <a href="#name-requirements" class="internal xref">Requirements</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.2">
+                <p id="section-toc.1-1.12.2.2.1"><a href="#section-12.2" class="auto internal xref">12.2</a>.  <a href="#name-transforms-and-algorithms" class="internal xref">Transforms and Algorithms</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#section-13" class="auto internal xref">13</a>. <a href="#name-security" class="internal xref">Security</a></p>
+            <p id="section-toc.1-1.13.1"><a href="#section-13" class="auto internal xref">13</a>. <a href="#name-router-specific-functionali" class="internal xref">Router-Specific Functionality</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.1">
-                <p id="section-toc.1-1.13.2.1.1"><a href="#section-13.1" class="auto internal xref">13.1</a>.  <a href="#name-requirements" class="internal xref">Requirements</a></p>
+                <p id="section-toc.1-1.13.2.1.1"><a href="#section-13.1" class="auto internal xref">13.1</a>.  <a href="#name-ipv6-router-alert-option-rf" class="internal xref">IPv6 Router Alert Option - RFC 2711</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.2">
-                <p id="section-toc.1-1.13.2.2.1"><a href="#section-13.2" class="auto internal xref">13.2</a>.  <a href="#name-transforms-and-algorithms" class="internal xref">Transforms and Algorithms</a></p>
+                <p id="section-toc.1-1.13.2.2.1"><a href="#section-13.2" class="auto internal xref">13.2</a>.  <a href="#name-neighbor-discovery-for-ipv6-" class="internal xref">Neighbor Discovery for IPv6 - RFC 4861</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.3">
+                <p id="section-toc.1-1.13.2.3.1"><a href="#section-13.3" class="auto internal xref">13.3</a>.  <a href="#name-stateful-address-autoconfigu" class="internal xref">Stateful Address Autoconfiguration (DHCPv6) - RFC 8415</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.4">
+                <p id="section-toc.1-1.13.2.4.1"><a href="#section-13.4" class="auto internal xref">13.4</a>.  <a href="#name-ipv6-prefix-length-recommen" class="internal xref">IPv6 Prefix Length Recommendation for Forwarding - BCP 198</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
-            <p id="section-toc.1-1.14.1"><a href="#section-14" class="auto internal xref">14</a>. <a href="#name-router-specific-functionali" class="internal xref">Router-Specific Functionality</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.1">
-                <p id="section-toc.1-1.14.2.1.1"><a href="#section-14.1" class="auto internal xref">14.1</a>.  <a href="#name-ipv6-router-alert-option-rf" class="internal xref">IPv6 Router Alert Option - RFC 2711</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.2">
-                <p id="section-toc.1-1.14.2.2.1"><a href="#section-14.2" class="auto internal xref">14.2</a>.  <a href="#name-neighbor-discovery-for-ipv6-" class="internal xref">Neighbor Discovery for IPv6 - RFC 4861</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.3">
-                <p id="section-toc.1-1.14.2.3.1"><a href="#section-14.3" class="auto internal xref">14.3</a>.  <a href="#name-stateful-address-autoconfigu" class="internal xref">Stateful Address Autoconfiguration (DHCPv6) - RFC 8415</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.4">
-                <p id="section-toc.1-1.14.2.4.1"><a href="#section-14.4" class="auto internal xref">14.4</a>.  <a href="#name-ipv6-prefix-length-recommen" class="internal xref">IPv6 Prefix Length Recommendation for Forwarding - BCP 198</a></p>
-</li>
-            </ul>
+            <p id="section-toc.1-1.14.1"><a href="#section-14" class="auto internal xref">14</a>. <a href="#name-constrained-devices" class="internal xref">Constrained Devices</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15">
-            <p id="section-toc.1-1.15.1"><a href="#section-15" class="auto internal xref">15</a>. <a href="#name-constrained-devices" class="internal xref">Constrained Devices</a></p>
+            <p id="section-toc.1-1.15.1"><a href="#section-15" class="auto internal xref">15</a>. <a href="#name-ipv6-node-management" class="internal xref">IPv6 Node Management</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15.2.1">
+                <p id="section-toc.1-1.15.2.1.1"><a href="#section-15.1" class="auto internal xref">15.1</a>.  <a href="#name-management-information-base" class="internal xref">Management Information Base (MIB) Modules</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15.2.1.2.1">
+                    <p id="section-toc.1-1.15.2.1.2.1.1"><a href="#section-15.1.1" class="auto internal xref">15.1.1</a>.  <a href="#name-ip-forwarding-table-mib" class="internal xref">IP Forwarding Table MIB</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15.2.1.2.2">
+                    <p id="section-toc.1-1.15.2.1.2.2.1"><a href="#section-15.1.2" class="auto internal xref">15.1.2</a>.  <a href="#name-management-information-base-" class="internal xref">Management Information Base for the Internet Protocol (IP)</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15.2.1.2.3">
+                    <p id="section-toc.1-1.15.2.1.2.3.1"><a href="#section-15.1.3" class="auto internal xref">15.1.3</a>.  <a href="#name-interface-mib" class="internal xref">Interface MIB</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15.2.2">
+                <p id="section-toc.1-1.15.2.2.1"><a href="#section-15.2" class="auto internal xref">15.2</a>.  <a href="#name-yang-data-models" class="internal xref">YANG Data Models</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15.2.2.2.1">
+                    <p id="section-toc.1-1.15.2.2.2.1.1"><a href="#section-15.2.1" class="auto internal xref">15.2.1</a>.  <a href="#name-ip-management-yang-model" class="internal xref">IP Management YANG Model</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15.2.2.2.2">
+                    <p id="section-toc.1-1.15.2.2.2.2.1"><a href="#section-15.2.2" class="auto internal xref">15.2.2</a>.  <a href="#name-interface-management-yang-m" class="internal xref">Interface Management YANG Model</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16">
-            <p id="section-toc.1-1.16.1"><a href="#section-16" class="auto internal xref">16</a>. <a href="#name-ipv6-node-management" class="internal xref">IPv6 Node Management</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16.2.1">
-                <p id="section-toc.1-1.16.2.1.1"><a href="#section-16.1" class="auto internal xref">16.1</a>.  <a href="#name-management-information-base" class="internal xref">Management Information Base (MIB) Modules</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16.2.1.2.1">
-                    <p id="section-toc.1-1.16.2.1.2.1.1"><a href="#section-16.1.1" class="auto internal xref">16.1.1</a>.  <a href="#name-ip-forwarding-table-mib" class="internal xref">IP Forwarding Table MIB</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16.2.1.2.2">
-                    <p id="section-toc.1-1.16.2.1.2.2.1"><a href="#section-16.1.2" class="auto internal xref">16.1.2</a>.  <a href="#name-management-information-base-" class="internal xref">Management Information Base for the Internet Protocol (IP)</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16.2.1.2.3">
-                    <p id="section-toc.1-1.16.2.1.2.3.1"><a href="#section-16.1.3" class="auto internal xref">16.1.3</a>.  <a href="#name-interface-mib" class="internal xref">Interface MIB</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16.2.2">
-                <p id="section-toc.1-1.16.2.2.1"><a href="#section-16.2" class="auto internal xref">16.2</a>.  <a href="#name-yang-data-models" class="internal xref">YANG Data Models</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16.2.2.2.1">
-                    <p id="section-toc.1-1.16.2.2.2.1.1"><a href="#section-16.2.1" class="auto internal xref">16.2.1</a>.  <a href="#name-ip-management-yang-model" class="internal xref">IP Management YANG Model</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16.2.2.2.2">
-                    <p id="section-toc.1-1.16.2.2.2.2.1"><a href="#section-16.2.2" class="auto internal xref">16.2.2</a>.  <a href="#name-interface-management-yang-m" class="internal xref">Interface Management YANG Model</a></p>
-</li>
-                </ul>
-</li>
-            </ul>
+            <p id="section-toc.1-1.16.1"><a href="#section-16" class="auto internal xref">16</a>. <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.17">
-            <p id="section-toc.1-1.17.1"><a href="#section-17" class="auto internal xref">17</a>. <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.17.1"><a href="#section-17" class="auto internal xref">17</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18">
-            <p id="section-toc.1-1.18.1"><a href="#section-18" class="auto internal xref">18</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.19">
-            <p id="section-toc.1-1.19.1"><a href="#section-19" class="auto internal xref">19</a>. <a href="#name-references" class="internal xref">References</a></p>
+            <p id="section-toc.1-1.18.1"><a href="#section-18" class="auto internal xref">18</a>. <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.19.2.1">
-                <p id="section-toc.1-1.19.2.1.1"><a href="#section-19.1" class="auto internal xref">19.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18.2.1">
+                <p id="section-toc.1-1.18.2.1.1"><a href="#section-18.1" class="auto internal xref">18.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.19.2.2">
-                <p id="section-toc.1-1.19.2.2.1"><a href="#section-19.2" class="auto internal xref">19.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18.2.2">
+                <p id="section-toc.1-1.18.2.2.1"><a href="#section-18.2" class="auto internal xref">18.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.19">
+            <p id="section-toc.1-1.19.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-changes-from-rfc-8504" class="internal xref">Changes from RFC 8504</a></p>
+</li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.20">
-            <p id="section-toc.1-1.20.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-changes-from-rfc-8504" class="internal xref">Changes from RFC 8504</a></p>
+            <p id="section-toc.1-1.20.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-changes-from-rfc-6434-to-rf" class="internal xref">Changes from RFC 6434 to RFC 8504</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.21">
-            <p id="section-toc.1-1.21.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-changes-from-rfc-6434-to-rf" class="internal xref">Changes from RFC 6434 to RFC 8504</a></p>
+            <p id="section-toc.1-1.21.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-changes-from-rfc-4294-to-rf" class="internal xref">Changes from RFC 4294 to RFC 6434</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.22">
-            <p id="section-toc.1-1.22.1"><a href="#appendix-C" class="auto internal xref">Appendix C</a>.  <a href="#name-changes-from-rfc-4294-to-rf" class="internal xref">Changes from RFC 4294 to RFC 6434</a></p>
+            <p id="section-toc.1-1.22.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.23">
-            <p id="section-toc.1-1.23.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.24">
-            <p id="section-toc.1-1.24.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.23.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1577,8 +1570,8 @@ overlapping fragments.  Also, when reassembling an IPv6
 datagram, if one or more of its constituent fragments is
 determined to be an overlapping fragment, the entire datagram
 (and any constituent fragments) <span class="bcp14">MUST</span> be silently discarded.
-See <span>[<a href="#RFC5722" class="cite xref">RFC5722</a>]</span> for more information.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
-<p id="section-5.1-5">As recommended in <span>[<a href="#RFC8021" class="cite xref">RFC8021</a>]</span>, nodes <span class="bcp14">MUST NOT</span>
+See Section 4.5 of <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span> for more information.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.1-5">As recommended in Section 4.5 of <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span>, nodes <span class="bcp14">MUST NOT</span>
 generate atomic fragments, i.e., where the fragment is a whole datagram.
 As per <span>[<a href="#RFC6946" class="cite xref">RFC6946</a>]</span>, if a receiving node reassembling
 a datagram encounters an atomic fragment,
@@ -1588,7 +1581,8 @@ any other fragments that match this packet should be processed independently.<a 
 nodes <span class="bcp14">SHOULD</span> avoid using predictable Fragment Identification values
 in Fragment headers, as discussed in <span>[<a href="#RFC7739" class="cite xref">RFC7739</a>]</span>.<a href="#section-5.1-6" class="pilcrow">¶</a></p>
 <p id="section-5.1-7">All nodes <span class="bcp14">SHOULD</span> support the setting and use of the IPv6 Flow
-Label field as defined in the IPv6 Flow Label specification <span>[<a href="#RFC6437" class="cite xref">RFC6437</a>]</span>.  Forwarding nodes such as routers and load distributors
+Label field as defined in the IPv6 Flow Label specification <span>[<a href="#RFC6437" class="cite xref">RFC6437</a>]</span>.
+Forwarding nodes such as routers and load distributors
 <span class="bcp14">MUST NOT</span> depend only on Flow Label values being uniformly
 distributed.  It is <span class="bcp14">RECOMMENDED</span> that source hosts support the flow
 label by setting the Flow Label field for all packets of a given
@@ -1768,33 +1762,12 @@ recommendations on how to select from a set of available routers.
 <span>[<a href="#RFC4311" class="cite xref">RFC4311</a>]</span> <span class="bcp14">SHOULD</span> be supported.<a href="#section-5.4-13" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="secure-neighbor-discovery-send-rfc-3971">
-<section id="section-5.5">
-        <h3 id="name-secure-neighbor-discovery-s">
-<a href="#section-5.5" class="section-number selfRef">5.5. </a><a href="#name-secure-neighbor-discovery-s" class="section-name selfRef">SEcure Neighbor Discovery (SEND) - RFC 3971</a>
-        </h3>
-<p id="section-5.5-1">SEND <span>[<a href="#RFC3971" class="cite xref">RFC3971</a>]</span> and Cryptographically Generated
-Addresses (CGAs) <span>[<a href="#RFC3972" class="cite xref">RFC3972</a>]</span> provide a way to
-secure the message exchanges of Neighbor Discovery. SEND
-has the potential to address certain classes of spoofing
-attacks, but it does not provide specific protection for threats
-from off-link attackers.<a href="#section-5.5-1" class="pilcrow">¶</a></p>
-<p id="section-5.5-2">There have been relatively few implementations of SEND
-in common operating systems and platforms since its publication in 2005;
-thus, deployment experience remains very limited to date.<a href="#section-5.5-2" class="pilcrow">¶</a></p>
-<p id="section-5.5-3">At this time, support for SEND is considered optional. Due to the
-complexity in deploying SEND and its heavyweight provisioning,
-its deployment is only
-likely to be considered where nodes are operating in a
-particularly strict security environment.<a href="#section-5.5-3" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="ipv6-router-advertisement-flags-option-rfc-5175">
-<section id="section-5.6">
+<section id="section-5.5">
         <h3 id="name-ipv6-router-advertisement-f">
-<a href="#section-5.6" class="section-number selfRef">5.6. </a><a href="#name-ipv6-router-advertisement-f" class="section-name selfRef">IPv6 Router Advertisement Flags Option - RFC 5175</a>
+<a href="#section-5.5" class="section-number selfRef">5.5. </a><a href="#name-ipv6-router-advertisement-f" class="section-name selfRef">IPv6 Router Advertisement Flags Option - RFC 5175</a>
         </h3>
-<p id="section-5.6-1">Router Advertisements include an 8-bit field of single-bit
+<p id="section-5.5-1">Router Advertisements include an 8-bit field of single-bit
 Router Advertisement flags.  The Router Advertisement Flags
 Option extends the number of available flag bits by 48 bits. At
 the time of this writing, 6 of the original 8 single-bit flags have
@@ -1805,36 +1778,36 @@ implement the option today. However, implementations that are
 able to pass unrecognized options to a higher-level entity that
 may be able to understand them (e.g., a user-level process using
 a "raw socket" facility) <span class="bcp14">MAY</span> take steps to handle the option in
-anticipation of a future usage.<a href="#section-5.6-1" class="pilcrow">¶</a></p>
+anticipation of a future usage.<a href="#section-5.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="path-mtu-discovery-and-packet-size">
-<section id="section-5.7">
+<section id="section-5.6">
         <h3 id="name-path-mtu-discovery-and-pack">
-<a href="#section-5.7" class="section-number selfRef">5.7. </a><a href="#name-path-mtu-discovery-and-pack" class="section-name selfRef">Path MTU Discovery and Packet Size</a>
+<a href="#section-5.6" class="section-number selfRef">5.6. </a><a href="#name-path-mtu-discovery-and-pack" class="section-name selfRef">Path MTU Discovery and Packet Size</a>
         </h3>
 <div id="path-mtu-discovery-rfc-8201">
-<section id="section-5.7.1">
+<section id="section-5.6.1">
           <h4 id="name-path-mtu-discovery-rfc-8201">
-<a href="#section-5.7.1" class="section-number selfRef">5.7.1. </a><a href="#name-path-mtu-discovery-rfc-8201" class="section-name selfRef">Path MTU Discovery - RFC 8201</a>
+<a href="#section-5.6.1" class="section-number selfRef">5.6.1. </a><a href="#name-path-mtu-discovery-rfc-8201" class="section-name selfRef">Path MTU Discovery - RFC 8201</a>
           </h4>
-<p id="section-5.7.1-1">"Path MTU Discovery for IP version 6" <span>[<a href="#RFC8201" class="cite xref">RFC8201</a>]</span> <span class="bcp14">SHOULD</span> be
-supported.  From <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span>:<a href="#section-5.7.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.6.1-1">"Path MTU Discovery for IP version 6" <span>[<a href="#RFC8201" class="cite xref">RFC8201</a>]</span> <span class="bcp14">SHOULD</span> be
+supported.  From <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span>:<a href="#section-5.6.1-1" class="pilcrow">¶</a></p>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-5.7.1-2.1">
-              <p id="section-5.7.1-2.1.1">It is strongly recommended that IPv6 nodes implement
+<li class="normal ulEmpty" id="section-5.6.1-2.1">
+              <p id="section-5.6.1-2.1.1">It is strongly recommended that IPv6 nodes implement
 Path MTU Discovery <span>[<a href="#RFC8201" class="cite xref">RFC8201</a>]</span>, in order to
 discover and
 take advantage of path MTUs greater than 1280 octets.
 However, a minimal IPv6 implementation (e.g., in a boot
 ROM) may simply restrict itself to sending packets no
 larger than 1280 octets, and omit implementation of Path
-MTU Discovery.<a href="#section-5.7.1-2.1.1" class="pilcrow">¶</a></p>
+MTU Discovery.<a href="#section-5.6.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-5.7.1-3">The rules in <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span> and <span>[<a href="#RFC5722" class="cite xref">RFC5722</a>]</span> <span class="bcp14">MUST</span> be followed for packet
-fragmentation and reassembly.<a href="#section-5.7.1-3" class="pilcrow">¶</a></p>
-<p id="section-5.7.1-4">As described in RFC 8201,
+<p id="section-5.6.1-3">The rules in <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span> and <span>[<a href="#RFC5722" class="cite xref">RFC5722</a>]</span> <span class="bcp14">MUST</span> be followed for packet
+fragmentation and reassembly.<a href="#section-5.6.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.6.1-4">As described in RFC 8201,
 nodes implementing Path MTU Discovery and sending packets larger than
 the IPv6 minimum link MTU are susceptible to problematic connectivity
 if ICMPv6 messages are blocked or not transmitted.  For
@@ -1843,42 +1816,42 @@ three-way handshake correctly but then hang when data is transferred.  This
 state is referred to as a black-hole connection <span>[<a href="#RFC2923" class="cite xref">RFC2923</a>]</span>.  Path MTU
 Discovery relies on ICMPv6 Packet Too Big (PTB) to determine the MTU
 of the path (and thus these <span class="bcp14">MUST NOT</span> be filtered, as per the
-recommendation in <span>[<a href="#RFC4890" class="cite xref">RFC4890</a>]</span>).<a href="#section-5.7.1-4" class="pilcrow">¶</a></p>
-<p id="section-5.7.1-5">An alternative to Path MTU Discovery defined in RFC 8201 can be
+recommendation in <span>[<a href="#RFC4890" class="cite xref">RFC4890</a>]</span>).<a href="#section-5.6.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.6.1-5">An alternative to Path MTU Discovery defined in RFC 8201 can be
 found in <span>[<a href="#RFC4821" class="cite xref">RFC4821</a>]</span>, which defines a method for Packetization
 Layer Path MTU Discovery (PLPMTUD) designed for use over paths where
-delivery of ICMPv6 messages to a host is not assured.<a href="#section-5.7.1-5" class="pilcrow">¶</a></p>
+delivery of ICMPv6 messages to a host is not assured.<a href="#section-5.6.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="minimum-mtu-considerations">
-<section id="section-5.7.2">
+<section id="section-5.6.2">
           <h4 id="name-minimum-mtu-considerations">
-<a href="#section-5.7.2" class="section-number selfRef">5.7.2. </a><a href="#name-minimum-mtu-considerations" class="section-name selfRef">Minimum MTU Considerations</a>
+<a href="#section-5.6.2" class="section-number selfRef">5.6.2. </a><a href="#name-minimum-mtu-considerations" class="section-name selfRef">Minimum MTU Considerations</a>
           </h4>
-<p id="section-5.7.2-1">While an IPv6 link MTU can be set to 1280 bytes,
+<p id="section-5.6.2-1">While an IPv6 link MTU can be set to 1280 bytes,
 it is recommended that for IPv6 UDP in particular,
 which includes DNS operation, the sender use a
 large MTU if they can, in order to avoid gratuitous
-fragmentation-caused packet drops.<a href="#section-5.7.2-1" class="pilcrow">¶</a></p>
+fragmentation-caused packet drops.<a href="#section-5.6.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="icmp-for-the-internet-protocol-version-6-ipv6-rfc-4443">
-<section id="section-5.8">
+<section id="section-5.7">
         <h3 id="name-icmp-for-the-internet-proto">
-<a href="#section-5.8" class="section-number selfRef">5.8. </a><a href="#name-icmp-for-the-internet-proto" class="section-name selfRef">ICMP for the Internet Protocol Version 6 (IPv6) - RFC 4443</a>
+<a href="#section-5.7" class="section-number selfRef">5.7. </a><a href="#name-icmp-for-the-internet-proto" class="section-name selfRef">ICMP for the Internet Protocol Version 6 (IPv6) - RFC 4443</a>
         </h3>
-<p id="section-5.8-1">ICMPv6 <span>[<a href="#RFC4443" class="cite xref">RFC4443</a>]</span> <span class="bcp14">MUST</span> be supported. "Extended
-ICMP to Support Multi-Part Messages" <span>[<a href="#RFC4884" class="cite xref">RFC4884</a>]</span> <span class="bcp14">MAY</span> be supported.<a href="#section-5.8-1" class="pilcrow">¶</a></p>
+<p id="section-5.7-1">ICMPv6 <span>[<a href="#RFC4443" class="cite xref">RFC4443</a>]</span> <span class="bcp14">MUST</span> be supported. "Extended
+ICMP to Support Multi-Part Messages" <span>[<a href="#RFC4884" class="cite xref">RFC4884</a>]</span> <span class="bcp14">MAY</span> be supported.<a href="#section-5.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="default-router-preferences-and-more-specific-routes-rfc-4191">
-<section id="section-5.9">
+<section id="section-5.8">
         <h3 id="name-default-router-preferences-">
-<a href="#section-5.9" class="section-number selfRef">5.9. </a><a href="#name-default-router-preferences-" class="section-name selfRef">Default Router Preferences and More-Specific Routes - RFC 4191</a>
+<a href="#section-5.8" class="section-number selfRef">5.8. </a><a href="#name-default-router-preferences-" class="section-name selfRef">Default Router Preferences and More-Specific Routes - RFC 4191</a>
         </h3>
-<p id="section-5.9-1">"Default Router Preferences and More-Specific Routes" <span>[<a href="#RFC4191" class="cite xref">RFC4191</a>]</span>
+<p id="section-5.8-1">"Default Router Preferences and More-Specific Routes" <span>[<a href="#RFC4191" class="cite xref">RFC4191</a>]</span>
 provides support for nodes attached to
 multiple (different) networks, each providing routers that
 advertise themselves as default routers via Router
@@ -1886,56 +1859,56 @@ Advertisements. In some scenarios, one router may provide
 connectivity to destinations that the other router does not, and
 choosing the "wrong" default router can result in reachability
 failures. In order to resolve this scenario, IPv6 nodes <span class="bcp14">MUST</span> implement
-<span>[<a href="#RFC4191" class="cite xref">RFC4191</a>]</span> and <span class="bcp14">SHOULD</span> implement the Type C host role defined in RFC 4191.<a href="#section-5.9-1" class="pilcrow">¶</a></p>
+<span>[<a href="#RFC4191" class="cite xref">RFC4191</a>]</span> and <span class="bcp14">MUST</span> implement the Type C host role defined in RFC 4191.<a href="#section-5.8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="first-hop-router-selection-rfc-8028">
-<section id="section-5.10">
+<section id="section-5.9">
         <h3 id="name-first-hop-router-selection-">
-<a href="#section-5.10" class="section-number selfRef">5.10. </a><a href="#name-first-hop-router-selection-" class="section-name selfRef">First-Hop Router Selection - RFC 8028</a>
+<a href="#section-5.9" class="section-number selfRef">5.9. </a><a href="#name-first-hop-router-selection-" class="section-name selfRef">First-Hop Router Selection - RFC 8028</a>
         </h3>
-<p id="section-5.10-1">In multihomed scenarios, where a host has more than one prefix,
+<p id="section-5.9-1">In multihomed scenarios, where a host has more than one prefix,
 each allocated by an upstream network that is assumed to implement
 BCP 38 ingress filtering, the host may have multiple routers to
-choose from.<a href="#section-5.10-1" class="pilcrow">¶</a></p>
-<p id="section-5.10-2">Hosts that may be deployed in such multihomed environments
-<span class="bcp14">SHOULD</span> follow the guidance given in <span>[<a href="#RFC8028" class="cite xref">RFC8028</a>]</span>.<a href="#section-5.10-2" class="pilcrow">¶</a></p>
+choose from.<a href="#section-5.9-1" class="pilcrow">¶</a></p>
+<p id="section-5.9-2">Hosts that may be deployed in such multihomed environments
+<span class="bcp14">SHOULD</span> follow the guidance given in <span>[<a href="#RFC8028" class="cite xref">RFC8028</a>]</span>.<a href="#section-5.9-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="mld">
-<section id="section-5.11">
+<section id="section-5.10">
         <h3 id="name-multicast-listener-discover">
-<a href="#section-5.11" class="section-number selfRef">5.11. </a><a href="#name-multicast-listener-discover" class="section-name selfRef">Multicast Listener Discovery (MLD) for IPv6 - RFC 3810</a>
+<a href="#section-5.10" class="section-number selfRef">5.10. </a><a href="#name-multicast-listener-discover" class="section-name selfRef">Multicast Listener Discovery (MLD) for IPv6 - RFC 3810</a>
         </h3>
-<p id="section-5.11-1">Nodes that need to join multicast groups <span class="bcp14">MUST</span> support MLDv2
+<p id="section-5.10-1">Nodes that need to join multicast groups <span class="bcp14">MUST</span> support MLDv2
 <span>[<a href="#RFC3810" class="cite xref">RFC3810</a>]</span>. MLD is needed by any node that is
 expected to receive and process multicast traffic; in particular,
 MLDv2 is required for support for source-specific multicast (SSM) as
-per <span>[<a href="#RFC4607" class="cite xref">RFC4607</a>]</span>.<a href="#section-5.11-1" class="pilcrow">¶</a></p>
-<p id="section-5.11-2">Previous versions of this specification only required MLDv1 <span>[<a href="#RFC2710" class="cite xref">RFC2710</a>]</span>
+per <span>[<a href="#RFC4607" class="cite xref">RFC4607</a>]</span>.<a href="#section-5.10-1" class="pilcrow">¶</a></p>
+<p id="section-5.10-2">Previous versions of this specification only required MLDv1 <span>[<a href="#RFC2710" class="cite xref">RFC2710</a>]</span>
 to be implemented
 on all nodes.  Since participation of any
 MLDv1-only nodes on a link require that all other nodes on the link then
 operate in version 1 compatibility mode, the requirement to support MLDv2
 on all nodes was upgraded to a <span class="bcp14">MUST</span>. Further, SSM is now the preferred
-multicast distribution method, rather than Any-Source Multicast (ASM).<a href="#section-5.11-2" class="pilcrow">¶</a></p>
-<p id="section-5.11-3">Note that Neighbor Discovery (as used on most link types -- see <a href="#ND" class="auto internal xref">Section 5.4</a>)
+multicast distribution method, rather than Any-Source Multicast (ASM).<a href="#section-5.10-2" class="pilcrow">¶</a></p>
+<p id="section-5.10-3">Note that Neighbor Discovery (as used on most link types -- see <a href="#ND" class="auto internal xref">Section 5.4</a>)
 depends on multicast and requires that nodes join Solicited Node
-multicast addresses.<a href="#section-5.11-3" class="pilcrow">¶</a></p>
+multicast addresses.<a href="#section-5.10-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="explicit-congestion-notification-ecn-rfc-3168">
-<section id="section-5.12">
+<section id="section-5.11">
         <h3 id="name-explicit-congestion-notific">
-<a href="#section-5.12" class="section-number selfRef">5.12. </a><a href="#name-explicit-congestion-notific" class="section-name selfRef">Explicit Congestion Notification (ECN) - RFC 3168</a>
+<a href="#section-5.11" class="section-number selfRef">5.11. </a><a href="#name-explicit-congestion-notific" class="section-name selfRef">Explicit Congestion Notification (ECN) - RFC 3168</a>
         </h3>
-<p id="section-5.12-1">An ECN-aware router sets a mark in the IP header in order to signal
+<p id="section-5.11-1">An ECN-aware router sets a mark in the IP header in order to signal
 impending congestion, rather than dropping a packet. The receiver of
 the packet echoes the congestion indication to the sender, which can then
-reduce its transmission rate as if it detected a dropped packet.<a href="#section-5.12-1" class="pilcrow">¶</a></p>
-<p id="section-5.12-2">Nodes <span class="bcp14">SHOULD</span> support ECN <span>[<a href="#RFC3168" class="cite xref">RFC3168</a>]</span> by implementing an interface
+reduce its transmission rate as if it detected a dropped packet.<a href="#section-5.11-1" class="pilcrow">¶</a></p>
+<p id="section-5.11-2">Nodes <span class="bcp14">SHOULD</span> support ECN <span>[<a href="#RFC3168" class="cite xref">RFC3168</a>]</span> by implementing an interface
 for the upper layer to access and by setting the ECN bits in the IP header.
-The benefits of using ECN are documented in <span>[<a href="#RFC8087" class="cite xref">RFC8087</a>]</span>.<a href="#section-5.12-2" class="pilcrow">¶</a></p>
+The benefits of using ECN are documented in <span>[<a href="#RFC8087" class="cite xref">RFC8087</a>]</span>.<a href="#section-5.11-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2314,65 +2287,21 @@ accessing and enabling Mobile IPv6 <span>[<a href="#RFC6275" class="cite xref">R
 </div>
 </section>
 </div>
-<div id="mobility">
-<section id="section-12">
-      <h2 id="name-mobility">
-<a href="#section-12" class="section-number selfRef">12. </a><a href="#name-mobility" class="section-name selfRef">Mobility</a>
-      </h2>
-<p id="section-12-1">Mobile IPv6 <span>[<a href="#RFC6275" class="cite xref">RFC6275</a>]</span> and associated
-specifications <span>[<a href="#RFC3776" class="cite xref">RFC3776</a>]</span>  <span>[<a href="#RFC4877" class="cite xref">RFC4877</a>]</span> allow a node to change its point of attachment within the
-Internet, while maintaining (and using) a permanent address. All
-communication using the permanent address continues to proceed as
-expected even as the node moves around. The definition of Mobile
-IP includes requirements for the following types of nodes:<a href="#section-12-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-12-2.1">
-          <p id="section-12-2.1.1">mobile nodes<a href="#section-12-2.1.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-12-2.2">
-          <p id="section-12-2.2.1">correspondent nodes with support for route optimization<a href="#section-12-2.2.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-12-2.3">
-          <p id="section-12-2.3.1">home agents<a href="#section-12-2.3.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="section-12-2.4">
-          <p id="section-12-2.4.1">all IPv6 routers<a href="#section-12-2.4.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<p id="section-12-3">At the present time, Mobile IP has seen only limited
-implementation and no significant deployment, partly because it
-originally assumed an IPv6-only environment rather than a mixed
-IPv4/IPv6 Internet. Additional work has been done to
-support mobility in mixed-mode IPv4 and IPv6
-networks <span>[<a href="#RFC5555" class="cite xref">RFC5555</a>]</span>.<a href="#section-12-3" class="pilcrow">¶</a></p>
-<p id="section-12-4">More usage and deployment experience is needed with mobility
-before any specific approach can be recommended for broad
-implementation in all hosts and routers.
-Consequently, Mobility Support in IPv6 <span>[<a href="#RFC6275" class="cite xref">RFC6275</a>]</span>, Mobile IPv6 Support for Dual Stack Hosts and Routers <span>[<a href="#RFC5555" class="cite xref">RFC5555</a>]</span>, and associated
-standards (such as Mobile IPv6 with IKEv2 and IPsec <span>[<a href="#RFC4877" class="cite xref">RFC4877</a>]</span>) are considered a <span class="bcp14">MAY</span>
-at this time.<a href="#section-12-4" class="pilcrow">¶</a></p>
-<p id="section-12-5">IPv6 for 3GPP <span>[<a href="#RFC7066" class="cite xref">RFC7066</a>]</span> lists a snapshot of required
-IPv6 functionalities at the time the document was published that would
-need to be implemented, going above
-and beyond the recommendations in this document.
-Additionally, a 3GPP IPv6 Host <span class="bcp14">MAY</span> implement <span>[<a href="#RFC7278" class="cite xref">RFC7278</a>]</span> to deliver IPv6 prefixes on the LAN link.<a href="#section-12-5" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="sec">
-<section id="section-13">
+<section id="section-12">
       <h2 id="name-security">
-<a href="#section-13" class="section-number selfRef">13. </a><a href="#name-security" class="section-name selfRef">Security</a>
+<a href="#section-12" class="section-number selfRef">12. </a><a href="#name-security" class="section-name selfRef">Security</a>
       </h2>
-<p id="section-13-1">This section describes the security specification for IPv6
-nodes.<a href="#section-13-1" class="pilcrow">¶</a></p>
-<p id="section-13-2">Achieving security in practice is a complex undertaking.
+<p id="section-12-1">This section describes the security specification for IPv6
+nodes.<a href="#section-12-1" class="pilcrow">¶</a></p>
+<p id="section-12-2">Achieving security in practice is a complex undertaking.
 Operational procedures, protocols, key distribution mechanisms,
 certificate management approaches, etc., are all components that
 impact the level of security actually achieved in practice. More
 importantly, deficiencies or a poor fit in any one individual
 component can significantly reduce the overall effectiveness of a
-particular security approach.<a href="#section-13-2" class="pilcrow">¶</a></p>
-<p id="section-13-3">IPsec can provide either end-to-end security between nodes
+particular security approach.<a href="#section-12-2" class="pilcrow">¶</a></p>
+<p id="section-12-3">IPsec can provide either end-to-end security between nodes
 or channel security (for example, via a site-to-site IPsec
 VPN), making it possible to provide secure communication for all (or a subset
 of) communication flows at the IP layer between pairs of Internet
@@ -2384,17 +2313,17 @@ In Transport-mode, IPsec provides security for the transport layer (and above)
 by
 encapsulating only the transport-layer (and above) portion of the IP packet
 (i.e., without adding
-a second IP header).<a href="#section-13-3" class="pilcrow">¶</a></p>
-<p id="section-13-4">Although IPsec can be used with manual keying in some cases,
-such usage has limited applicability and is not recommended.<a href="#section-13-4" class="pilcrow">¶</a></p>
-<p id="section-13-5">A range of security technologies and approaches proliferate
+a second IP header).<a href="#section-12-3" class="pilcrow">¶</a></p>
+<p id="section-12-4">Although IPsec can be used with manual keying in some cases,
+such usage has limited applicability and is not recommended.<a href="#section-12-4" class="pilcrow">¶</a></p>
+<p id="section-12-5">A range of security technologies and approaches proliferate
 today (e.g., IPsec, Transport Layer Security (TLS), Secure SHell (SSH), TLS
 VPNS, etc.).
 No single approach has emerged as
 an ideal technology for all needs and environments. Moreover, IPsec
 is not viewed as the ideal security technology in all cases and is
-unlikely to displace the others.<a href="#section-13-5" class="pilcrow">¶</a></p>
-<p id="section-13-6">Previously, IPv6 mandated implementation of IPsec and
+unlikely to displace the others.<a href="#section-12-5" class="pilcrow">¶</a></p>
+<p id="section-12-6">Previously, IPv6 mandated implementation of IPsec and
 recommended the key-management approach of IKE. RFC 6434 updated that recommendation
 by making support of the IPsec
 architecture <span>[<a href="#RFC4301" class="cite xref">RFC4301</a>]</span> a <span class="bcp14">SHOULD</span> for all IPv6 nodes, and this document retains that recommendation.
@@ -2402,138 +2331,139 @@ Note that
 the IPsec Architecture requires the
 implementation of both manual and automatic key management (e.g., <span><a href="https://rfc-editor.org/rfc/rfc4301#section-4.5" class="relref">Section 4.5</a> of [<a href="#RFC4301" class="cite xref">RFC4301</a>]</span>).
 Currently, the recommended automated key-management protocol to
-implement is IKEv2 <span>[<a href="#RFC7296" class="cite xref">RFC7296</a>]</span>.<a href="#section-13-6" class="pilcrow">¶</a></p>
-<p id="section-13-7">This document recognizes that there exists a range of device
+implement is IKEv2 <span>[<a href="#RFC7296" class="cite xref">RFC7296</a>]</span>.<a href="#section-12-6" class="pilcrow">¶</a></p>
+<p id="section-12-7">This document recognizes that there exists a range of device
 types and environments where approaches to security other than
 IPsec can be justified. For example, special-purpose devices may
 support only a very limited number or type of applications, and an
 application-specific security approach may be sufficient for
 limited management or configuration capabilities. Alternatively,
 some devices may run on extremely constrained hardware (e.g.,
-sensors) where the full IPsec Architecture is not justified.<a href="#section-13-7" class="pilcrow">¶</a></p>
-<p id="section-13-8">Because most common platforms now support IPv6 and have it
+sensors) where the full IPsec Architecture is not justified.<a href="#section-12-7" class="pilcrow">¶</a></p>
+<p id="section-12-8">Because most common platforms now support IPv6 and have it
 enabled by default, IPv6 security is an issue for networks
-that are ostensibly IPv4 only; see <span>[<a href="#RFC7123" class="cite xref">RFC7123</a>]</span> for guidance on this area.<a href="#section-13-8" class="pilcrow">¶</a></p>
+that are ostensibly IPv4 only; see <span>[<a href="#RFC7123" class="cite xref">RFC7123</a>]</span> for guidance on this area.<a href="#section-12-8" class="pilcrow">¶</a></p>
 <div id="requirements">
-<section id="section-13.1">
+<section id="section-12.1">
         <h3 id="name-requirements">
-<a href="#section-13.1" class="section-number selfRef">13.1. </a><a href="#name-requirements" class="section-name selfRef">Requirements</a>
+<a href="#section-12.1" class="section-number selfRef">12.1. </a><a href="#name-requirements" class="section-name selfRef">Requirements</a>
         </h3>
-<p id="section-13.1-1">"Security Architecture for the Internet Protocol" <span>[<a href="#RFC4301" class="cite xref">RFC4301</a>]</span> <span class="bcp14">SHOULD</span> be supported by all IPv6
+<p id="section-12.1-1">"Security Architecture for the Internet Protocol" <span>[<a href="#RFC4301" class="cite xref">RFC4301</a>]</span> <span class="bcp14">SHOULD</span> be supported by all IPv6
 nodes. Note that the IPsec Architecture requires the implementation of both
 manual and automatic key
 management  (e.g., <span><a href="https://rfc-editor.org/rfc/rfc4301#section-4.5" class="relref">Section 4.5</a> of [<a href="#RFC4301" class="cite xref">RFC4301</a>]</span>).  Currently, the default automated key-management
 protocol to implement is IKEv2. As required in <span>[<a href="#RFC4301" class="cite xref">RFC4301</a>]</span>, IPv6
-nodes implementing the IPsec Architecture <span class="bcp14">MUST</span> implement ESP <span>[<a href="#RFC4303" class="cite xref">RFC4303</a>]</span> and <span class="bcp14">MAY</span> implement AH <span>[<a href="#RFC4302" class="cite xref">RFC4302</a>]</span>.<a href="#section-13.1-1" class="pilcrow">¶</a></p>
+nodes implementing the IPsec Architecture <span class="bcp14">MUST</span> implement ESP <span>[<a href="#RFC4303" class="cite xref">RFC4303</a>]</span> and <span class="bcp14">MAY</span> implement AH <span>[<a href="#RFC4302" class="cite xref">RFC4302</a>]</span>.<a href="#section-12.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="transforms-and-algorithms">
-<section id="section-13.2">
+<section id="section-12.2">
         <h3 id="name-transforms-and-algorithms">
-<a href="#section-13.2" class="section-number selfRef">13.2. </a><a href="#name-transforms-and-algorithms" class="section-name selfRef">Transforms and Algorithms</a>
+<a href="#section-12.2" class="section-number selfRef">12.2. </a><a href="#name-transforms-and-algorithms" class="section-name selfRef">Transforms and Algorithms</a>
         </h3>
-<p id="section-13.2-1">The current set of mandatory-to-implement algorithms for the
+<p id="section-12.2-1">The current set of mandatory-to-implement algorithms for the
 IPsec Architecture are defined in Cryptographic
 Algorithm Implementation Requirements for ESP and AH <span>[<a href="#RFC8221" class="cite xref">RFC8221</a>]</span>.  IPv6 nodes implementing the IPsec
 Architecture <span class="bcp14">MUST</span> conform to the requirements in <span>[<a href="#RFC8221" class="cite xref">RFC8221</a>]</span>.
 Preferred cryptographic algorithms often change more
 frequently than security protocols. Therefore, implementations
 <span class="bcp14">MUST</span> allow for migration to new algorithms, as RFC 8221 is
-replaced or updated in the future.<a href="#section-13.2-1" class="pilcrow">¶</a></p>
-<p id="section-13.2-2">The current set of mandatory-to-implement algorithms for
+replaced or updated in the future.<a href="#section-12.2-1" class="pilcrow">¶</a></p>
+<p id="section-12.2-2">The current set of mandatory-to-implement algorithms for
 IKEv2 are defined in Cryptographic Algorithm Implementation
 Requirements for ESP and AH <span>[<a href="#RFC8247" class="cite xref">RFC8247</a>]</span>.  IPv6 nodes
 implementing IKEv2 <span class="bcp14">MUST</span> conform to the requirements in <span>[<a href="#RFC8247" class="cite xref">RFC8247</a>]</span> and/or any future
-updates or replacements to <span>[<a href="#RFC8247" class="cite xref">RFC8247</a>]</span>.<a href="#section-13.2-2" class="pilcrow">¶</a></p>
+updates or replacements to <span>[<a href="#RFC8247" class="cite xref">RFC8247</a>]</span>.<a href="#section-12.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="router-specific-functionality">
-<section id="section-14">
+<section id="section-13">
       <h2 id="name-router-specific-functionali">
-<a href="#section-14" class="section-number selfRef">14. </a><a href="#name-router-specific-functionali" class="section-name selfRef">Router-Specific Functionality</a>
+<a href="#section-13" class="section-number selfRef">13. </a><a href="#name-router-specific-functionali" class="section-name selfRef">Router-Specific Functionality</a>
       </h2>
-<p id="section-14-1">This section defines general host considerations for IPv6 nodes
+<p id="section-13-1">This section defines general host considerations for IPv6 nodes
 that act as routers.  Currently, this section does not discuss
-detailed routing-specific requirements. For the case of typical home routers, <span>[<a href="#RFC7084" class="cite xref">RFC7084</a>]</span> defines basic requirements for customer edge routers.<a href="#section-14-1" class="pilcrow">¶</a></p>
+detailed routing-specific requirements. For the case of typical home routers, <span>[<a href="#RFC7084" class="cite xref">RFC7084</a>]</span> defines basic requirements for customer edge routers.<a href="#section-13-1" class="pilcrow">¶</a></p>
 <div id="ipv6-router-alert-option-rfc-2711">
-<section id="section-14.1">
+<section id="section-13.1">
         <h3 id="name-ipv6-router-alert-option-rf">
-<a href="#section-14.1" class="section-number selfRef">14.1. </a><a href="#name-ipv6-router-alert-option-rf" class="section-name selfRef">IPv6 Router Alert Option - RFC 2711</a>
+<a href="#section-13.1" class="section-number selfRef">13.1. </a><a href="#name-ipv6-router-alert-option-rf" class="section-name selfRef">IPv6 Router Alert Option - RFC 2711</a>
         </h3>
-<p id="section-14.1-1">The IPv6 Router Alert option <span>[<a href="#RFC2711" class="cite xref">RFC2711</a>]</span> is
+<p id="section-13.1-1">The IPv6 Router Alert option <span>[<a href="#RFC2711" class="cite xref">RFC2711</a>]</span> is
 an optional IPv6 Hop-by-Hop Header that is used in conjunction
 with some protocols (e.g., RSVP <span>[<a href="#RFC2205" class="cite xref">RFC2205</a>]</span> or
 Multicast Listener Discovery (MLDv2) <span>[<a href="#RFC3810" class="cite xref">RFC3810</a>]</span>).  The Router Alert option will
 need to be implemented whenever such protocols that mandate its
-use are implemented.  See <a href="#mld" class="auto internal xref">Section 5.11</a>.<a href="#section-14.1-1" class="pilcrow">¶</a></p>
+use are implemented.  See <a href="#mld" class="auto internal xref">Section 5.10</a>.<a href="#section-13.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="neighbor-discovery-for-ipv6-rfc-4861">
-<section id="section-14.2">
+<section id="section-13.2">
         <h3 id="name-neighbor-discovery-for-ipv6-">
-<a href="#section-14.2" class="section-number selfRef">14.2. </a><a href="#name-neighbor-discovery-for-ipv6-" class="section-name selfRef">Neighbor Discovery for IPv6 - RFC 4861</a>
+<a href="#section-13.2" class="section-number selfRef">13.2. </a><a href="#name-neighbor-discovery-for-ipv6-" class="section-name selfRef">Neighbor Discovery for IPv6 - RFC 4861</a>
         </h3>
-<p id="section-14.2-1">Sending Router Advertisements and processing Router
-Solicitations <span class="bcp14">MUST</span> be supported.<a href="#section-14.2-1" class="pilcrow">¶</a></p>
-<p id="section-14.2-2"><span><a href="https://rfc-editor.org/rfc/rfc6275#section-7" class="relref">Section 7</a> of [<a href="#RFC6275" class="cite xref">RFC6275</a>]</span> includes some mobility-specific
+<p id="section-13.2-1">Sending Router Advertisements and processing Router
+Solicitations <span class="bcp14">MUST</span> be supported.<a href="#section-13.2-1" class="pilcrow">¶</a></p>
+<p id="section-13.2-2">Routers <span class="bcp14">SHOULD</span> support <span>[<a href="#RFC9131" class="cite xref">RFC9131</a>]</span> to avoid packet lost.<a href="#section-13.2-2" class="pilcrow">¶</a></p>
+<p id="section-13.2-3"><span><a href="https://rfc-editor.org/rfc/rfc6275#section-7" class="relref">Section 7</a> of [<a href="#RFC6275" class="cite xref">RFC6275</a>]</span> includes some mobility-specific
 extensions to Neighbor Discovery.
 Routers <span class="bcp14">SHOULD</span> implement
 Sections 7.3 and 7.5, even if they do not implement home
-agent functionality.<a href="#section-14.2-2" class="pilcrow">¶</a></p>
+agent functionality.<a href="#section-13.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="stateful-address-autoconfiguration-dhcpv6-rfc-8415">
-<section id="section-14.3">
+<section id="section-13.3">
         <h3 id="name-stateful-address-autoconfigu">
-<a href="#section-14.3" class="section-number selfRef">14.3. </a><a href="#name-stateful-address-autoconfigu" class="section-name selfRef">Stateful Address Autoconfiguration (DHCPv6) - RFC 8415</a>
+<a href="#section-13.3" class="section-number selfRef">13.3. </a><a href="#name-stateful-address-autoconfigu" class="section-name selfRef">Stateful Address Autoconfiguration (DHCPv6) - RFC 8415</a>
         </h3>
-<p id="section-14.3-1">A single DHCP server (<span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span> or <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) can provide configuration information to
+<p id="section-13.3-1">A single DHCP server (<span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span> or <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) can provide configuration information to
 devices directly attached to a shared link, as well as to
 devices located elsewhere within a site. Communication between
 a client and a DHCP server located on different links requires
-the use of DHCP relay agents on routers.<a href="#section-14.3-1" class="pilcrow">¶</a></p>
-<p id="section-14.3-2">In simple deployments, consisting of a single router and
+the use of DHCP relay agents on routers.<a href="#section-13.3-1" class="pilcrow">¶</a></p>
+<p id="section-13.3-2">In simple deployments, consisting of a single router and
 either a single LAN or multiple LANs attached to the single
 router, together with a WAN connection, a DHCP server
 embedded within the router is one common deployment scenario
 (e.g., <span>[<a href="#RFC7084" class="cite xref">RFC7084</a>]</span>). There is no need
-for relay agents in such scenarios.<a href="#section-14.3-2" class="pilcrow">¶</a></p>
-<p id="section-14.3-3">In more complex deployment scenarios, such as within
+for relay agents in such scenarios.<a href="#section-13.3-2" class="pilcrow">¶</a></p>
+<p id="section-13.3-3">In more complex deployment scenarios, such as within
 enterprise or service provider networks, the use of DHCP
 requires some level of configuration, in order to configure
 relay agents, DHCP servers, etc. In such environments, the
 DHCP server might even be run on a traditional server, rather
-than as part of a router.<a href="#section-14.3-3" class="pilcrow">¶</a></p>
-<p id="section-14.3-4">Because of the wide range of deployment scenarios, support
+than as part of a router.<a href="#section-13.3-3" class="pilcrow">¶</a></p>
+<p id="section-13.3-4">Because of the wide range of deployment scenarios, support
 for DHCP server functionality on routers is optional. However,
 routers targeted for deployment within more complex scenarios
 (as described above) <span class="bcp14">SHOULD</span> support relay agent functionality.
 Note that "Basic Requirements for IPv6 Customer Edge Routers" <span>[<a href="#RFC7084" class="cite xref">RFC7084</a>]</span> requires implementation of a DHCPv6
-server function in IPv6 Customer Edge (CE) routers.<a href="#section-14.3-4" class="pilcrow">¶</a></p>
+server function in IPv6 Customer Edge (CE) routers.<a href="#section-13.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="ipv6-prefix-length-recommendation-for-forwarding-bcp-198">
-<section id="section-14.4">
+<section id="section-13.4">
         <h3 id="name-ipv6-prefix-length-recommen">
-<a href="#section-14.4" class="section-number selfRef">14.4. </a><a href="#name-ipv6-prefix-length-recommen" class="section-name selfRef">IPv6 Prefix Length Recommendation for Forwarding - BCP 198</a>
+<a href="#section-13.4" class="section-number selfRef">13.4. </a><a href="#name-ipv6-prefix-length-recommen" class="section-name selfRef">IPv6 Prefix Length Recommendation for Forwarding - BCP 198</a>
         </h3>
-<p id="section-14.4-1">Forwarding nodes <span class="bcp14">MUST</span> conform to BCP 198 <span>[<a href="#RFC7608" class="cite xref">RFC7608</a>]</span>;
+<p id="section-13.4-1">Forwarding nodes <span class="bcp14">MUST</span> conform to BCP 198 <span>[<a href="#RFC7608" class="cite xref">RFC7608</a>]</span>;
 thus, IPv6 implementations of nodes that may forward packets
-<span class="bcp14">MUST</span> conform to the rules specified in <span><a href="https://rfc-editor.org/rfc/rfc4632#section-5.1" class="relref">Section 5.1</a> of [<a href="#RFC4632" class="cite xref">RFC4632</a>]</span>.<a href="#section-14.4-1" class="pilcrow">¶</a></p>
+<span class="bcp14">MUST</span> conform to the rules specified in <span><a href="https://rfc-editor.org/rfc/rfc4632#section-5.1" class="relref">Section 5.1</a> of [<a href="#RFC4632" class="cite xref">RFC4632</a>]</span>.<a href="#section-13.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="constrained-devices">
-<section id="section-15">
+<section id="section-14">
       <h2 id="name-constrained-devices">
-<a href="#section-15" class="section-number selfRef">15. </a><a href="#name-constrained-devices" class="section-name selfRef">Constrained Devices</a>
+<a href="#section-14" class="section-number selfRef">14. </a><a href="#name-constrained-devices" class="section-name selfRef">Constrained Devices</a>
       </h2>
-<p id="section-15-1">The focus of this document is general IPv6 nodes. In this section, we briefly
-discuss considerations for constrained devices.<a href="#section-15-1" class="pilcrow">¶</a></p>
-<p id="section-15-2">In the case of constrained nodes,
+<p id="section-14-1">The focus of this document is general IPv6 nodes. In this section, we briefly
+discuss considerations for constrained devices.<a href="#section-14-1" class="pilcrow">¶</a></p>
+<p id="section-14-2">In the case of constrained nodes,
 with limited CPU, memory, bandwidth or power, support for certain IPv6 functionality
 may need
 to be considered due to those limitations.  While the requirements of this
@@ -2544,86 +2474,86 @@ made in certain cases.  Where such compromises are made, the interoperability
 of devices
 should be strongly considered, particularly where this may impact other nodes
 on the same
-link, e.g., only supporting MLDv1 will affect other nodes.<a href="#section-15-2" class="pilcrow">¶</a></p>
-<p id="section-15-3">The IETF 6LowPAN (IPv6 over Low-Power Wireless Personal Area Network) WG
+link, e.g., only supporting MLDv1 will affect other nodes.<a href="#section-14-2" class="pilcrow">¶</a></p>
+<p id="section-14-3">The IETF 6LowPAN (IPv6 over Low-Power Wireless Personal Area Network) WG
 produced six RFCs, including a general
 overview and problem statement <span>[<a href="#RFC4919" class="cite xref">RFC4919</a>]</span> (the means by which IPv6 packets
-are transmitted over IEEE 802.15.4 networks <span>[<a href="#RFC4944" class="cite xref">RFC4944</a>]</span> and ND optimizations for that medium <span>[<a href="#RFC6775" class="cite xref">RFC6775</a>]</span>).<a href="#section-15-3" class="pilcrow">¶</a></p>
-<p id="section-15-4">IPv6 nodes that are battery powered <span class="bcp14">SHOULD</span> implement the recommendations
-in <span>[<a href="#RFC7772" class="cite xref">RFC7772</a>]</span>.<a href="#section-15-4" class="pilcrow">¶</a></p>
+are transmitted over IEEE 802.15.4 networks <span>[<a href="#RFC4944" class="cite xref">RFC4944</a>]</span> and ND optimizations for that medium <span>[<a href="#RFC6775" class="cite xref">RFC6775</a>]</span>).<a href="#section-14-3" class="pilcrow">¶</a></p>
+<p id="section-14-4">IPv6 nodes that are battery powered <span class="bcp14">SHOULD</span> implement the recommendations
+in <span>[<a href="#RFC7772" class="cite xref">RFC7772</a>]</span>.<a href="#section-14-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="ipv6-node-management">
-<section id="section-16">
+<section id="section-15">
       <h2 id="name-ipv6-node-management">
-<a href="#section-16" class="section-number selfRef">16. </a><a href="#name-ipv6-node-management" class="section-name selfRef">IPv6 Node Management</a>
+<a href="#section-15" class="section-number selfRef">15. </a><a href="#name-ipv6-node-management" class="section-name selfRef">IPv6 Node Management</a>
       </h2>
-<p id="section-16-1">Network management <span class="bcp14">MAY</span> be supported by IPv6 nodes.  However,
+<p id="section-15-1">Network management <span class="bcp14">MAY</span> be supported by IPv6 nodes.  However,
 for IPv6 nodes that are embedded devices, network management may
-be the only possible way of controlling these nodes.<a href="#section-16-1" class="pilcrow">¶</a></p>
-<p id="section-16-2">Existing network management protocols include SNMP <span>[<a href="#RFC3411" class="cite xref">RFC3411</a>]</span>, NETCONF <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span>, and RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>.<a href="#section-16-2" class="pilcrow">¶</a></p>
+be the only possible way of controlling these nodes.<a href="#section-15-1" class="pilcrow">¶</a></p>
+<p id="section-15-2">Existing network management protocols include SNMP <span>[<a href="#RFC3411" class="cite xref">RFC3411</a>]</span>, NETCONF <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span>, and RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>.<a href="#section-15-2" class="pilcrow">¶</a></p>
 <div id="management-information-base-mib-modules">
-<section id="section-16.1">
+<section id="section-15.1">
         <h3 id="name-management-information-base">
-<a href="#section-16.1" class="section-number selfRef">16.1. </a><a href="#name-management-information-base" class="section-name selfRef">Management Information Base (MIB) Modules</a>
+<a href="#section-15.1" class="section-number selfRef">15.1. </a><a href="#name-management-information-base" class="section-name selfRef">Management Information Base (MIB) Modules</a>
         </h3>
-<p id="section-16.1-1">The obsoleted status of
-various IPv6-specific MIB modules is clarified in <span>[<a href="#RFC8096" class="cite xref">RFC8096</a>]</span>.<a href="#section-16.1-1" class="pilcrow">¶</a></p>
-<p id="section-16.1-2">The following two MIB modules <span class="bcp14">SHOULD</span> be supported by nodes that
-support an SNMP agent.<a href="#section-16.1-2" class="pilcrow">¶</a></p>
+<p id="section-15.1-1">The obsoleted status of
+various IPv6-specific MIB modules is clarified in <span>[<a href="#RFC8096" class="cite xref">RFC8096</a>]</span>.<a href="#section-15.1-1" class="pilcrow">¶</a></p>
+<p id="section-15.1-2">The following two MIB modules <span class="bcp14">SHOULD</span> be supported by nodes that
+support an SNMP agent.<a href="#section-15.1-2" class="pilcrow">¶</a></p>
 <div id="ip-forwarding-table-mib">
-<section id="section-16.1.1">
+<section id="section-15.1.1">
           <h4 id="name-ip-forwarding-table-mib">
-<a href="#section-16.1.1" class="section-number selfRef">16.1.1. </a><a href="#name-ip-forwarding-table-mib" class="section-name selfRef">IP Forwarding Table MIB</a>
+<a href="#section-15.1.1" class="section-number selfRef">15.1.1. </a><a href="#name-ip-forwarding-table-mib" class="section-name selfRef">IP Forwarding Table MIB</a>
           </h4>
-<p id="section-16.1.1-1">The IP Forwarding Table MIB <span>[<a href="#RFC4292" class="cite xref">RFC4292</a>]</span> <span class="bcp14">SHOULD</span> be supported by nodes that support an
-SNMP agent.<a href="#section-16.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-15.1.1-1">The IP Forwarding Table MIB <span>[<a href="#RFC4292" class="cite xref">RFC4292</a>]</span> <span class="bcp14">SHOULD</span> be supported by nodes that support an
+SNMP agent.<a href="#section-15.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="management-information-base-for-the-internet-protocol-ip">
-<section id="section-16.1.2">
+<section id="section-15.1.2">
           <h4 id="name-management-information-base-">
-<a href="#section-16.1.2" class="section-number selfRef">16.1.2. </a><a href="#name-management-information-base-" class="section-name selfRef">Management Information Base for the Internet Protocol (IP)</a>
+<a href="#section-15.1.2" class="section-number selfRef">15.1.2. </a><a href="#name-management-information-base-" class="section-name selfRef">Management Information Base for the Internet Protocol (IP)</a>
           </h4>
-<p id="section-16.1.2-1">The IP MIB <span>[<a href="#RFC4293" class="cite xref">RFC4293</a>]</span> <span class="bcp14">SHOULD</span> be supported by nodes
-that support an SNMP agent.<a href="#section-16.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-15.1.2-1">The IP MIB <span>[<a href="#RFC4293" class="cite xref">RFC4293</a>]</span> <span class="bcp14">SHOULD</span> be supported by nodes
+that support an SNMP agent.<a href="#section-15.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="interface-mib">
-<section id="section-16.1.3">
+<section id="section-15.1.3">
           <h4 id="name-interface-mib">
-<a href="#section-16.1.3" class="section-number selfRef">16.1.3. </a><a href="#name-interface-mib" class="section-name selfRef">Interface MIB</a>
+<a href="#section-15.1.3" class="section-number selfRef">15.1.3. </a><a href="#name-interface-mib" class="section-name selfRef">Interface MIB</a>
           </h4>
-<p id="section-16.1.3-1">The Interface MIB <span>[<a href="#RFC2863" class="cite xref">RFC2863</a>]</span> <span class="bcp14">SHOULD</span> be supported by nodes that support
-an SNMP agent.<a href="#section-16.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-15.1.3-1">The Interface MIB <span>[<a href="#RFC2863" class="cite xref">RFC2863</a>]</span> <span class="bcp14">SHOULD</span> be supported by nodes that support
+an SNMP agent.<a href="#section-15.1.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="yang-data-models">
-<section id="section-16.2">
+<section id="section-15.2">
         <h3 id="name-yang-data-models">
-<a href="#section-16.2" class="section-number selfRef">16.2. </a><a href="#name-yang-data-models" class="section-name selfRef">YANG Data Models</a>
+<a href="#section-15.2" class="section-number selfRef">15.2. </a><a href="#name-yang-data-models" class="section-name selfRef">YANG Data Models</a>
         </h3>
-<p id="section-16.2-1">The following YANG data models <span class="bcp14">SHOULD</span> be supported by nodes that support
+<p id="section-15.2-1">The following YANG data models <span class="bcp14">SHOULD</span> be supported by nodes that support
 a
-NETCONF or RESTCONF agent.<a href="#section-16.2-1" class="pilcrow">¶</a></p>
+NETCONF or RESTCONF agent.<a href="#section-15.2-1" class="pilcrow">¶</a></p>
 <div id="ip-management-yang-model">
-<section id="section-16.2.1">
+<section id="section-15.2.1">
           <h4 id="name-ip-management-yang-model">
-<a href="#section-16.2.1" class="section-number selfRef">16.2.1. </a><a href="#name-ip-management-yang-model" class="section-name selfRef">IP Management YANG Model</a>
+<a href="#section-15.2.1" class="section-number selfRef">15.2.1. </a><a href="#name-ip-management-yang-model" class="section-name selfRef">IP Management YANG Model</a>
           </h4>
-<p id="section-16.2.1-1">The IP Management YANG Model <span>[<a href="#RFC8344" class="cite xref">RFC8344</a>]</span> <span class="bcp14">SHOULD</span> be supported
-by nodes that support NETCONF or RESTCONF.<a href="#section-16.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-15.2.1-1">The IP Management YANG Model <span>[<a href="#RFC8344" class="cite xref">RFC8344</a>]</span> <span class="bcp14">SHOULD</span> be supported
+by nodes that support NETCONF or RESTCONF.<a href="#section-15.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="interface-management-yang-model">
-<section id="section-16.2.2">
+<section id="section-15.2.2">
           <h4 id="name-interface-management-yang-m">
-<a href="#section-16.2.2" class="section-number selfRef">16.2.2. </a><a href="#name-interface-management-yang-m" class="section-name selfRef">Interface Management YANG Model</a>
+<a href="#section-15.2.2" class="section-number selfRef">15.2.2. </a><a href="#name-interface-management-yang-m" class="section-name selfRef">Interface Management YANG Model</a>
           </h4>
-<p id="section-16.2.2-1">The Interface Management YANG Model <span>[<a href="#RFC8343" class="cite xref">RFC8343</a>]</span> <span class="bcp14">SHOULD</span> be supported
-by nodes that support NETCONF or RESTCONF.<a href="#section-16.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-15.2.2-1">The Interface Management YANG Model <span>[<a href="#RFC8343" class="cite xref">RFC8343</a>]</span> <span class="bcp14">SHOULD</span> be supported
+by nodes that support NETCONF or RESTCONF.<a href="#section-15.2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2631,32 +2561,33 @@ by nodes that support NETCONF or RESTCONF.<a href="#section-16.2.2-1" class="pil
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-17">
+<section id="section-16">
       <h2 id="name-security-considerations">
-<a href="#section-17" class="section-number selfRef">17. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-16" class="section-number selfRef">16. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-17-1">This document does not directly affect the security of the
+<p id="section-16-1">This document does not directly affect the security of the
 Internet, beyond the security considerations associated with the
-individual protocols.<a href="#section-17-1" class="pilcrow">¶</a></p>
-<p id="section-17-2">Security is also discussed in <a href="#sec" class="auto internal xref">Section 13</a> above.<a href="#section-17-2" class="pilcrow">¶</a></p>
+individual protocols.<a href="#section-16-1" class="pilcrow">¶</a></p>
+<p id="section-16-2">Security is also discussed in <a href="#sec" class="auto internal xref">Section 12</a> above.<a href="#section-16-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-18">
+<section id="section-17">
       <h2 id="name-iana-considerations">
-<a href="#section-18" class="section-number selfRef">18. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-17" class="section-number selfRef">17. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-18-1">This document has no IANA actions.<a href="#section-18-1" class="pilcrow">¶</a></p>
+<p id="section-17-1">This document has no IANA actions.<a href="#section-17-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<section id="section-19">
+<div id="sec-combined-references">
+<section id="section-18">
       <h2 id="name-references">
-<a href="#section-19" class="section-number selfRef">19. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-18" class="section-number selfRef">18. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-19.1">
+<section id="section-18.1">
         <h3 id="name-normative-references">
-<a href="#section-19.1" class="section-number selfRef">19.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-18.1" class="section-number selfRef">18.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC1034">[RFC1034]</dt>
@@ -2900,16 +2831,20 @@ individual protocols.<a href="#section-17-1" class="pilcrow">¶</a></p>
 <span class="refAuthor">Mrugalski, T.</span>, <span class="refAuthor">Siodelski, M.</span>, <span class="refAuthor">Volz, B.</span>, <span class="refAuthor">Yourtchenko, A.</span>, <span class="refAuthor">Richardson, M.</span>, <span class="refAuthor">Jiang, S.</span>, <span class="refAuthor">Lemon, T.</span>, and <span class="refAuthor">T. Winters</span>, <span class="refTitle">"Dynamic Host Configuration Protocol for IPv6 (DHCPv6)"</span>, <span class="seriesInfo">RFC 8415</span>, <span class="seriesInfo">DOI 10.17487/RFC8415</span>, <time datetime="2018-11" class="refDate">November 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8415">https://www.rfc-editor.org/rfc/rfc8415</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8981">[RFC8981]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Gont, F.</span>, <span class="refAuthor">Krishnan, S.</span>, <span class="refAuthor">Narten, T.</span>, and <span class="refAuthor">R. Draves</span>, <span class="refTitle">"Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6"</span>, <span class="seriesInfo">RFC 8981</span>, <span class="seriesInfo">DOI 10.17487/RFC8981</span>, <time datetime="2021-02" class="refDate">February 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8981">https://www.rfc-editor.org/rfc/rfc8981</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9131">[RFC9131]</dt>
+      <dd>
+<span class="refAuthor">Linkova, J.</span>, <span class="refTitle">"Gratuitous Neighbor Discovery: Creating Neighbor Cache Entries on First-Hop Routers"</span>, <span class="seriesInfo">RFC 9131</span>, <span class="seriesInfo">DOI 10.17487/RFC9131</span>, <time datetime="2021-10" class="refDate">October 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9131">https://www.rfc-editor.org/rfc/rfc9131</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-19.2">
+<section id="section-18.2">
         <h3 id="name-informative-references">
-<a href="#section-19.2" class="section-number selfRef">19.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-18.2" class="section-number selfRef">18.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="POSIX">[POSIX]</dt>
@@ -2968,18 +2903,6 @@ individual protocols.<a href="#section-17-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Thaler, D.</span>, <span class="refAuthor">Fenner, B.</span>, and <span class="refAuthor">B. Quinn</span>, <span class="refTitle">"Socket Interface Extensions for Multicast Source Filters"</span>, <span class="seriesInfo">RFC 3678</span>, <span class="seriesInfo">DOI 10.17487/RFC3678</span>, <time datetime="2004-01" class="refDate">January 2004</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3678">https://www.rfc-editor.org/rfc/rfc3678</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC3776">[RFC3776]</dt>
-        <dd>
-<span class="refAuthor">Arkko, J.</span>, <span class="refAuthor">Devarapalli, V.</span>, and <span class="refAuthor">F. Dupont</span>, <span class="refTitle">"Using IPsec to Protect Mobile IPv6 Signaling Between Mobile Nodes and Home Agents"</span>, <span class="seriesInfo">RFC 3776</span>, <span class="seriesInfo">DOI 10.17487/RFC3776</span>, <time datetime="2004-06" class="refDate">June 2004</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3776">https://www.rfc-editor.org/rfc/rfc3776</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC3971">[RFC3971]</dt>
-        <dd>
-<span class="refAuthor">Arkko, J., Ed.</span>, <span class="refAuthor">Kempf, J.</span>, <span class="refAuthor">Zill, B.</span>, and <span class="refAuthor">P. Nikander</span>, <span class="refTitle">"SEcure Neighbor Discovery (SEND)"</span>, <span class="seriesInfo">RFC 3971</span>, <span class="seriesInfo">DOI 10.17487/RFC3971</span>, <time datetime="2005-03" class="refDate">March 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3971">https://www.rfc-editor.org/rfc/rfc3971</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC3972">[RFC3972]</dt>
-        <dd>
-<span class="refAuthor">Aura, T.</span>, <span class="refTitle">"Cryptographically Generated Addresses (CGA)"</span>, <span class="seriesInfo">RFC 3972</span>, <span class="seriesInfo">DOI 10.17487/RFC3972</span>, <time datetime="2005-03" class="refDate">March 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3972">https://www.rfc-editor.org/rfc/rfc3972</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC4191">[RFC4191]</dt>
         <dd>
 <span class="refAuthor">Draves, R.</span> and <span class="refAuthor">D. Thaler</span>, <span class="refTitle">"Default Router Preferences and More-Specific Routes"</span>, <span class="seriesInfo">RFC 4191</span>, <span class="seriesInfo">DOI 10.17487/RFC4191</span>, <time datetime="2005-11" class="refDate">November 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4191">https://www.rfc-editor.org/rfc/rfc4191</a>&gt;</span>. </dd>
@@ -3012,10 +2935,6 @@ individual protocols.<a href="#section-17-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Mathis, M.</span> and <span class="refAuthor">J. Heffner</span>, <span class="refTitle">"Packetization Layer Path MTU Discovery"</span>, <span class="seriesInfo">RFC 4821</span>, <span class="seriesInfo">DOI 10.17487/RFC4821</span>, <time datetime="2007-03" class="refDate">March 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4821">https://www.rfc-editor.org/rfc/rfc4821</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC4877">[RFC4877]</dt>
-        <dd>
-<span class="refAuthor">Devarapalli, V.</span> and <span class="refAuthor">F. Dupont</span>, <span class="refTitle">"Mobile IPv6 Operation with IKEv2 and the Revised IPsec Architecture"</span>, <span class="seriesInfo">RFC 4877</span>, <span class="seriesInfo">DOI 10.17487/RFC4877</span>, <time datetime="2007-04" class="refDate">April 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4877">https://www.rfc-editor.org/rfc/rfc4877</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC4884">[RFC4884]</dt>
         <dd>
 <span class="refAuthor">Bonica, R.</span>, <span class="refAuthor">Gan, D.</span>, <span class="refAuthor">Tappan, D.</span>, and <span class="refAuthor">C. Pignataro</span>, <span class="refTitle">"Extended ICMP to Support Multi-Part Messages"</span>, <span class="seriesInfo">RFC 4884</span>, <span class="seriesInfo">DOI 10.17487/RFC4884</span>, <time datetime="2007-04" class="refDate">April 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4884">https://www.rfc-editor.org/rfc/rfc4884</a>&gt;</span>. </dd>
@@ -3044,10 +2963,6 @@ individual protocols.<a href="#section-17-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Patil, B.</span>, <span class="refAuthor">Xia, F.</span>, <span class="refAuthor">Sarikaya, B.</span>, <span class="refAuthor">Choi, JH.</span>, and <span class="refAuthor">S. Madanapalli</span>, <span class="refTitle">"Transmission of IPv6 via the IPv6 Convergence Sublayer over IEEE 802.16 Networks"</span>, <span class="seriesInfo">RFC 5121</span>, <span class="seriesInfo">DOI 10.17487/RFC5121</span>, <time datetime="2008-02" class="refDate">February 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5121">https://www.rfc-editor.org/rfc/rfc5121</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC5555">[RFC5555]</dt>
-        <dd>
-<span class="refAuthor">Soliman, H., Ed.</span>, <span class="refTitle">"Mobile IPv6 Support for Dual Stack Hosts and Routers"</span>, <span class="seriesInfo">RFC 5555</span>, <span class="seriesInfo">DOI 10.17487/RFC5555</span>, <time datetime="2009-06" class="refDate">June 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5555">https://www.rfc-editor.org/rfc/rfc5555</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC6275">[RFC6275]</dt>
         <dd>
 <span class="refAuthor">Perkins, C., Ed.</span>, <span class="refAuthor">Johnson, D.</span>, and <span class="refAuthor">J. Arkko</span>, <span class="refTitle">"Mobility Support in IPv6"</span>, <span class="seriesInfo">RFC 6275</span>, <span class="seriesInfo">DOI 10.17487/RFC6275</span>, <time datetime="2011-07" class="refDate">July 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6275">https://www.rfc-editor.org/rfc/rfc6275</a>&gt;</span>. </dd>
@@ -3060,10 +2975,6 @@ individual protocols.<a href="#section-17-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Gont, F.</span>, <span class="refTitle">"Security Implications of IPv6 Fragmentation with IPv6 Neighbor Discovery"</span>, <span class="seriesInfo">RFC 6980</span>, <span class="seriesInfo">DOI 10.17487/RFC6980</span>, <time datetime="2013-08" class="refDate">August 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6980">https://www.rfc-editor.org/rfc/rfc6980</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC7066">[RFC7066]</dt>
-        <dd>
-<span class="refAuthor">Korhonen, J., Ed.</span>, <span class="refAuthor">Arkko, J., Ed.</span>, <span class="refAuthor">Savolainen, T.</span>, and <span class="refAuthor">S. Krishnan</span>, <span class="refTitle">"IPv6 for Third Generation Partnership Project (3GPP) Cellular Hosts"</span>, <span class="seriesInfo">RFC 7066</span>, <span class="seriesInfo">DOI 10.17487/RFC7066</span>, <time datetime="2013-11" class="refDate">November 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7066">https://www.rfc-editor.org/rfc/rfc7066</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC7084">[RFC7084]</dt>
         <dd>
 <span class="refAuthor">Singh, H.</span>, <span class="refAuthor">Beebee, W.</span>, <span class="refAuthor">Donley, C.</span>, and <span class="refAuthor">B. Stark</span>, <span class="refTitle">"Basic Requirements for IPv6 Customer Edge Routers"</span>, <span class="seriesInfo">RFC 7084</span>, <span class="seriesInfo">DOI 10.17487/RFC7084</span>, <time datetime="2013-11" class="refDate">November 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7084">https://www.rfc-editor.org/rfc/rfc7084</a>&gt;</span>. </dd>
@@ -3071,10 +2982,6 @@ individual protocols.<a href="#section-17-1" class="pilcrow">¶</a></p>
 <dt id="RFC7123">[RFC7123]</dt>
         <dd>
 <span class="refAuthor">Gont, F.</span> and <span class="refAuthor">W. Liu</span>, <span class="refTitle">"Security Implications of IPv6 on IPv4 Networks"</span>, <span class="seriesInfo">RFC 7123</span>, <span class="seriesInfo">DOI 10.17487/RFC7123</span>, <time datetime="2014-02" class="refDate">February 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7123">https://www.rfc-editor.org/rfc/rfc7123</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC7278">[RFC7278]</dt>
-        <dd>
-<span class="refAuthor">Byrne, C.</span>, <span class="refAuthor">Drown, D.</span>, and <span class="refAuthor">A. Vizdal</span>, <span class="refTitle">"Extending an IPv6 /64 Prefix from a Third Generation Partnership Project (3GPP) Mobile Interface to a LAN Link"</span>, <span class="seriesInfo">RFC 7278</span>, <span class="seriesInfo">DOI 10.17487/RFC7278</span>, <time datetime="2014-06" class="refDate">June 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7278">https://www.rfc-editor.org/rfc/rfc7278</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7371">[RFC7371]</dt>
         <dd>
@@ -3104,10 +3011,6 @@ individual protocols.<a href="#section-17-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Colitti, L.</span>, <span class="refAuthor">Cerf, V.</span>, <span class="refAuthor">Cheshire, S.</span>, and <span class="refAuthor">D. Schinazi</span>, <span class="refTitle">"Host Address Availability Recommendations"</span>, <span class="seriesInfo">BCP 204</span>, <span class="seriesInfo">RFC 7934</span>, <span class="seriesInfo">DOI 10.17487/RFC7934</span>, <time datetime="2016-07" class="refDate">July 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7934">https://www.rfc-editor.org/rfc/rfc7934</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC8021">[RFC8021]</dt>
-        <dd>
-<span class="refAuthor">Gont, F.</span>, <span class="refAuthor">Liu, W.</span>, and <span class="refAuthor">T. Anderson</span>, <span class="refTitle">"Generation of IPv6 Atomic Fragments Considered Harmful"</span>, <span class="seriesInfo">RFC 8021</span>, <span class="seriesInfo">DOI 10.17487/RFC8021</span>, <time datetime="2017-01" class="refDate">January 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8021">https://www.rfc-editor.org/rfc/rfc8021</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC8087">[RFC8087]</dt>
         <dd>
 <span class="refAuthor">Fairhurst, G.</span> and <span class="refAuthor">M. Welzl</span>, <span class="refTitle">"The Benefits of Using Explicit Congestion Notification (ECN)"</span>, <span class="seriesInfo">RFC 8087</span>, <span class="seriesInfo">DOI 10.17487/RFC8087</span>, <time datetime="2017-03" class="refDate">March 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8087">https://www.rfc-editor.org/rfc/rfc8087</a>&gt;</span>. </dd>
@@ -3128,6 +3031,7 @@ individual protocols.<a href="#section-17-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
+</div>
 <div id="changes-from-rfc-8504">
 <section id="appendix-A">
       <h2 id="name-changes-from-rfc-8504">
@@ -3139,7 +3043,10 @@ individual protocols.<a href="#section-17-1" class="pilcrow">¶</a></p>
           <p id="appendix-A-2.1.1">Updated obsoleted RFCs including 3315 and 3736 (both to 8415) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.<a href="#appendix-A-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.2">
-          <p id="appendix-A-2.2.1">Made RFC 8021 informative, though this document cites it in a normative style.<a href="#appendix-A-2.2.1" class="pilcrow">¶</a></p>
+          <p id="appendix-A-2.2.1">Added support for RFC 9131.<a href="#appendix-A-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-A-2.3">
+          <p id="appendix-A-2.3.1">Type C host from RFC 4191 is went from a <span class="bcp14">SHOULD</span> to <span class="bcp14">MUST</span>.<a href="#appendix-A-2.3.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
 </section>
@@ -3423,13 +3330,13 @@ Savola for their comments.<a href="#appendix-D-1.3.3" class="pilcrow">¶</a></p>
 </address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Timothy Winters</span></div>
-<div dir="auto" class="left"><span class="org">University of New Hampshire, Interoperability Lab (UNH-IOL)</span></div>
+<div dir="auto" class="left"><span class="org">QA Cafe</span></div>
 <div dir="auto" class="left">
-<span class="locality">Durham</span>, <span class="region">NH</span> </div>
+<span class="locality">Dover</span>, <span class="region">NH</span> </div>
 <div dir="auto" class="left"><span class="country-name">United States of America</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:twinters@iol.unh.edu" class="email">twinters@iol.unh.edu</a>
+<a href="mailto:tim@qacafe.com" class="email">tim@qacafe.com</a>
 </div>
 </address>
 </section>

@@ -6,9 +6,9 @@ IPv6 Maintenance                                                T. Chown
 Internet-Draft                                                      Jisc
 Obsoletes: 8504 (if approved)                                J. Loughney
 Intended status: Best Current Practice                             Intel
-Expires: 13 July 2024                                         T. Winters
-                                                                 UNH-IOL
-                                                         10 January 2024
+Expires: 24 April 2025                                        T. Winters
+                                                                 QA Cafe
+                                                         21 October 2024
 
 
                          IPv6 Node Requirements
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 July 2024.
+   This Internet-Draft will expire on 24 April 2025.
 
 Copyright Notice
 
@@ -86,17 +86,16 @@ Table of Contents
      5.2.  Support for IPv6 Extension Headers
      5.3.  Protecting a Node from Excessive Extension Header Options
      5.4.  Neighbor Discovery for IPv6 - RFC 4861
-     5.5.  SEcure Neighbor Discovery (SEND) - RFC 3971
-     5.6.  IPv6 Router Advertisement Flags Option - RFC 5175
-     5.7.  Path MTU Discovery and Packet Size
-       5.7.1.  Path MTU Discovery - RFC 8201
-       5.7.2.  Minimum MTU Considerations
-     5.8.  ICMP for the Internet Protocol Version 6 (IPv6) - RFC 4443
-     5.9.  Default Router Preferences and More-Specific Routes - RFC
+     5.5.  IPv6 Router Advertisement Flags Option - RFC 5175
+     5.6.  Path MTU Discovery and Packet Size
+       5.6.1.  Path MTU Discovery - RFC 8201
+       5.6.2.  Minimum MTU Considerations
+     5.7.  ICMP for the Internet Protocol Version 6 (IPv6) - RFC 4443
+     5.8.  Default Router Preferences and More-Specific Routes - RFC
             4191
-     5.10. First-Hop Router Selection - RFC 8028
-     5.11. Multicast Listener Discovery (MLD) for IPv6 - RFC 3810
-     5.12. Explicit Congestion Notification (ECN) - RFC 3168
+     5.9.  First-Hop Router Selection - RFC 8028
+     5.10. Multicast Listener Discovery (MLD) for IPv6 - RFC 3810
+     5.11. Explicit Congestion Notification (ECN) - RFC 3168
    6.  Addressing and Address Configuration
      6.1.  IP Version 6 Addressing Architecture - RFC 4291
      6.2.  Host Address Availability Recommendations
@@ -121,30 +120,29 @@ Table of Contents
    11. Application Support
      11.1.  Textual Representation of IPv6 Addresses - RFC 5952
      11.2.  Application Programming Interfaces (APIs)
-   12. Mobility
-   13. Security
-     13.1.  Requirements
-     13.2.  Transforms and Algorithms
-   14. Router-Specific Functionality
-     14.1.  IPv6 Router Alert Option - RFC 2711
-     14.2.  Neighbor Discovery for IPv6 - RFC 4861
-     14.3.  Stateful Address Autoconfiguration (DHCPv6) - RFC 8415
-     14.4.  IPv6 Prefix Length Recommendation for Forwarding - BCP 198
-   15. Constrained Devices
-   16. IPv6 Node Management
-     16.1.  Management Information Base (MIB) Modules
-       16.1.1.  IP Forwarding Table MIB
-       16.1.2.  Management Information Base for the Internet Protocol
+   12. Security
+     12.1.  Requirements
+     12.2.  Transforms and Algorithms
+   13. Router-Specific Functionality
+     13.1.  IPv6 Router Alert Option - RFC 2711
+     13.2.  Neighbor Discovery for IPv6 - RFC 4861
+     13.3.  Stateful Address Autoconfiguration (DHCPv6) - RFC 8415
+     13.4.  IPv6 Prefix Length Recommendation for Forwarding - BCP 198
+   14. Constrained Devices
+   15. IPv6 Node Management
+     15.1.  Management Information Base (MIB) Modules
+       15.1.1.  IP Forwarding Table MIB
+       15.1.2.  Management Information Base for the Internet Protocol
                (IP)
-       16.1.3.  Interface MIB
-     16.2.  YANG Data Models
-       16.2.1.  IP Management YANG Model
-       16.2.2.  Interface Management YANG Model
-   17. Security Considerations
-   18. IANA Considerations
-   19. References
-     19.1.  Normative References
-     19.2.  Informative References
+       15.1.3.  Interface MIB
+     15.2.  YANG Data Models
+       15.2.1.  IP Management YANG Model
+       15.2.2.  Interface Management YANG Model
+   16. Security Considerations
+   17. IANA Considerations
+   18. References
+     18.1.  Normative References
+     18.2.  Informative References
    Appendix A.  Changes from RFC 8504
    Appendix B.  Changes from RFC 6434 to RFC 8504
    Appendix C.  Changes from RFC 4294 to RFC 6434
@@ -293,12 +291,12 @@ Table of Contents
    reassembling an IPv6 datagram, if one or more of its constituent
    fragments is determined to be an overlapping fragment, the entire
    datagram (and any constituent fragments) MUST be silently discarded.
-   See [RFC5722] for more information.
+   See Section 4.5 of [RFC8200] for more information.
 
-   As recommended in [RFC8021], nodes MUST NOT generate atomic
-   fragments, i.e., where the fragment is a whole datagram.  As per
-   [RFC6946], if a receiving node reassembling a datagram encounters an
-   atomic fragment, it should be processed as a fully reassembled
+   As recommended in Section 4.5 of [RFC8200], nodes MUST NOT generate
+   atomic fragments, i.e., where the fragment is a whole datagram.  As
+   per [RFC6946], if a receiving node reassembling a datagram encounters
+   an atomic fragment, it should be processed as a fully reassembled
    packet, and any other fragments that match this packet should be
    processed independently.
 
@@ -482,24 +480,7 @@ Table of Contents
    recommendations on how to select from a set of available routers.
    [RFC4311] SHOULD be supported.
 
-5.5.  SEcure Neighbor Discovery (SEND) - RFC 3971
-
-   SEND [RFC3971] and Cryptographically Generated Addresses (CGAs)
-   [RFC3972] provide a way to secure the message exchanges of Neighbor
-   Discovery.  SEND has the potential to address certain classes of
-   spoofing attacks, but it does not provide specific protection for
-   threats from off-link attackers.
-
-   There have been relatively few implementations of SEND in common
-   operating systems and platforms since its publication in 2005; thus,
-   deployment experience remains very limited to date.
-
-   At this time, support for SEND is considered optional.  Due to the
-   complexity in deploying SEND and its heavyweight provisioning, its
-   deployment is only likely to be considered where nodes are operating
-   in a particularly strict security environment.
-
-5.6.  IPv6 Router Advertisement Flags Option - RFC 5175
+5.5.  IPv6 Router Advertisement Flags Option - RFC 5175
 
    Router Advertisements include an 8-bit field of single-bit Router
    Advertisement flags.  The Router Advertisement Flags Option extends
@@ -513,9 +494,9 @@ Table of Contents
    user-level process using a "raw socket" facility) MAY take steps to
    handle the option in anticipation of a future usage.
 
-5.7.  Path MTU Discovery and Packet Size
+5.6.  Path MTU Discovery and Packet Size
 
-5.7.1.  Path MTU Discovery - RFC 8201
+5.6.1.  Path MTU Discovery - RFC 8201
 
    "Path MTU Discovery for IP version 6" [RFC8201] SHOULD be supported.
    From [RFC8200]:
@@ -545,19 +526,19 @@ Table of Contents
    Discovery (PLPMTUD) designed for use over paths where delivery of
    ICMPv6 messages to a host is not assured.
 
-5.7.2.  Minimum MTU Considerations
+5.6.2.  Minimum MTU Considerations
 
    While an IPv6 link MTU can be set to 1280 bytes, it is recommended
    that for IPv6 UDP in particular, which includes DNS operation, the
    sender use a large MTU if they can, in order to avoid gratuitous
    fragmentation-caused packet drops.
 
-5.8.  ICMP for the Internet Protocol Version 6 (IPv6) - RFC 4443
+5.7.  ICMP for the Internet Protocol Version 6 (IPv6) - RFC 4443
 
    ICMPv6 [RFC4443] MUST be supported.  "Extended ICMP to Support Multi-
    Part Messages" [RFC4884] MAY be supported.
 
-5.9.  Default Router Preferences and More-Specific Routes - RFC 4191
+5.8.  Default Router Preferences and More-Specific Routes - RFC 4191
 
    "Default Router Preferences and More-Specific Routes" [RFC4191]
    provides support for nodes attached to multiple (different) networks,
@@ -566,10 +547,10 @@ Table of Contents
    connectivity to destinations that the other router does not, and
    choosing the "wrong" default router can result in reachability
    failures.  In order to resolve this scenario, IPv6 nodes MUST
-   implement [RFC4191] and SHOULD implement the Type C host role defined
+   implement [RFC4191] and MUST implement the Type C host role defined
    in RFC 4191.
 
-5.10.  First-Hop Router Selection - RFC 8028
+5.9.  First-Hop Router Selection - RFC 8028
 
    In multihomed scenarios, where a host has more than one prefix, each
    allocated by an upstream network that is assumed to implement BCP 38
@@ -578,7 +559,7 @@ Table of Contents
    Hosts that may be deployed in such multihomed environments SHOULD
    follow the guidance given in [RFC8028].
 
-5.11.  Multicast Listener Discovery (MLD) for IPv6 - RFC 3810
+5.10.  Multicast Listener Discovery (MLD) for IPv6 - RFC 3810
 
    Nodes that need to join multicast groups MUST support MLDv2
    [RFC3810].  MLD is needed by any node that is expected to receive and
@@ -597,7 +578,7 @@ Table of Contents
    Section 5.4) depends on multicast and requires that nodes join
    Solicited Node multicast addresses.
 
-5.12.  Explicit Congestion Notification (ECN) - RFC 3168
+5.11.  Explicit Congestion Notification (ECN) - RFC 3168
 
    An ECN-aware router sets a mark in the IP header in order to signal
    impending congestion, rather than dropping a packet.  The receiver of
@@ -902,43 +883,7 @@ Table of Contents
    application support for accessing and enabling Mobile IPv6 [RFC6275]
    features.
 
-12.  Mobility
-
-   Mobile IPv6 [RFC6275] and associated specifications [RFC3776]
-   [RFC4877] allow a node to change its point of attachment within the
-   Internet, while maintaining (and using) a permanent address.  All
-   communication using the permanent address continues to proceed as
-   expected even as the node moves around.  The definition of Mobile IP
-   includes requirements for the following types of nodes:
-
-   *  mobile nodes
-
-   *  correspondent nodes with support for route optimization
-
-   *  home agents
-
-   *  all IPv6 routers
-
-   At the present time, Mobile IP has seen only limited implementation
-   and no significant deployment, partly because it originally assumed
-   an IPv6-only environment rather than a mixed IPv4/IPv6 Internet.
-   Additional work has been done to support mobility in mixed-mode IPv4
-   and IPv6 networks [RFC5555].
-
-   More usage and deployment experience is needed with mobility before
-   any specific approach can be recommended for broad implementation in
-   all hosts and routers.  Consequently, Mobility Support in IPv6
-   [RFC6275], Mobile IPv6 Support for Dual Stack Hosts and Routers
-   [RFC5555], and associated standards (such as Mobile IPv6 with IKEv2
-   and IPsec [RFC4877]) are considered a MAY at this time.
-
-   IPv6 for 3GPP [RFC7066] lists a snapshot of required IPv6
-   functionalities at the time the document was published that would
-   need to be implemented, going above and beyond the recommendations in
-   this document.  Additionally, a 3GPP IPv6 Host MAY implement
-   [RFC7278] to deliver IPv6 prefixes on the LAN link.
-
-13.  Security
+12.  Security
 
    This section describes the security specification for IPv6 nodes.
 
@@ -994,7 +939,7 @@ Table of Contents
    default, IPv6 security is an issue for networks that are ostensibly
    IPv4 only; see [RFC7123] for guidance on this area.
 
-13.1.  Requirements
+12.1.  Requirements
 
    "Security Architecture for the Internet Protocol" [RFC4301] SHOULD be
    supported by all IPv6 nodes.  Note that the IPsec Architecture
@@ -1004,7 +949,7 @@ Table of Contents
    in [RFC4301], IPv6 nodes implementing the IPsec Architecture MUST
    implement ESP [RFC4303] and MAY implement AH [RFC4302].
 
-13.2.  Transforms and Algorithms
+12.2.  Transforms and Algorithms
 
    The current set of mandatory-to-implement algorithms for the IPsec
    Architecture are defined in Cryptographic Algorithm Implementation
@@ -1021,31 +966,33 @@ Table of Contents
    the requirements in [RFC8247] and/or any future updates or
    replacements to [RFC8247].
 
-14.  Router-Specific Functionality
+13.  Router-Specific Functionality
 
    This section defines general host considerations for IPv6 nodes that
    act as routers.  Currently, this section does not discuss detailed
    routing-specific requirements.  For the case of typical home routers,
    [RFC7084] defines basic requirements for customer edge routers.
 
-14.1.  IPv6 Router Alert Option - RFC 2711
+13.1.  IPv6 Router Alert Option - RFC 2711
 
    The IPv6 Router Alert option [RFC2711] is an optional IPv6 Hop-by-Hop
    Header that is used in conjunction with some protocols (e.g., RSVP
    [RFC2205] or Multicast Listener Discovery (MLDv2) [RFC3810]).  The
    Router Alert option will need to be implemented whenever such
-   protocols that mandate its use are implemented.  See Section 5.11.
+   protocols that mandate its use are implemented.  See Section 5.10.
 
-14.2.  Neighbor Discovery for IPv6 - RFC 4861
+13.2.  Neighbor Discovery for IPv6 - RFC 4861
 
    Sending Router Advertisements and processing Router Solicitations
    MUST be supported.
+
+   Routers SHOULD support [RFC9131] to avoid packet lost.
 
    Section 7 of [RFC6275] includes some mobility-specific extensions to
    Neighbor Discovery.  Routers SHOULD implement Sections 7.3 and 7.5,
    even if they do not implement home agent functionality.
 
-14.3.  Stateful Address Autoconfiguration (DHCPv6) - RFC 8415
+13.3.  Stateful Address Autoconfiguration (DHCPv6) - RFC 8415
 
    A single DHCP server ([RFC8415] or [RFC4862]) can provide
    configuration information to devices directly attached to a shared
@@ -1073,13 +1020,13 @@ Table of Contents
    implementation of a DHCPv6 server function in IPv6 Customer Edge (CE)
    routers.
 
-14.4.  IPv6 Prefix Length Recommendation for Forwarding - BCP 198
+13.4.  IPv6 Prefix Length Recommendation for Forwarding - BCP 198
 
    Forwarding nodes MUST conform to BCP 198 [RFC7608]; thus, IPv6
    implementations of nodes that may forward packets MUST conform to the
    rules specified in Section 5.1 of [RFC4632].
 
-15.  Constrained Devices
+14.  Constrained Devices
 
    The focus of this document is general IPv6 nodes.  In this section,
    we briefly discuss considerations for constrained devices.
@@ -1103,7 +1050,7 @@ Table of Contents
    IPv6 nodes that are battery powered SHOULD implement the
    recommendations in [RFC7772].
 
-16.  IPv6 Node Management
+15.  IPv6 Node Management
 
    Network management MAY be supported by IPv6 nodes.  However, for IPv6
    nodes that are embedded devices, network management may be the only
@@ -1112,7 +1059,7 @@ Table of Contents
    Existing network management protocols include SNMP [RFC3411], NETCONF
    [RFC6241], and RESTCONF [RFC8040].
 
-16.1.  Management Information Base (MIB) Modules
+15.1.  Management Information Base (MIB) Modules
 
    The obsoleted status of various IPv6-specific MIB modules is
    clarified in [RFC8096].
@@ -1120,51 +1067,51 @@ Table of Contents
    The following two MIB modules SHOULD be supported by nodes that
    support an SNMP agent.
 
-16.1.1.  IP Forwarding Table MIB
+15.1.1.  IP Forwarding Table MIB
 
    The IP Forwarding Table MIB [RFC4292] SHOULD be supported by nodes
    that support an SNMP agent.
 
-16.1.2.  Management Information Base for the Internet Protocol (IP)
+15.1.2.  Management Information Base for the Internet Protocol (IP)
 
    The IP MIB [RFC4293] SHOULD be supported by nodes that support an
    SNMP agent.
 
-16.1.3.  Interface MIB
+15.1.3.  Interface MIB
 
    The Interface MIB [RFC2863] SHOULD be supported by nodes that support
    an SNMP agent.
 
-16.2.  YANG Data Models
+15.2.  YANG Data Models
 
    The following YANG data models SHOULD be supported by nodes that
    support a NETCONF or RESTCONF agent.
 
-16.2.1.  IP Management YANG Model
+15.2.1.  IP Management YANG Model
 
    The IP Management YANG Model [RFC8344] SHOULD be supported by nodes
    that support NETCONF or RESTCONF.
 
-16.2.2.  Interface Management YANG Model
+15.2.2.  Interface Management YANG Model
 
    The Interface Management YANG Model [RFC8343] SHOULD be supported by
    nodes that support NETCONF or RESTCONF.
 
-17.  Security Considerations
+16.  Security Considerations
 
    This document does not directly affect the security of the Internet,
    beyond the security considerations associated with the individual
    protocols.
 
-   Security is also discussed in Section 13 above.
+   Security is also discussed in Section 12 above.
 
-18.  IANA Considerations
+17.  IANA Considerations
 
    This document has no IANA actions.
 
-19.  References
+18.  References
 
-19.1.  Normative References
+18.1.  Normative References
 
    [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",
               STD 13, RFC 1034, DOI 10.17487/RFC1034, November 1987,
@@ -1461,7 +1408,12 @@ Table of Contents
               DOI 10.17487/RFC8981, February 2021,
               <https://www.rfc-editor.org/rfc/rfc8981>.
 
-19.2.  Informative References
+   [RFC9131]  Linkova, J., "Gratuitous Neighbor Discovery: Creating
+              Neighbor Cache Entries on First-Hop Routers", RFC 9131,
+              DOI 10.17487/RFC9131, October 2021,
+              <https://www.rfc-editor.org/rfc/rfc9131>.
+
+18.2.  Informative References
 
    [POSIX]    IEEE, "Information Technology -- Portable Operating System
               Interface (POSIX(R)) Base Specifications, Issue 7", IEEE
@@ -1531,20 +1483,6 @@ Table of Contents
               DOI 10.17487/RFC3678, January 2004,
               <https://www.rfc-editor.org/rfc/rfc3678>.
 
-   [RFC3776]  Arkko, J., Devarapalli, V., and F. Dupont, "Using IPsec to
-              Protect Mobile IPv6 Signaling Between Mobile Nodes and
-              Home Agents", RFC 3776, DOI 10.17487/RFC3776, June 2004,
-              <https://www.rfc-editor.org/rfc/rfc3776>.
-
-   [RFC3971]  Arkko, J., Ed., Kempf, J., Zill, B., and P. Nikander,
-              "SEcure Neighbor Discovery (SEND)", RFC 3971,
-              DOI 10.17487/RFC3971, March 2005,
-              <https://www.rfc-editor.org/rfc/rfc3971>.
-
-   [RFC3972]  Aura, T., "Cryptographically Generated Addresses (CGA)",
-              RFC 3972, DOI 10.17487/RFC3972, March 2005,
-              <https://www.rfc-editor.org/rfc/rfc3972>.
-
    [RFC4191]  Draves, R. and D. Thaler, "Default Router Preferences and
               More-Specific Routes", RFC 4191, DOI 10.17487/RFC4191,
               November 2005, <https://www.rfc-editor.org/rfc/rfc4191>.
@@ -1578,11 +1516,6 @@ Table of Contents
    [RFC4821]  Mathis, M. and J. Heffner, "Packetization Layer Path MTU
               Discovery", RFC 4821, DOI 10.17487/RFC4821, March 2007,
               <https://www.rfc-editor.org/rfc/rfc4821>.
-
-   [RFC4877]  Devarapalli, V. and F. Dupont, "Mobile IPv6 Operation with
-              IKEv2 and the Revised IPsec Architecture", RFC 4877,
-              DOI 10.17487/RFC4877, April 2007,
-              <https://www.rfc-editor.org/rfc/rfc4877>.
 
    [RFC4884]  Bonica, R., Gan, D., Tappan, D., and C. Pignataro,
               "Extended ICMP to Support Multi-Part Messages", RFC 4884,
@@ -1620,10 +1553,6 @@ Table of Contents
               DOI 10.17487/RFC5121, February 2008,
               <https://www.rfc-editor.org/rfc/rfc5121>.
 
-   [RFC5555]  Soliman, H., Ed., "Mobile IPv6 Support for Dual Stack
-              Hosts and Routers", RFC 5555, DOI 10.17487/RFC5555, June
-              2009, <https://www.rfc-editor.org/rfc/rfc5555>.
-
    [RFC6275]  Perkins, C., Ed., Johnson, D., and J. Arkko, "Mobility
               Support in IPv6", RFC 6275, DOI 10.17487/RFC6275, July
               2011, <https://www.rfc-editor.org/rfc/rfc6275>.
@@ -1637,11 +1566,6 @@ Table of Contents
               DOI 10.17487/RFC6980, August 2013,
               <https://www.rfc-editor.org/rfc/rfc6980>.
 
-   [RFC7066]  Korhonen, J., Ed., Arkko, J., Ed., Savolainen, T., and S.
-              Krishnan, "IPv6 for Third Generation Partnership Project
-              (3GPP) Cellular Hosts", RFC 7066, DOI 10.17487/RFC7066,
-              November 2013, <https://www.rfc-editor.org/rfc/rfc7066>.
-
    [RFC7084]  Singh, H., Beebee, W., Donley, C., and B. Stark, "Basic
               Requirements for IPv6 Customer Edge Routers", RFC 7084,
               DOI 10.17487/RFC7084, November 2013,
@@ -1650,12 +1574,6 @@ Table of Contents
    [RFC7123]  Gont, F. and W. Liu, "Security Implications of IPv6 on
               IPv4 Networks", RFC 7123, DOI 10.17487/RFC7123, February
               2014, <https://www.rfc-editor.org/rfc/rfc7123>.
-
-   [RFC7278]  Byrne, C., Drown, D., and A. Vizdal, "Extending an IPv6
-              /64 Prefix from a Third Generation Partnership Project
-              (3GPP) Mobile Interface to a LAN Link", RFC 7278,
-              DOI 10.17487/RFC7278, June 2014,
-              <https://www.rfc-editor.org/rfc/rfc7278>.
 
    [RFC7371]  Boucadair, M. and S. Venaas, "Updates to the IPv6
               Multicast Addressing Architecture", RFC 7371,
@@ -1692,11 +1610,6 @@ Table of Contents
               RFC 7934, DOI 10.17487/RFC7934, July 2016,
               <https://www.rfc-editor.org/rfc/rfc7934>.
 
-   [RFC8021]  Gont, F., Liu, W., and T. Anderson, "Generation of IPv6
-              Atomic Fragments Considered Harmful", RFC 8021,
-              DOI 10.17487/RFC8021, January 2017,
-              <https://www.rfc-editor.org/rfc/rfc8021>.
-
    [RFC8087]  Fairhurst, G. and M. Welzl, "The Benefits of Using
               Explicit Congestion Notification (ECN)", RFC 8087,
               DOI 10.17487/RFC8087, March 2017,
@@ -1725,8 +1638,9 @@ Appendix A.  Changes from RFC 8504
        does not include the the robustness principle for which RFC 793
        is cited in this document.
 
-   2.  Made RFC 8021 informative, though this document cites it in a
-       normative style.
+   2.  Added support for RFC 9131.
+
+   3.  Type C host from RFC 4191 is went from a SHOULD to MUST.
 
 Appendix B.  Changes from RFC 6434 to RFC 8504
 
@@ -1928,7 +1842,7 @@ Authors' Addresses
 
 
    Timothy Winters
-   University of New Hampshire, Interoperability Lab (UNH-IOL)
-   Durham, NH
+   QA Cafe
+   Dover, NH
    United States of America
-   Email: twinters@iol.unh.edu
+   Email: tim@qacafe.com
