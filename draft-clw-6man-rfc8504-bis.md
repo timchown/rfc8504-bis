@@ -1,6 +1,6 @@
 ---
 v: 3
-docname: draft-clw-6man-rfc8504-bis-00
+docname: draft-clw-6man-rfc8504-bis-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
@@ -47,12 +47,11 @@ author:
   phone: ''
   email: john.loughney@gmail.com
 - name: Timothy Winters
-  org: University of New Hampshire, Interoperability Lab (UNH-IOL)
-  abbrev: UNH-IOL
-  city: Durham
+  org: QA Cafe
+  city: Dover
   region: NH
   country: United States of America
-  email: twinters@iol.unh.edu
+  email: tim@qacafe.com
 
 normative:
   RFC1034:
@@ -114,6 +113,7 @@ normative:
   RFC8344:
   RFC8415:
   RFC8981:
+  RFC9131:
 informative:
   RFC0793:
   RFC2205:
@@ -162,7 +162,6 @@ informative:
   RFC7772:
   RFC7844:
   RFC7934:
-  RFC8021:
   RFC8087:
   RFC8096:
   RFC8273:
@@ -344,9 +343,9 @@ overlapping fragments.  Also, when reassembling an IPv6
 datagram, if one or more of its constituent fragments is
 determined to be an overlapping fragment, the entire datagram
 (and any constituent fragments) MUST be silently discarded.
-See {{RFC5722}} for more information.
+See Section 4.5 of {{RFC8200}} for more information.
 
-As recommended in {{RFC8021}}, nodes MUST NOT
+As recommended in Section 4.5 of {{RFC8200}}, nodes MUST NOT
 generate atomic fragments, i.e., where the fragment is a whole datagram.
 As per {{RFC6946}}, if a receiving node reassembling
 a datagram encounters an atomic fragment,
@@ -358,7 +357,8 @@ nodes SHOULD avoid using predictable Fragment Identification values
 in Fragment headers, as discussed in {{RFC7739}}.
 
 All nodes SHOULD support the setting and use of the IPv6 Flow
-Label field as defined in the IPv6 Flow Label specification {{RFC6437}}.  Forwarding nodes such as routers and load distributors
+Label field as defined in the IPv6 Flow Label specification {{RFC6437}}.
+Forwarding nodes such as routers and load distributors
 MUST NOT depend only on Flow Label values being uniformly
 distributed.  It is RECOMMENDED that source hosts support the flow
 label by setting the Flow Label field for all packets of a given
@@ -649,7 +649,7 @@ Advertisements. In some scenarios, one router may provide
 connectivity to destinations that the other router does not, and
 choosing the "wrong" default router can result in reachability
 failures. In order to resolve this scenario, IPv6 nodes MUST implement
-{{RFC4191}} and SHOULD implement the Type C host role defined in RFC 4191.
+{{RFC4191}} and MUST implement the Type C host role defined in RFC 4191.
 
 
 ## First-Hop Router Selection - RFC 8028
@@ -1183,6 +1183,8 @@ use are implemented.  See {{mld}}.
 Sending Router Advertisements and processing Router
 Solicitations MUST be supported.
 
+Routers SHOULD support {{RFC9131}} to avoid packet lost.
+
 {{Section 7 of RFC6275}} includes some mobility-specific
 extensions to Neighbor Discovery.
 Routers SHOULD implement
@@ -1332,9 +1334,9 @@ This section highlights the changes since RFC 8504. It is not a complete list of
 
 1. Updated obsoleted RFCs including 3315 and 3736 (both to 8415) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.
 
-2. Made RFC 8021 informative, though this document cites it in a normative style.
+2. Added support for RFC 9131.
 
-
+3. Type C host from RFC 4191 is went from a SHOULD to MUST.
 
 # Changes from RFC 6434 to RFC 8504
 
