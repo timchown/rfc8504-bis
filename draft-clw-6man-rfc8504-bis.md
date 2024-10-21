@@ -1,6 +1,6 @@
 ---
 v: 3
-docname: draft-clw-6man-rfc8504-bis-00
+docname: draft-clw-6man-rfc8504-bis-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
@@ -47,12 +47,11 @@ author:
   phone: ''
   email: john.loughney@gmail.com
 - name: Timothy Winters
-  org: University of New Hampshire, Interoperability Lab (UNH-IOL)
-  abbrev: UNH-IOL
-  city: Durham
+  org: QA Cafe
+  city: Dover
   region: NH
   country: United States of America
-  email: twinters@iol.unh.edu
+  email: tim@qacafe.com
 
 normative:
   RFC1034:
@@ -114,6 +113,7 @@ normative:
   RFC8344:
   RFC8415:
   RFC8981:
+  RFC9131:
 informative:
   RFC0793:
   RFC2205:
@@ -128,9 +128,6 @@ informative:
   RFC3542:
   RFC3646:
   RFC3678:
-  RFC3776:
-  RFC3971:
-  RFC3972:
   RFC4191:
   RFC4294:
   RFC4302:
@@ -139,7 +136,6 @@ informative:
   RFC4429:
   RFC4584:
   RFC4821:
-  RFC4877:
   RFC4884:
   RFC4890:
   RFC4919:
@@ -147,14 +143,11 @@ informative:
   RFC5014:
   RFC5072:
   RFC5121:
-  RFC5555:
   RFC6275:
   RFC6563:
   RFC6980:
-  RFC7066:
   RFC7084:
   RFC7123:
-  RFC7278:
   RFC7371:
   RFC7421:
   RFC7721:
@@ -162,7 +155,6 @@ informative:
   RFC7772:
   RFC7844:
   RFC7934:
-  RFC8021:
   RFC8087:
   RFC8096:
   RFC8273:
@@ -344,9 +336,9 @@ overlapping fragments.  Also, when reassembling an IPv6
 datagram, if one or more of its constituent fragments is
 determined to be an overlapping fragment, the entire datagram
 (and any constituent fragments) MUST be silently discarded.
-See {{RFC5722}} for more information.
+See Section 4.5 of {{RFC8200}} for more information.
 
-As recommended in {{RFC8021}}, nodes MUST NOT
+As recommended in Section 4.5 of {{RFC8200}}, nodes MUST NOT
 generate atomic fragments, i.e., where the fragment is a whole datagram.
 As per {{RFC6946}}, if a receiving node reassembling
 a datagram encounters an atomic fragment,
@@ -358,7 +350,8 @@ nodes SHOULD avoid using predictable Fragment Identification values
 in Fragment headers, as discussed in {{RFC7739}}.
 
 All nodes SHOULD support the setting and use of the IPv6 Flow
-Label field as defined in the IPv6 Flow Label specification {{RFC6437}}.  Forwarding nodes such as routers and load distributors
+Label field as defined in the IPv6 Flow Label specification {{RFC6437}}.
+Forwarding nodes such as routers and load distributors
 MUST NOT depend only on Flow Label values being uniformly
 distributed.  It is RECOMMENDED that source hosts support the flow
 label by setting the Flow Label field for all packets of a given
@@ -549,26 +542,6 @@ See RFC 6980 for details and motivation.
 recommendations on how to select from a set of available routers.
 {{RFC4311}} SHOULD be supported.
 
-## SEcure Neighbor Discovery (SEND) - RFC 3971
-
-SEND {{RFC3971}} and Cryptographically Generated
-Addresses (CGAs) {{RFC3972}} provide a way to
-secure the message exchanges of Neighbor Discovery. SEND
-has the potential to address certain classes of spoofing
-attacks, but it does not provide specific protection for threats
-from off-link attackers.
-
-There have been relatively few implementations of SEND
-in common operating systems and platforms since its publication in 2005;
-thus, deployment experience remains very limited to date.
-
-At this time, support for SEND is considered optional. Due to the
-complexity in deploying SEND and its heavyweight provisioning,
-its deployment is only
-likely to be considered where nodes are operating in a
-particularly strict security environment.
-
-
 ## IPv6 Router Advertisement Flags Option - RFC 5175
 
 Router Advertisements include an 8-bit field of single-bit
@@ -649,7 +622,7 @@ Advertisements. In some scenarios, one router may provide
 connectivity to destinations that the other router does not, and
 choosing the "wrong" default router can result in reachability
 failures. In order to resolve this scenario, IPv6 nodes MUST implement
-{{RFC4191}} and SHOULD implement the Type C host role defined in RFC 4191.
+{{RFC4191}} and MUST implement the Type C host role defined in RFC 4191.
 
 
 ## First-Hop Router Selection - RFC 8028
@@ -1029,48 +1002,6 @@ filters on multicast group memberships.
 "Extension to Sockets API for Mobile IPv6" {{RFC4584}} provides application support for
 accessing and enabling Mobile IPv6 {{RFC6275}} features.
 
-
-
-# Mobility {#mobility}
-
-Mobile IPv6 {{RFC6275}} and associated
-specifications {{RFC3776}}  {{RFC4877}} allow a node to change its point of attachment within the
-Internet, while maintaining (and using) a permanent address. All
-communication using the permanent address continues to proceed as
-expected even as the node moves around. The definition of Mobile
-IP includes requirements for the following types of nodes:
-
-
--  mobile nodes
-
--  correspondent nodes with support for route optimization
-
--  home agents
-
--  all IPv6 routers
-
-
-At the present time, Mobile IP has seen only limited
-implementation and no significant deployment, partly because it
-originally assumed an IPv6-only environment rather than a mixed
-IPv4/IPv6 Internet. Additional work has been done to
-support mobility in mixed-mode IPv4 and IPv6
-networks {{RFC5555}}.
-
-More usage and deployment experience is needed with mobility
-before any specific approach can be recommended for broad
-implementation in all hosts and routers.
-Consequently, Mobility Support in IPv6 {{RFC6275}}, Mobile IPv6 Support for Dual Stack Hosts and Routers {{RFC5555}}, and associated
-standards (such as Mobile IPv6 with IKEv2 and IPsec {{RFC4877}}) are considered a MAY
-at this time.
-
-IPv6 for 3GPP {{RFC7066}} lists a snapshot of required
-IPv6 functionalities at the time the document was published that would
-need to be implemented, going above
-and beyond the recommendations in this document.
-Additionally, a 3GPP IPv6 Host MAY implement {{RFC7278}} to deliver IPv6 prefixes on the LAN link.
-
-
 # Security {#sec}
 
 This section describes the security specification for IPv6
@@ -1182,6 +1113,8 @@ use are implemented.  See {{mld}}.
 
 Sending Router Advertisements and processing Router
 Solicitations MUST be supported.
+
+Routers SHOULD support {{RFC9131}} to avoid packet lost.
 
 {{Section 7 of RFC6275}} includes some mobility-specific
 extensions to Neighbor Discovery.
@@ -1332,9 +1265,9 @@ This section highlights the changes since RFC 8504. It is not a complete list of
 
 1. Updated obsoleted RFCs including 3315 and 3736 (both to 8415) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.
 
-2. Made RFC 8021 informative, though this document cites it in a normative style.
+2. Added support for RFC 9131.
 
-
+3. Type C host from RFC 4191 is went from a SHOULD to MUST.
 
 # Changes from RFC 6434 to RFC 8504
 
