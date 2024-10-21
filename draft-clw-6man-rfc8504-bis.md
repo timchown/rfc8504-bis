@@ -128,9 +128,6 @@ informative:
   RFC3542:
   RFC3646:
   RFC3678:
-  RFC3776:
-  RFC3971:
-  RFC3972:
   RFC4191:
   RFC4294:
   RFC4302:
@@ -139,7 +136,6 @@ informative:
   RFC4429:
   RFC4584:
   RFC4821:
-  RFC4877:
   RFC4884:
   RFC4890:
   RFC4919:
@@ -147,14 +143,11 @@ informative:
   RFC5014:
   RFC5072:
   RFC5121:
-  RFC5555:
   RFC6275:
   RFC6563:
   RFC6980:
-  RFC7066:
   RFC7084:
   RFC7123:
-  RFC7278:
   RFC7371:
   RFC7421:
   RFC7721:
@@ -548,26 +541,6 @@ See RFC 6980 for details and motivation.
 "IPv6 Host-to-Router Load Sharing" {{RFC4311}} includes additional
 recommendations on how to select from a set of available routers.
 {{RFC4311}} SHOULD be supported.
-
-## SEcure Neighbor Discovery (SEND) - RFC 3971
-
-SEND {{RFC3971}} and Cryptographically Generated
-Addresses (CGAs) {{RFC3972}} provide a way to
-secure the message exchanges of Neighbor Discovery. SEND
-has the potential to address certain classes of spoofing
-attacks, but it does not provide specific protection for threats
-from off-link attackers.
-
-There have been relatively few implementations of SEND
-in common operating systems and platforms since its publication in 2005;
-thus, deployment experience remains very limited to date.
-
-At this time, support for SEND is considered optional. Due to the
-complexity in deploying SEND and its heavyweight provisioning,
-its deployment is only
-likely to be considered where nodes are operating in a
-particularly strict security environment.
-
 
 ## IPv6 Router Advertisement Flags Option - RFC 5175
 
@@ -1028,48 +1001,6 @@ filters on multicast group memberships.
 
 "Extension to Sockets API for Mobile IPv6" {{RFC4584}} provides application support for
 accessing and enabling Mobile IPv6 {{RFC6275}} features.
-
-
-
-# Mobility {#mobility}
-
-Mobile IPv6 {{RFC6275}} and associated
-specifications {{RFC3776}}  {{RFC4877}} allow a node to change its point of attachment within the
-Internet, while maintaining (and using) a permanent address. All
-communication using the permanent address continues to proceed as
-expected even as the node moves around. The definition of Mobile
-IP includes requirements for the following types of nodes:
-
-
--  mobile nodes
-
--  correspondent nodes with support for route optimization
-
--  home agents
-
--  all IPv6 routers
-
-
-At the present time, Mobile IP has seen only limited
-implementation and no significant deployment, partly because it
-originally assumed an IPv6-only environment rather than a mixed
-IPv4/IPv6 Internet. Additional work has been done to
-support mobility in mixed-mode IPv4 and IPv6
-networks {{RFC5555}}.
-
-More usage and deployment experience is needed with mobility
-before any specific approach can be recommended for broad
-implementation in all hosts and routers.
-Consequently, Mobility Support in IPv6 {{RFC6275}}, Mobile IPv6 Support for Dual Stack Hosts and Routers {{RFC5555}}, and associated
-standards (such as Mobile IPv6 with IKEv2 and IPsec {{RFC4877}}) are considered a MAY
-at this time.
-
-IPv6 for 3GPP {{RFC7066}} lists a snapshot of required
-IPv6 functionalities at the time the document was published that would
-need to be implemented, going above
-and beyond the recommendations in this document.
-Additionally, a 3GPP IPv6 Host MAY implement {{RFC7278}} to deliver IPv6 prefixes on the LAN link.
-
 
 # Security {#sec}
 
