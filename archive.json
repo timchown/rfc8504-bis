@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-20T00:53:26.101924+00:00",
+  "timestamp": "2024-10-22T00:49:22.767277+00:00",
   "repo": "timchown/rfc8504-bis",
   "labels": [
     {
@@ -103,48 +103,78 @@
       "id": "I_kwDOLCuPXc6Q5dRh",
       "title": "Type A,B,C hosts",
       "url": "https://github.com/timchown/rfc8504-bis/issues/4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "timchown",
       "authorAssociation": "OWNER",
-      "assignees": [],
+      "assignees": [
+        "twintersunh"
+      ],
       "labels": [],
       "body": "Decide whether we continue to refer to all three types.\r\nFor 6724-update, there were comments, maybe from TimW, that there are many examples of Type A and B hosts still deployed",
       "createdAt": "2024-07-25T21:09:33Z",
-      "updatedAt": "2024-07-25T21:09:33Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2024-10-21T15:20:41Z",
+      "closedAt": "2024-10-21T15:20:41Z",
+      "comments": [
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I made this a MUST for Type C. ",
+          "createdAt": "2024-10-21T13:09:52Z",
+          "updatedAt": "2024-10-21T13:09:52Z"
+        }
+      ]
     },
     {
       "number": 5,
       "id": "I_kwDOLCuPXc6Q5dtQ",
       "title": "Remove Mobile IP text?",
       "url": "https://github.com/timchown/rfc8504-bis/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "timchown",
       "authorAssociation": "OWNER",
-      "assignees": [],
+      "assignees": [
+        "twintersunh"
+      ],
       "labels": [],
       "body": "There seemed to be no objections to this at 120.",
       "createdAt": "2024-07-25T21:10:58Z",
-      "updatedAt": "2024-07-25T21:10:58Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2024-10-21T15:21:39Z",
+      "closedAt": "2024-10-21T15:21:39Z",
+      "comments": [
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Removed in -01.",
+          "createdAt": "2024-10-21T14:52:43Z",
+          "updatedAt": "2024-10-21T14:52:43Z"
+        }
+      ]
     },
     {
       "number": 6,
       "id": "I_kwDOLCuPXc6Q5d2O",
       "title": "Remove SeND text?",
       "url": "https://github.com/timchown/rfc8504-bis/issues/6",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "timchown",
       "authorAssociation": "OWNER",
-      "assignees": [],
+      "assignees": [
+        "twintersunh"
+      ],
       "labels": [],
       "body": "There seemed to be no objection to this at 120.",
       "createdAt": "2024-07-25T21:11:24Z",
-      "updatedAt": "2024-07-25T21:11:24Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2024-10-21T15:21:10Z",
+      "closedAt": "2024-10-21T15:21:10Z",
+      "comments": [
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Removed in -01.",
+          "createdAt": "2024-10-21T14:51:43Z",
+          "updatedAt": "2024-10-21T14:51:43Z"
+        }
+      ]
     },
     {
       "number": 7,
@@ -177,7 +207,64 @@
       "updatedAt": "2024-07-25T21:54:54Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 9,
+      "id": "I_kwDOLCuPXc6bIGiN",
+      "title": "Add support for 9131 (Router first hop)",
+      "url": "https://github.com/timchown/rfc8504-bis/issues/9",
+      "state": "CLOSED",
+      "author": "twintersunh",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "twintersunh"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-21T13:38:48Z",
+      "updatedAt": "2024-10-21T15:21:00Z",
+      "closedAt": "2024-10-21T15:20:52Z",
+      "comments": [
+        {
+          "author": "twintersunh",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Added in -01.",
+          "createdAt": "2024-10-21T15:20:59Z",
+          "updatedAt": "2024-10-21T15:20:59Z"
+        }
+      ]
     }
   ],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 10,
+      "id": "PR_kwDOLCuPXc5_VR9S",
+      "title": "Added 9131 and Type C support.",
+      "url": "https://github.com/timchown/rfc8504-bis/pull/10",
+      "state": "MERGED",
+      "author": "twintersunh",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "twintersunh"
+      ],
+      "labels": [],
+      "body": "Added 9131 and Type C host is now a MUST.\r\n\r\nRemoved SeND and Mobility Sections.",
+      "createdAt": "2024-10-21T14:42:25Z",
+      "updatedAt": "2024-10-21T15:11:18Z",
+      "baseRepository": "timchown/rfc8504-bis",
+      "baseRefName": "main",
+      "baseRefOid": "e7f66a899db4eece3089105bdb124d12977d2bee",
+      "headRepository": "timchown/rfc8504-bis",
+      "headRefName": "twinters/ietf121",
+      "headRefOid": "b6a47f5819bf8d77cfa082be8848dce9625ecb57",
+      "closedAt": "2024-10-21T15:11:18Z",
+      "mergedAt": "2024-10-21T15:11:17Z",
+      "mergedBy": "twintersunh",
+      "mergeCommit": {
+        "oid": "ec2f096395063c07887ac94bbcfb2e849470f9cb"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
