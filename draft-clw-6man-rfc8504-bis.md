@@ -158,6 +158,8 @@ informative:
   RFC8087:
   RFC8096:
   RFC8273:
+  RFC8781:
+  RFC7050:
   POSIX:
     target: https://ieeexplore.ieee.org/document/8277153
     title: Information Technology -- Portable Operating System Interface (POSIX(R))
@@ -770,7 +772,7 @@ will see that the IID remains the same on any visited
 network, even though the network prefix part changes.
 Thus, it is possible for a third-party device to track the activities of
 the node they
-communicate with, as that node moves around the network.  Privacy Extensions
+communicate, as that node moves around the network.  Privacy Extensions
 for Stateless Address
 Autoconfiguration {{RFC8981}} address this
 concern by allowing nodes to configure an additional temporary address
@@ -961,7 +963,10 @@ IPv6 nodes MAY support IPv4.
 
 If an IPv6 node implements dual stack and tunneling, then {{RFC4213}} MUST be supported.
 
+### Support for discovery of translation prefixes
 
+[RFC8781] describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network environments, it is recommended that all hosts support discovery of NAT64 prefixes as described in RFC 8781.
+Nodes MAY also support [RFC7050] as a fallback mechanism for NAT64 prefix discovery.
 
 
 # Application Support
@@ -1138,19 +1143,9 @@ embedded within the router is one common deployment scenario
 (e.g., {{RFC7084}}). There is no need
 for relay agents in such scenarios.
 
-In more complex deployment scenarios, such as within
-enterprise or service provider networks, the use of DHCP
-requires some level of configuration, in order to configure
-relay agents, DHCP servers, etc. In such environments, the
-DHCP server might even be run on a traditional server, rather
-than as part of a router.
+In more complex deployment scenarios, such as within enterprise or service provider networks, the use of DHCP requires some level of configuration, in order to configure relay agents, prefixes for delegation, DHCP servers, etc. In such environments, the DHCP server might even be run on a traditional server, rather than as part of a router.
 
-Because of the wide range of deployment scenarios, support
-for DHCP server functionality on routers is optional. However,
-routers targeted for deployment within more complex scenarios
-(as described above) SHOULD support relay agent functionality.
-Note that "Basic Requirements for IPv6 Customer Edge Routers" {{RFC7084}} requires implementation of a DHCPv6
-server function in IPv6 Customer Edge (CE) routers.
+Because of the wide range of deployment scenarios, support for DHCP server functionality on routers is optional.  However, routers targeted for deployment within more complex scenarios (as described above) SHOULD support relay agent functionality including support for support DHCPv6-PD as defined in [RFC3633](?).  Note that "Basic Requirements for IPv6 Customer Edge Routers" [RFC7084] requires implementation of a DHCPv6 server function in IPv6 Customer Edge (CE) routers.
 
 
 ## IPv6 Prefix Length Recommendation for Forwarding - BCP 198
