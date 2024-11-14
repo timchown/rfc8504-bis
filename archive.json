@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-12T00:46:53.151296+00:00",
+  "timestamp": "2024-11-14T00:48:25.996354+00:00",
   "repo": "timchown/rfc8504-bis",
   "labels": [
     {
@@ -265,6 +265,38 @@
       "updatedAt": "2024-10-31T19:10:06Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOLCuPXc6eGZQf",
+      "title": "Add an IPv6-only/Mostly Section",
+      "url": "https://github.com/timchown/rfc8504-bis/issues/13",
+      "state": "OPEN",
+      "author": "jeremy-duncan",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "to include things like NAT64, DNS64, Pref64, DHCP option 108, CLAT/464XLAT, RFC 8880 special use ipv4only.arpa, etc",
+      "createdAt": "2024-11-12T15:08:46Z",
+      "updatedAt": "2024-11-12T15:08:46Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 14,
+      "id": "I_kwDOLCuPXc6eGZ70",
+      "title": "Remove all references to SeND and Mobile IPv6",
+      "url": "https://github.com/timchown/rfc8504-bis/issues/14",
+      "state": "OPEN",
+      "author": "jeremy-duncan",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Keeping references to it even by saying it's optional and not ever used keeps it alive and that bodies that use 8504 as a product profile, testing, etc can be very confused ",
+      "createdAt": "2024-11-12T15:09:56Z",
+      "updatedAt": "2024-11-12T15:09:56Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -295,6 +327,32 @@
       "mergeCommit": {
         "oid": "ec2f096395063c07887ac94bbcfb2e849470f9cb"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOLCuPXc6Bp5f0",
+      "title": "Add suggestions from adoption call",
+      "url": "https://github.com/timchown/rfc8504-bis/pull/15",
+      "state": "OPEN",
+      "author": "buraglio",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Add suggestions for section 10 and 14. ",
+      "createdAt": "2024-11-12T16:08:16Z",
+      "updatedAt": "2024-11-12T16:08:17Z",
+      "baseRepository": "timchown/rfc8504-bis",
+      "baseRefName": "main",
+      "baseRefOid": "ec2f096395063c07887ac94bbcfb2e849470f9cb",
+      "headRepository": "buraglio/rfc8504-bis",
+      "headRefName": "main",
+      "headRefOid": "df0fff647fc3f4dd4189e1a4e16c2fa1dc9ac653",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
