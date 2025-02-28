@@ -1261,13 +1261,17 @@ This document has no IANA actions.
 
 # Changes from RFC 8504
 
-This section highlights the changes since RFC 8504. It is not a complete list of all changes.
+This section highlights the changes since RFC 8504.
 
 1. Updated obsoleted RFCs including 3315 and 3736 (both to 8415) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.
 
 2. Added support for RFC 9131.
 
 3. Type C host from RFC 4191 is went from a SHOULD to MUST.
+
+4. Removed the Mobility Section.
+
+5. Removed the SEND Section.
 
 # Changes from RFC 6434 to RFC 8504
 
