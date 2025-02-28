@@ -2,10 +2,10 @@
 
 This is the working area for the individual Internet-Draft, "IPv6 Node Requirements".
 
-* [Editor's Copy](https://timchown.github.io/rfc8504-bis/#go.draft-clw-6man-rfc8504-bis.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-clw-6man-rfc8504-bis)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-clw-6man-rfc8504-bis)
-* [Compare Editor's Copy to Individual Draft](https://timchown.github.io/rfc8504-bis/#go.draft-clw-6man-rfc8504-bis.diff)
+* [Editor's Copy](https://timchown.github.io/rfc8504-bis/#go.draft-ietf-6man-rfc8504-bis.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-6man-rfc8504-bis)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ietf-6man-rfc8504-bis)
+* [Compare Editor's Copy to Individual Draft](https://timchown.github.io/rfc8504-bis/#go.draft-ietf-6man-rfc8504-bis.diff)
 
 
 ## Contributing

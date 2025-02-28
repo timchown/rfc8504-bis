@@ -1,6 +1,6 @@
 ---
 v: 3
-docname: draft-clw-6man-rfc8504-bis-latest
+docname: draft-ietf-6man-rfc8504-bis-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
@@ -15,7 +15,7 @@ venue:
   mail: "ipv6@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/ipv6/"
   github: "timchown/rfc8504-bis"
-  latest: "https://timchown.github.io/rfc8504-bis/draft-clw-6man-rfc8504-bis.html"
+  latest: "https://timchown.github.io/rfc8504-bis/draft-ietf-6man-rfc8504-bis.html"
 
 seriesno: '220'
 pi:
