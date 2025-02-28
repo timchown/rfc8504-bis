@@ -1260,13 +1260,15 @@ This section highlights the changes since RFC 8504.
 
 1. Updated obsoleted RFCs including 3315 and 3736 (both to 8415) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.
 
-2. Added support for RFC 9131.
+1. Added support for RFC 9131.
 
-3. Type C host from RFC 4191 is went from a SHOULD to MUST.
+1. Type C host from RFC 4191 is went from a SHOULD to MUST.
 
-4. Removed the Mobility Section.
+1. Removed the Mobility Section.
 
-5. Removed the SEND Section.
+1. Removed the SEND Section.
+
+1. Added Support for discovery of translation prefixes Section.
 
 # Changes from RFC 6434 to RFC 8504
 
@@ -1274,8 +1276,6 @@ There have been many editorial clarifications as well as
 significant additions and updates. While this section highlights
 some of the changes, readers should not rely on this section for a
 comprehensive list of all changes.
-
-
 
 1. Restructured sections.
 
@@ -1412,7 +1412,12 @@ comprehensive list of all changes.
 # Acknowledgments
 {:numbered="no"}
 
-* Acknowledgments (Current Document)
+* Acknowledgements from (Current Documents)
+
+  The authors would like to thank Nick Buraglio, Brian Carpenter, and Jeremy Duncan
+  for their contributions and many members of the 6man WG for the inputs they gave.
+
+* Acknowledgments from RFC 8504
 
   The authors would like to thank
   Brian Carpenter, Dave Thaler,
