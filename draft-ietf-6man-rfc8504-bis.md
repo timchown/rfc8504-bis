@@ -827,8 +827,7 @@ such anonymity profiles.
 IPv6 nodes will invariably have multiple addresses configured simultaneously
 and thus will need to choose which addresses to use for which communications.
 The rules specified in the Default Address Selection for
-IPv6 document {{RFC6724}} MUST be implemented. {{RFC8028}} updates Rule 5.5 from {{RFC6724}}; implementations
-SHOULD implement this rule.
+IPv6 document {{RFC6724}} MUST be implemented. {{RFC8028}} updates Rule 5.5 from {{RFC6724}}; implementations MUST implement this rule.
 
 
 
@@ -1268,7 +1267,9 @@ This section highlights the changes since RFC 8504.
 
 1. Removed the SEND Section.
 
-1. Added Support for discovery of translation prefixes Section.
+1. Added Discovery of translation prefixes Section.
+
+1. Added MUST requirement for Rul 5.5 in RFC 6724.
 
 # Changes from RFC 6434 to RFC 8504
 
