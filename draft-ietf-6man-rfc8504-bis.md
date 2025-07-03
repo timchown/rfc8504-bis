@@ -112,8 +112,11 @@ normative:
   RFC8343:
   RFC8344:
   RFC8415:
+  RFC8899:
   RFC8981:
   RFC9131:
+  RFC9463:
+  I-D.ietf-6man-eh-limits:
 informative:
   RFC0793:
   RFC2205:
@@ -423,45 +426,8 @@ destination options, and hop-by-hop options in a packet. Given that
 the only limit on the number and size of extension headers is the MTU,
 the processing of received packets could be considerable. It is also
 conceivable that a long chain of extension headers might be used as a
-form of denial-of-service attack. Accordingly, a host may place limits
-on the number and sizes of extension headers and options it is willing
-to process.
-
-A host MAY limit the number of consecutive PAD1 options in destination
-options or hop-by-hop options to 7.
-In this case, if there are more than 7
-consecutive PAD1 options present, the packet MAY be
-silently discarded. The rationale is that if padding of 8 or more
-bytes is required, then the PADN option SHOULD be used.
-
-A host MAY limit the number of bytes in a PADN option to be less than
-8. In such a case, if a PADN option is present that has a length
-greater than 7, the packet SHOULD be silently discarded. The
-rationale for this guideline is that the purpose of padding is for
-alignment and 8 bytes is the maximum alignment used in IPv6.
-
-A host MAY disallow unknown options in destination options or
-hop-by-hop options. This SHOULD be configurable where the default is
-to accept unknown options and process them per {{RFC8200}}. If a packet
-with unknown options is received and the host is configured to
-disallow them, then the packet SHOULD be silently discarded.
-
-A host MAY impose a limit on the maximum number of non-padding options
-allowed in the destination options and hop-by-hop extension headers. If
-this feature is supported, the maximum number SHOULD be configurable,
-and the default value SHOULD be set to 8. The limits for
-destination options and hop-by-hop options may be separately
-configurable. If a packet is received and the number of destination or
-hop-by-hop options exceeds the limit, then the packet SHOULD be
-silently discarded.
-
-A host MAY impose a limit on the maximum length of Destination Options
-or Hop-by-Hop Options extension headers. This value SHOULD be
-configurable, and the default is to accept options of any length. If a
-packet is received and the length of the Destination or Hop-by-Hop Options
-extension header exceeds the length limit, then the packet SHOULD be
-silently discarded.
-
+form of denial-of-service attack. Accordingly, a host MAY implement
+{{I-D.ietf-6man-eh-limits}} has protection from this type of attacks.
 
 ## Neighbor Discovery for IPv6 - RFC 4861 {#ND}
 
@@ -564,8 +530,7 @@ anticipation of a future usage.
 
 ### Path MTU Discovery - RFC 8201
 
-"Path MTU Discovery for IP version 6" {{RFC8201}} SHOULD be
-supported.  From {{RFC8200}}:
+"Support for Path MTU Discovery for IP version 6" {{RFC8201}} as documented in {{RFC8200}}:
 
 >
 It is strongly recommended that IPv6 nodes implement
@@ -576,7 +541,6 @@ However, a minimal IPv6 implementation (e.g., in a boot
 ROM) may simply restrict itself to sending packets no
 larger than 1280 octets, and omit implementation of Path
 MTU Discovery.
-
 
 The rules in {{RFC8200}} and {{RFC5722}} MUST be followed for packet
 fragmentation and reassembly.
@@ -593,10 +557,11 @@ of the path (and thus these MUST NOT be filtered, as per the
 recommendation in {{RFC4890}}).
 
 An alternative to Path MTU Discovery defined in RFC 8201 can be
-found in {{RFC4821}}, which defines a method for Packetization
+found in {{RFC4821}} and {{RFC8899}}, which defines a method for Packetization
 Layer Path MTU Discovery (PLPMTUD) designed for use over paths where
 delivery of ICMPv6 messages to a host is not assured.
 
+PMTUD and PLPMTUD MUST be implemented and enabled by default, except in minimal IPv6 implementations.
 
 ### Minimum MTU Considerations
 
@@ -855,6 +820,8 @@ support.  All nodes SHOULD implement stub-resolver {{RFC1034}} functionality, as
 
 
 Those nodes are RECOMMENDED to support DNS security extensions {{RFC4033}}  {{RFC4034}}  {{RFC4035}}.
+
+Discover of encrypted DNS resolvers per {{RFC9463}} SHOULD be implemented.
 
 A6 Resource Records {{RFC2874}} are classified as Historic per {{RFC6563}}.  These were defined with Experimental status in {{RFC3363}}.
 
@@ -1270,6 +1237,12 @@ This section highlights the changes since RFC 8504.
 1. Added Discovery of translation prefixes Section.
 
 1. Added MUST requirement for Rul 5.5 in RFC 6724.
+
+1. Added Discovery of encrypted DNS resolver, RFC 9463.
+
+1. Added requirement to support PMTUD and PLPMTUD.
+
+1. Removed Extension Header protection text to utilize draft-ietf-6man-eh-limits.
 
 # Changes from RFC 6434 to RFC 8504
 
