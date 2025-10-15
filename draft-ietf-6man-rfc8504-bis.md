@@ -545,7 +545,7 @@ MTU Discovery.
 The rules in {{RFC8200}} and {{RFC5722}} MUST be followed for packet
 fragmentation and reassembly.
 
-As described in RFC 8201,
+As described in {{RFC8201}},
 nodes implementing Path MTU Discovery and sending packets larger than
 the IPv6 minimum link MTU are susceptible to problematic connectivity
 if ICMPv6 messages are blocked or not transmitted.  For
@@ -556,7 +556,7 @@ Discovery relies on ICMPv6 Packet Too Big (PTB) to determine the MTU
 of the path (and thus these MUST NOT be filtered, as per the
 recommendation in {{RFC4890}}).
 
-An alternative to Path MTU Discovery defined in RFC 8201 can be
+An alternative to Path MTU Discovery defined in {{RFC8201}} can be
 found in {{RFC4821}} and {{RFC8899}}, which defines a method for Packetization
 Layer Path MTU Discovery (PLPMTUD) designed for use over paths where
 delivery of ICMPv6 messages to a host is not assured.
@@ -1226,21 +1226,21 @@ This section highlights the changes since RFC 8504.
 
 1. Updated obsoleted RFCs including 3315 and 3736 (both to 8415) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.
 
-1. Added support for RFC 9131.
+1. Added support for Gratuitous Neighbor Discovery Creating Neighbor Cache Entries on First‑Hop Routers, RFC 9131.
 
-1. Type C host from RFC 4191 is went from a SHOULD to MUST.
+1. Type C host from RFC 4191 was updated from a SHOULD to MUST.
 
-1. Removed the Mobility Section.
+1. Removed the Mobility Section due to lack of known deployment.
 
-1. Removed the SEND Section.
+1. Removed the SEND Section due to limited use.
 
-1. Added Discovery of translation prefixes Section.
+1. Added Discovery of translation prefixes section (10.1.2) which includes RFC 8781 and 7050.
 
-1. Added MUST requirement for Rul 5.5 in RFC 6724.
+1. Added MUST requirement for Rule 5.5 in RFC 6724.
 
 1. Added Discovery of encrypted DNS resolver, RFC 9463.
 
-1. Added requirement to support PMTUD and PLPMTUD.
+1. Added requirement to support PMTUD (RFC 8201) and PLPMTUD (RFC 4821 and 8899).
 
 1. Removed Extension Header protection text to utilize draft-ietf-6man-eh-limits.
 
