@@ -599,9 +599,8 @@ each allocated by an upstream network that is assumed to implement
 BCP 38 ingress filtering, the host may have multiple routers to
 choose from.
 
-Hosts that may be deployed in such multihomed environments
-SHOULD follow the guidance given in {{RFC8028}}.
-
+Hosts deployed in multihomed environments MUST follow 
+the guidance given in {{RFC8028}} unless this is a constrained host.
 
 ## Multicast Listener Discovery (MLD) for IPv6 - RFC 3810 {#mld}
 
