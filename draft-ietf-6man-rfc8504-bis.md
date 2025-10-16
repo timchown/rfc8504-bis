@@ -392,7 +392,8 @@ Further, {{RFC7045}} adds specific requirements for
 the processing of extension headers, in particular that any forwarding
 node along an IPv6 packet's path, which forwards the packet for
 any reason, SHOULD do so regardless of any extension headers
-that are present.
+that are present.  {{RFC 9673}} MUST be supported to processing IPv6 Hop-by-Hop
+options in IPv6 routers and hosts to allow for deployment of the option.
 
 As per RFC 8200, when a node fragments an IPv6 datagram,
 it MUST include the entire IPv6 Header Chain in the first fragment.
