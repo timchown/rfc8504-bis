@@ -666,9 +666,9 @@ A host SHOULD support assigning multiple addresses as described in
 {{RFC7934}}.
 
 Nodes SHOULD support the capability to be assigned a prefix per host as
-documented in {{RFC8273}}.
+documented in {{RFC8273}} and {{RFC9663}}.
 Such an approach can offer improved host
-isolation and enhanced subscriber management on shared network segments.
+isolation, enhanced subscriber management, scalibity, and ability to extend the network. 
 
 
 ## IPv6 Stateless Address Autoconfiguration - RFC 4862
@@ -825,6 +825,7 @@ Discover of encrypted DNS resolvers per {{RFC9463}} SHOULD be implemented.
 
 A6 Resource Records {{RFC2874}} are classified as Historic per {{RFC6563}}.  These were defined with Experimental status in {{RFC3363}}.
 
+{{RFC 7050}} SHOULD be support by nodes to perform local IPv6 address synthesis when in IPv6-only environments.
 
 # Configuring Non-address Information {#OtherConfig}
 
