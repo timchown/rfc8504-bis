@@ -28,8 +28,6 @@ pi:
   rfcprocack: 'yes'
 
 title: IPv6 Node Requirements
-area: Internet
-workgroup: "IPv6 Maintenance"
 kw: IPv6
 
 author:
@@ -91,6 +89,7 @@ normative:
   RFC6762:
   RFC6763:
   RFC6775:
+  RFC6887:
   RFC6891:
   RFC6946:
   RFC7045:
@@ -113,9 +112,13 @@ normative:
   RFC8344:
   RFC8415:
   RFC8899:
+  RFC8925:
   RFC8981:
   RFC9131:
   RFC9463:
+  RFC9663:
+  RFC9673:
+  RFC9740:
   I-D.ietf-6man-eh-limits:
 informative:
   RFC0793:
@@ -392,7 +395,7 @@ Further, {{RFC7045}} adds specific requirements for
 the processing of extension headers, in particular that any forwarding
 node along an IPv6 packet's path, which forwards the packet for
 any reason, SHOULD do so regardless of any extension headers
-that are present.  {{RFC 9673}} MUST be supported to processing IPv6 Hop-by-Hop
+that are present.  {{RFC9673}} MUST be supported to processing IPv6 Hop-by-Hop
 options in IPv6 routers and hosts to allow for deployment of the option.
 
 As per RFC 8200, when a node fragments an IPv6 datagram,
@@ -829,7 +832,7 @@ Discover of encrypted DNS resolvers per {{RFC9463}} SHOULD be implemented.
 
 A6 Resource Records {{RFC2874}} are classified as Historic per {{RFC6563}}.  These were defined with Experimental status in {{RFC3363}}.
 
-{{RFC 7050}} SHOULD be support by nodes to perform local IPv6 address synthesis when in IPv6-only environments.
+{{RFC7050}} SHOULD be support by nodes to perform local IPv6 address synthesis when in IPv6-only environments.
 
 For a dual-stack node with addresses and routes configured for both IPv4 and IPv6,
 any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record MUST be discarded and returned as NXDOMAIN or the "ANY" record MUST be discarded.:W
@@ -916,7 +919,7 @@ configuration mechanisms to ensure interoperability.
 
 ## Port Control Protocol (PCP)
 
-Hosts SHOULD support {{6887}}, Port Control Protocol , to allow an IPv6 host to control how
+Hosts SHOULD support {{RFC6887}}, Port Control Protocol , to allow an IPv6 host to control how
 incoming IPv6 packets are forwarded by simple firewalls on routerst. 
 
 # Service Discovery Protocols
@@ -1404,8 +1407,9 @@ comprehensive list of all changes.
 
 * Acknowledgements from (Current Documents)
 
-  The authors would like to thank Nick Buraglio, Brian Carpenter, and Jeremy Duncan
-  for their contributions and many members of the 6man WG for the inputs they gave.
+  The authors would like to thank Mohamed Boucadair, Nick Buraglio, Brian Carpenter, Jeremy Duncan, and
+  Klaus Frank, Fernando Gont, and Bob Hinden, for their contributions and many members of the 
+  6man WG for the inputs they gave.
 
 * Acknowledgments from RFC 8504
 
