@@ -419,6 +419,7 @@ for the desired new function, and in such cases, it needs to follow the format
 described in {{Section 8 of RFC8200}}.  For further background
 reading on this topic, see {{RFC6564}}.
 
+{{RFC9740}} allows for better visibility on EHs, including identifying root causes of performance degradation and packet drops.
 
 ## Protecting a Node from Excessive Extension Header Options
 
@@ -831,7 +832,8 @@ A6 Resource Records {{RFC2874}} are classified as Historic per {{RFC6563}}.  The
 {{RFC 7050}} SHOULD be support by nodes to perform local IPv6 address synthesis when in IPv6-only environments.
 
 For a dual-stack node with addresses and routes configured for both IPv4 and IPv6,
-any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record MUST be discarded and returned as NXDOMAIN or the "ANY" record MUST be discarded.
+any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record MUST be discarded and returned as NXDOMAIN or the "ANY" record MUST be discarded.:W
+
 
 A IPv6-only node MUST NOT discard it if it's the only address within the response
 otherwise (when also a non IPv4-mapped IPv6-address is returned) the
