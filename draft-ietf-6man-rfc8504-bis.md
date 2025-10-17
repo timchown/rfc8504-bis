@@ -604,7 +604,7 @@ each allocated by an upstream network that is assumed to implement
 BCP 38 ingress filtering, the host may have multiple routers to
 choose from.
 
-Hosts deployed in multihomed environments MUST follow 
+Hosts deployed in multihomed environments MUST follow
 the guidance given in {{RFC8028}} unless this is a constrained host.
 
 ## Multicast Listener Discovery (MLD) for IPv6 - RFC 3810 {#mld}
@@ -672,7 +672,7 @@ A host SHOULD support assigning multiple addresses as described in
 Nodes SHOULD support the capability to be assigned a prefix per host as
 documented in {{RFC8273}} and {{RFC9663}}.
 Such an approach can offer improved host
-isolation, enhanced subscriber management, scalibity, and ability to extend the network. 
+isolation, enhanced subscriber management, scalibity, and ability to extend the network.
 
 
 ## IPv6 Stateless Address Autoconfiguration - RFC 4862
@@ -798,9 +798,9 @@ and thus will need to choose which addresses to use for which communications.
 The rules specified in the Default Address Selection for
 IPv6 document {{RFC6724}} MUST be implemented. {{RFC8028}} updates Rule 5.5 from {{RFC6724}}; implementations MUST implement this rule.
 
-## Prefer IPv6-Only 
+## Prefer IPv6-Only
 
-IPv6 nodes that support IPv6-only operation MAY forego obtaining IPv4 address by using the IPv4 
+IPv6 nodes that support IPv6-only operation MAY forego obtaining IPv4 address by using the IPv4
 DHCP Option 108 specified in {{RFC8925}}.
 
 # DNS
@@ -920,7 +920,7 @@ configuration mechanisms to ensure interoperability.
 ## Port Control Protocol (PCP)
 
 Hosts SHOULD support {{RFC6887}}, Port Control Protocol , to allow an IPv6 host to control how
-incoming IPv6 packets are forwarded by simple firewalls on routerst. 
+incoming IPv6 packets are forwarded by simple firewalls on routers.
 
 # Service Discovery Protocols
 
@@ -1255,13 +1255,27 @@ This section highlights the changes since RFC 8504.
 
 1. Added Discovery of translation prefixes section (10.1.2) which includes RFC 8781 and 7050.
 
-1. Added MUST requirement for Rule 5.5 in RFC 6724.
+1. Added MUST requirement for Rule 5.5 in RFC 6724 and 8208.
 
 1. Added Discovery of encrypted DNS resolver, RFC 9463.
 
 1. Added requirement to support PMTUD (RFC 8201) and PLPMTUD (RFC 4821 and 8899).
 
 1. Removed Extension Header protection text to utilize draft-ietf-6man-eh-limits.
+
+1. Added Hop by Hop Processing (RFC 9673)
+
+1. Added Port Control Protocol (PCP) to allow for IPv6 host to control incoming IPv6 packets with simple firewalls.
+
+1. Added using DHCPv6 Prefix Delegation to allocated IPv6 prefxies to hosts.
+
+1. Added RFC 7050 for discovery of IPv6 prefix for IPv6 address synthesis.
+
+1. Added DHCPv4 Option 108 for allowing hosts to specify support for IPv6-only networks.
+
+1. Added additional text for supporting IPv4-mapped DNS entries.
+
+1. Added RFC 9740 for better visiblity with extension headers in networks.
 
 # Changes from RFC 6434 to RFC 8504
 
@@ -1408,7 +1422,7 @@ comprehensive list of all changes.
 * Acknowledgements from (Current Documents)
 
   The authors would like to thank Mohamed Boucadair, Nick Buraglio, Brian Carpenter, Jeremy Duncan, and
-  Klaus Frank, Fernando Gont, and Bob Hinden, for their contributions and many members of the 
+  Klaus Frank, Fernando Gont, and Bob Hinden, for their contributions and many members of the
   6man WG for the inputs they gave.
 
 * Acknowledgments from RFC 8504
