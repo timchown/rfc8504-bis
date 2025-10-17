@@ -794,7 +794,10 @@ and thus will need to choose which addresses to use for which communications.
 The rules specified in the Default Address Selection for
 IPv6 document {{RFC6724}} MUST be implemented. {{RFC8028}} updates Rule 5.5 from {{RFC6724}}; implementations MUST implement this rule.
 
+## Prefer IPv6-Only 
 
+IPv6 nodes that support IPv6-only operation MAY forego obtaining IPv4 address by using the IPv4 
+DHCP Option 108 specified in {{RFC8925}}.
 
 # DNS
 
@@ -826,6 +829,13 @@ Discover of encrypted DNS resolvers per {{RFC9463}} SHOULD be implemented.
 A6 Resource Records {{RFC2874}} are classified as Historic per {{RFC6563}}.  These were defined with Experimental status in {{RFC3363}}.
 
 {{RFC 7050}} SHOULD be support by nodes to perform local IPv6 address synthesis when in IPv6-only environments.
+
+For a dual-stack node with addresses and routes configured for both IPv4 and IPv6,
+any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record MUST be discarded and returned as NXDOMAIN or the "ANY" record MUST be discarded.
+
+A IPv6-only node MUST NOT discard it if it's the only address within the response
+otherwise (when also a non IPv4-mapped IPv6-address is returned) the
+IPv4-mapped IPv6 address MUST be discarded.
 
 # Configuring Non-address Information {#OtherConfig}
 
@@ -902,7 +912,10 @@ hotspot), problems can arise. To maximize interoperability in
 such environments, hosts would need to implement multiple
 configuration mechanisms to ensure interoperability.
 
+## Port Control Protocol (PCP)
 
+Hosts SHOULD support {{6887}}, Port Control Protocol , to allow an IPv6 host to control how
+incoming IPv6 packets are forwarded by simple firewalls on routerst. 
 
 # Service Discovery Protocols
 
@@ -932,7 +945,7 @@ If an IPv6 node implements dual stack and tunneling, then {{RFC4213}} MUST be su
 
 ### Support for discovery of translation prefixes
 
-[RFC8781] describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network environments, it is recommended that all hosts support discovery of NAT64 prefixes as described in RFC 8781.
+[RFC8781] describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network environments, it is recommended that all hosts support discovery of NAT64 prefixes as described in {{RFC8781}}.
 Nodes MAY also support [RFC7050] as a fallback mechanism for NAT64 prefix discovery.
 
 
