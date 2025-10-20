@@ -28,8 +28,6 @@ pi:
   rfcprocack: 'yes'
 
 title: IPv6 Node Requirements
-area: Internet
-workgroup: "IPv6 Maintenance"
 kw: IPv6
 
 author:
@@ -91,6 +89,7 @@ normative:
   RFC6762:
   RFC6763:
   RFC6775:
+  RFC6887:
   RFC6891:
   RFC6946:
   RFC7045:
@@ -113,9 +112,13 @@ normative:
   RFC8344:
   RFC8415:
   RFC8899:
+  RFC8925:
   RFC8981:
   RFC9131:
   RFC9463:
+  RFC9663:
+  RFC9673:
+  RFC9740:
   I-D.ietf-6man-eh-limits:
 informative:
   RFC0793:
@@ -392,7 +395,8 @@ Further, {{RFC7045}} adds specific requirements for
 the processing of extension headers, in particular that any forwarding
 node along an IPv6 packet's path, which forwards the packet for
 any reason, SHOULD do so regardless of any extension headers
-that are present.
+that are present.  {{RFC9673}} MUST be supported to processing IPv6 Hop-by-Hop
+options in IPv6 routers and hosts to allow for deployment of the option.
 
 As per RFC 8200, when a node fragments an IPv6 datagram,
 it MUST include the entire IPv6 Header Chain in the first fragment.
@@ -418,6 +422,7 @@ for the desired new function, and in such cases, it needs to follow the format
 described in {{Section 8 of RFC8200}}.  For further background
 reading on this topic, see {{RFC6564}}.
 
+{{RFC9740}} allows for better visibility on EHs, including identifying root causes of performance degradation and packet drops.
 
 ## Protecting a Node from Excessive Extension Header Options
 
@@ -545,7 +550,7 @@ MTU Discovery.
 The rules in {{RFC8200}} and {{RFC5722}} MUST be followed for packet
 fragmentation and reassembly.
 
-As described in RFC 8201,
+As described in {{RFC8201}},
 nodes implementing Path MTU Discovery and sending packets larger than
 the IPv6 minimum link MTU are susceptible to problematic connectivity
 if ICMPv6 messages are blocked or not transmitted.  For
@@ -556,7 +561,7 @@ Discovery relies on ICMPv6 Packet Too Big (PTB) to determine the MTU
 of the path (and thus these MUST NOT be filtered, as per the
 recommendation in {{RFC4890}}).
 
-An alternative to Path MTU Discovery defined in RFC 8201 can be
+An alternative to Path MTU Discovery defined in {{RFC8201}} can be
 found in {{RFC4821}} and {{RFC8899}}, which defines a method for Packetization
 Layer Path MTU Discovery (PLPMTUD) designed for use over paths where
 delivery of ICMPv6 messages to a host is not assured.
@@ -599,9 +604,8 @@ each allocated by an upstream network that is assumed to implement
 BCP 38 ingress filtering, the host may have multiple routers to
 choose from.
 
-Hosts that may be deployed in such multihomed environments
-SHOULD follow the guidance given in {{RFC8028}}.
-
+Hosts deployed in multihomed environments MUST follow
+the guidance given in {{RFC8028}} unless this is a constrained host.
 
 ## Multicast Listener Discovery (MLD) for IPv6 - RFC 3810 {#mld}
 
@@ -666,9 +670,9 @@ A host SHOULD support assigning multiple addresses as described in
 {{RFC7934}}.
 
 Nodes SHOULD support the capability to be assigned a prefix per host as
-documented in {{RFC8273}}.
+documented in {{RFC8273}} and {{RFC9663}}.
 Such an approach can offer improved host
-isolation and enhanced subscriber management on shared network segments.
+isolation, enhanced subscriber management, scalibity, and ability to extend the network.
 
 
 ## IPv6 Stateless Address Autoconfiguration - RFC 4862
@@ -794,7 +798,10 @@ and thus will need to choose which addresses to use for which communications.
 The rules specified in the Default Address Selection for
 IPv6 document {{RFC6724}} MUST be implemented. {{RFC8028}} updates Rule 5.5 from {{RFC6724}}; implementations MUST implement this rule.
 
+## Prefer IPv6-Only
 
+IPv6 nodes that support IPv6-only operation MAY forego obtaining IPv4 address by using the IPv4
+DHCP Option 108 specified in {{RFC8925}}.
 
 # DNS
 
@@ -825,6 +832,15 @@ Discover of encrypted DNS resolvers per {{RFC9463}} SHOULD be implemented.
 
 A6 Resource Records {{RFC2874}} are classified as Historic per {{RFC6563}}.  These were defined with Experimental status in {{RFC3363}}.
 
+{{RFC7050}} SHOULD be support by nodes to perform local IPv6 address synthesis when in IPv6-only environments.
+
+For a dual-stack node with addresses and routes configured for both IPv4 and IPv6,
+any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record MUST be discarded and returned as NXDOMAIN or the "ANY" record MUST be discarded.:W
+
+
+A IPv6-only node MUST NOT discard it if it's the only address within the response
+otherwise (when also a non IPv4-mapped IPv6-address is returned) the
+IPv4-mapped IPv6 address MUST be discarded.
 
 # Configuring Non-address Information {#OtherConfig}
 
@@ -901,7 +917,10 @@ hotspot), problems can arise. To maximize interoperability in
 such environments, hosts would need to implement multiple
 configuration mechanisms to ensure interoperability.
 
+## Port Control Protocol (PCP)
 
+Hosts SHOULD support {{RFC6887}}, Port Control Protocol , to allow an IPv6 host to control how
+incoming IPv6 packets are forwarded by simple firewalls on routers.
 
 # Service Discovery Protocols
 
@@ -931,7 +950,7 @@ If an IPv6 node implements dual stack and tunneling, then {{RFC4213}} MUST be su
 
 ### Support for discovery of translation prefixes
 
-[RFC8781] describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network environments, it is recommended that all hosts support discovery of NAT64 prefixes as described in RFC 8781.
+[RFC8781] describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network environments, it is recommended that all hosts support discovery of NAT64 prefixes as described in {{RFC8781}}.
 Nodes MAY also support [RFC7050] as a fallback mechanism for NAT64 prefix discovery.
 
 
@@ -1226,23 +1245,37 @@ This section highlights the changes since RFC 8504.
 
 1. Updated obsoleted RFCs including 3315 and 3736 (both to 8415) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.
 
-1. Added support for RFC 9131.
+1. Added support for Gratuitous Neighbor Discovery Creating Neighbor Cache Entries on First‑Hop Routers, RFC 9131.
 
-1. Type C host from RFC 4191 is went from a SHOULD to MUST.
+1. Type C host from RFC 4191 was updated from a SHOULD to MUST.
 
-1. Removed the Mobility Section.
+1. Removed the Mobility Section due to lack of known deployment.
 
-1. Removed the SEND Section.
+1. Removed the SEND Section due to limited use.
 
-1. Added Discovery of translation prefixes Section.
+1. Added Discovery of translation prefixes section (10.1.2) which includes RFC 8781 and 7050.
 
-1. Added MUST requirement for Rul 5.5 in RFC 6724.
+1. Added MUST requirement for Rule 5.5 in RFC 6724 and 8208.
 
 1. Added Discovery of encrypted DNS resolver, RFC 9463.
 
-1. Added requirement to support PMTUD and PLPMTUD.
+1. Added requirement to support PMTUD (RFC 8201) and PLPMTUD (RFC 4821 and 8899).
 
 1. Removed Extension Header protection text to utilize draft-ietf-6man-eh-limits.
+
+1. Added Hop by Hop Processing (RFC 9673)
+
+1. Added Port Control Protocol (PCP) to allow for IPv6 host to control incoming IPv6 packets with simple firewalls.
+
+1. Added using DHCPv6 Prefix Delegation to allocated IPv6 prefxies to hosts.
+
+1. Added RFC 7050 for discovery of IPv6 prefix for IPv6 address synthesis.
+
+1. Added DHCPv4 Option 108 for allowing hosts to specify support for IPv6-only networks.
+
+1. Added additional text for supporting IPv4-mapped DNS entries.
+
+1. Added RFC 9740 for better visiblity with extension headers in networks.
 
 # Changes from RFC 6434 to RFC 8504
 
@@ -1388,8 +1421,9 @@ comprehensive list of all changes.
 
 * Acknowledgements from (Current Documents)
 
-  The authors would like to thank Nick Buraglio, Brian Carpenter, and Jeremy Duncan
-  for their contributions and many members of the 6man WG for the inputs they gave.
+  The authors would like to thank Mohamed Boucadair, Nick Buraglio, Brian Carpenter, Jeremy Duncan, and
+  Klaus Frank, Fernando Gont, and Bob Hinden, for their contributions and many members of the
+  6man WG for the inputs they gave.
 
 * Acknowledgments from RFC 8504
 
