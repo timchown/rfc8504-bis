@@ -119,6 +119,7 @@ normative:
   RFC9663:
   RFC9673:
   RFC9740:
+  RFC9869:
   I-D.ietf-6man-eh-limits:
 informative:
   RFC0793:
@@ -566,7 +567,8 @@ found in {{RFC4821}} and {{RFC8899}}, which defines a method for Packetization
 Layer Path MTU Discovery (PLPMTUD) designed for use over paths where
 delivery of ICMPv6 messages to a host is not assured.
 
-PMTUD and PLPMTUD MUST be implemented and enabled by default, except in minimal IPv6 implementations.
+A node MUST implement a PMTU discovery method and this must be enabled by default 
+(see {{RFC8899}} and {{RFC9869}}), except in minimal IPv6 implementations.
 
 ### Minimum MTU Considerations
 
