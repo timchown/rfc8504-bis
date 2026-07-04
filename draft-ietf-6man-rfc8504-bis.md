@@ -845,7 +845,7 @@ Discover of encrypted DNS resolvers per {{RFC9463}} SHOULD be implemented.
 
 A6 Resource Records {{RFC2874}} are classified as Historic per {{RFC6563}}.  These were defined with Experimental status in {{RFC3363}}.
 
-{{RFC7050}} SHOULD be support by nodes to perform local IPv6 address synthesis when in IPv6-only environments.
+Nodes SHOULD support {{RFC8781}} and MAY support {{RFC7050}} to perform local IPv6 address synthesis when in IPv6-only environments.
 
 For a dual-stack node with addresses and routes configured for both IPv4 and IPv6,
 any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record MUST be discarded and returned as NXDOMAIN or the "ANY" record MUST be discarded.:W
@@ -1282,7 +1282,7 @@ This section highlights the changes since RFC 8504.
 
 1. Added using DHCPv6 Prefix Delegation to allocated IPv6 prefxies to hosts.
 
-1. Added RFC 7050 for discovery of IPv6 prefix for IPv6 address synthesis.
+1. Added a SHOULD requirement for RFC 8781 and a MAY requirement for RFC 7050 for discovery of IPv6 prefix for IPv6 address synthesis.
 
 1. Added DHCPv4 Option 108 for allowing hosts to specify support for IPv6-only networks.
 
