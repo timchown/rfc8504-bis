@@ -396,7 +396,7 @@ Further, {{RFC7045}} adds specific requirements for
 the processing of extension headers, in particular that any forwarding
 node along an IPv6 packet's path, which forwards the packet for
 any reason, SHOULD do so regardless of any extension headers
-that are present.  {{RFC9673}} MUST be supported to processing IPv6 Hop-by-Hop
+that are present.  {{RFC9673}} MUST be supported for processing IPv6 Hop-by-Hop
 options in IPv6 routers and hosts to allow for deployment of the option.
 
 As per RFC 8200, when a node fragments an IPv6 datagram,
@@ -638,7 +638,7 @@ the packet echoes the congestion indication to the sender, which can then
 reduce its transmission rate as if it detected a dropped packet.
 
 Nodes SHOULD support ECN {{RFC3168}} by implementing an interface
-for the upper layer to access and by setting the ECN bits in the IP header.
+for the upper layer to access and by setting the ECN fields in the IP header.
 The benefits of using ECN are documented in {{RFC8087}}.
 
 
