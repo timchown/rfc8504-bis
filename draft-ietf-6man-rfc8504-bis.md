@@ -54,6 +54,8 @@ author:
 normative:
   RFC1034:
   RFC1035:
+  RFC2474:
+  RFC2475:
   RFC2710:
   RFC2711:
   RFC2863:
@@ -630,6 +632,17 @@ depends on multicast and requires that nodes join Solicited Node
 multicast addresses.
 
 
+## Differentiated Services (Diffserv)
+
+The Differentiated Services (Diffserv) architecture, described in {{RFC2475}},
+and the definition of the Differentiated Services (DS) Field, specified in
+{{RFC2474}}, define how the IPv6 Traffic Class field is used to classify and
+manage network traffic in order to provide different levels of service.
+
+Nodes SHOULD support Diffserv {{RFC2474}} {{RFC2475}} by implementing an
+interface for the upper layer, e.g. via an API, to set and access the
+Differentiated Services Code Point (DSCP) within the Traffic Class field.
+
 ## Explicit Congestion Notification (ECN) - RFC 3168
 
 An ECN-aware router sets a mark in the IP header in order to signal
@@ -640,8 +653,6 @@ reduce its transmission rate as if it detected a dropped packet.
 Nodes SHOULD support ECN {{RFC3168}} by implementing an interface
 for the upper layer to access and by setting the ECN fields in the IP header.
 The benefits of using ECN are documented in {{RFC8087}}.
-
-
 
 # Addressing and Address Configuration
 
@@ -1278,6 +1289,8 @@ This section highlights the changes since RFC 8504.
 1. Added additional text for supporting IPv4-mapped DNS entries.
 
 1. Added RFC 9740 for better visiblity with extension headers in networks.
+
+1. Added a Differentiated Services (Diffserv) section (RFC 2474 and RFC 2475), including a SHOULD requirement for an API to set and access the DSCP.
 
 # Changes from RFC 6434 to RFC 8504
 
