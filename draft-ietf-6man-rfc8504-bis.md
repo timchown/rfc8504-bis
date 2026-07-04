@@ -123,7 +123,6 @@ normative:
   RFC9673:
   RFC9740:
   RFC9869:
-  I-D.ietf-6man-eh-limits:
 informative:
   RFC0793:
   RFC2205:
@@ -430,13 +429,48 @@ reading on this topic, see {{RFC6564}}.
 
 ## Protecting a Node from Excessive Extension Header Options
 
-As per RFC 8200, end hosts are expected to process all extension headers,
-destination options, and hop-by-hop options in a packet. Given that
-the only limit on the number and size of extension headers is the MTU,
-the processing of received packets could be considerable. It is also
-conceivable that a long chain of extension headers might be used as a
-form of denial-of-service attack. Accordingly, a host MAY implement
-{{I-D.ietf-6man-eh-limits}} has protection from this type of attacks.
+As per {{RFC8200}}, end hosts are expected to process all extension
+headers, destination options, and hop-by-hop options in a packet.
+Given that the only limit on the number and size of extension headers
+is the MTU, the processing of received packets could be considerable.
+It is also conceivable that a long chain of extension headers might
+be used as a form of denial-of-service attack. Accordingly, a host
+may place limits on the number and sizes of extension headers and
+options it is willing to process.
+
+A host MAY limit the number of consecutive PAD1 options in
+destination options or hop-by-hop options to 7. In this case, if
+there are more than 7 consecutive PAD1 options present, the packet
+MAY be silently discarded. The rationale is that if padding of 8 or
+more bytes is required, then the PADN option SHOULD be used.
+
+A host MAY limit the number of bytes in a PADN option to be less
+than 8. In such a case, if a PADN option is present that has a
+length greater than 7, the packet SHOULD be silently discarded. The
+rationale for this guideline is that the purpose of padding is for
+alignment and 8 bytes is the maximum alignment used in IPv6.
+
+A host MAY disallow unknown options in destination options or
+hop-by-hop options. This SHOULD be configurable where the default is
+to accept unknown options and process them per {{RFC8200}}. If a packet
+with unknown options is received and the host is configured to
+disallow them, then the packet SHOULD be silently discarded.
+
+A host MAY impose a limit on the maximum number of non-padding
+options allowed in the destination options and hop-by-hop extension
+headers. If this feature is supported, the maximum number SHOULD be
+configurable, and the default value SHOULD be set to 8. The limits
+for destination options and hop-by-hop options may be separately
+configurable. If a packet is received and the number of destination
+or hop-by-hop options exceeds the limit, then the packet SHOULD be
+silently discarded.
+
+A host MAY impose a limit on the maximum length of Destination
+Options or Hop-by-Hop Options extension headers. This value SHOULD
+be configurable, and the default is to accept options of any length.
+If a packet is received and the length of the Destination or
+Hop-by-Hop Options extension header exceeds the length limit, then
+the packet SHOULD be silently discarded.
 
 ## Neighbor Discovery for IPv6 - RFC 4861 {#ND}
 
@@ -1278,8 +1312,6 @@ This section highlights the changes since RFC 8504.
 1. Added Discovery of encrypted DNS resolver, RFC 9463.
 
 1. Added requirement to support PMTUD (RFC 8201) and PLPMTUD (RFC 4821 and 8899).
-
-1. Removed Extension Header protection text to utilize draft-ietf-6man-eh-limits.
 
 1. Added Hop by Hop Processing (RFC 9673)
 
