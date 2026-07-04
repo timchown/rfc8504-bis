@@ -117,6 +117,7 @@ normative:
   RFC8925:
   RFC8981:
   RFC9131:
+  RFC9460:
   RFC9463:
   RFC9663:
   RFC9673:
@@ -836,7 +837,11 @@ support.  All nodes SHOULD implement stub-resolver {{RFC1034}} functionality, as
 
 
 -
-: Extension Mechanisms for DNS (EDNS(0)) {{RFC6891}} to allow for DNS packet sizes larger than 512 octets.
+: Extension Mechanisms for DNS (EDNS(0)) {{RFC6891}} to allow for DNS packet sizes larger than 512 octets; and
+
+
+-
+: Service Binding (SVCB) and HTTPS Resource Records {{RFC9460}}, which convey transport parameters such as IPv6 hints for a service.
 
 
 Those nodes are RECOMMENDED to support DNS security extensions {{RFC4033}}  {{RFC4034}}  {{RFC4035}}.
@@ -1291,6 +1296,8 @@ This section highlights the changes since RFC 8504.
 1. Added RFC 9740 for better visiblity with extension headers in networks.
 
 1. Added a Differentiated Services (Diffserv) section (RFC 2474 and RFC 2475), including a SHOULD requirement for an API to set and access the DSCP.
+
+1. Added SVCB and HTTPS Resource Records (RFC 9460) to the list of stub-resolver support, noting their use for conveying IPv6 hints.
 
 # Changes from RFC 6434 to RFC 8504
 
