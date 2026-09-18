@@ -455,12 +455,6 @@ length greater than 7, the packet SHOULD be silently discarded. The
 rationale for this guideline is that the purpose of padding is for
 alignment and 8 bytes is the maximum alignment used in IPv6.
 
-A host MAY disallow unknown options in destination options or
-hop-by-hop options. This SHOULD be configurable where the default is
-to accept unknown options and process them per {{RFC8200}}. If a packet
-with unknown options is received and the host is configured to
-disallow them, then the packet SHOULD be silently discarded.
-
 A host MAY impose a limit on the maximum number of non-padding
 options allowed in the destination options and hop-by-hop extension
 headers. If this feature is supported, the maximum number SHOULD be
