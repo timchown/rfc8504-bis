@@ -158,7 +158,6 @@ informative:
   RFC6275:
   RFC6563:
   RFC6980:
-  RFC7050:
   RFC7123:
   RFC7371:
   RFC7421:
@@ -173,6 +172,7 @@ informative:
   RFC8781:
   RFC9663:
   RFC9805:
+  RFC9872:
   I-D.ietf-v6ops-rfc7084bis:
   POSIX:
     target: https://ieeexplore.ieee.org/document/8277153
@@ -603,8 +603,8 @@ found in {{RFC4821}} and {{RFC8899}}, which defines a method for Packetization
 Layer Path MTU Discovery (PLPMTUD) designed for use over paths where
 delivery of ICMPv6 messages to a host is not assured.
 
-A node MUST implement a PMTU discovery method and this must be enabled by default
-(see {{RFC8899}} and {{RFC9869}}), except in minimal IPv6 implementations.
+A node MUST implement a PMTU discovery method and this MUST be enabled by default
+(see {{RFC8899}} and {{RFC9869}} for UDP Options), except in minimal IPv6 implementations.
 
 ### Minimum MTU Considerations
 
@@ -850,8 +850,9 @@ IPv6 document {{RFC6724}}, as updated by {{I-D.ietf-6man-rfc6724-update}}, MUST 
 
 ## Prefer IPv6-Only
 
-IPv6 nodes that support IPv6-only operation MAY forego obtaining IPv4 address by using the IPv4
-DHCP Option 108 specified in {{RFC8925}}.
+IPv6 nodes that support IPv6-only operation MAY forego obtaining an IPv4 address by using the IPv4
+DHCP Option 108 specified in {{RFC8925}}, if the node has provisions in place to support
+connecting to IPv4-only resources. A node without such provisions would be unable to reach IPv4-only resources.
 
 # DNS
 
@@ -882,14 +883,14 @@ support.  All nodes SHOULD implement stub-resolver {{RFC1034}} functionality, as
 
 Those nodes are RECOMMENDED to support DNS security extensions {{RFC4033}}  {{RFC4034}}  {{RFC4035}}.
 
-Discover of encrypted DNS resolvers per {{RFC9463}} SHOULD be implemented.
+Discovery of encrypted DNS resolvers per {{RFC9463}} SHOULD be implemented.
 
 A6 Resource Records {{RFC2874}} are classified as Historic per {{RFC6563}}.  These were defined with Experimental status in {{RFC3363}}.
 
-Nodes SHOULD support {{RFC8781}} and MAY support {{RFC7050}} to perform local IPv6 address synthesis when in IPv6-only environments.
+Nodes SHOULD support {{RFC8781}} to perform local IPv6 address synthesis when in IPv6-only environments.
 
 For a dual-stack node with addresses and routes configured for both IPv4 and IPv6,
-any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record MUST be discarded and returned as NXDOMAIN or the "ANY" record MUST be discarded.:W
+any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record MUST be discarded and returned as NXDOMAIN or the "ANY" record MUST be discarded.
 
 
 A IPv6-only node MUST NOT discard it if it's the only address within the response
@@ -1004,8 +1005,7 @@ If an IPv6 node implements dual stack and tunneling, then {{RFC4213}} MUST be su
 
 ### Support for discovery of translation prefixes
 
-[RFC8781] describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network environments, it is recommended that all hosts support discovery of NAT64 prefixes as described in {{RFC8781}}.
-Nodes MAY also support [RFC7050] as a fallback mechanism for NAT64 prefix discovery.
+[RFC8781] describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network environments, {{RFC9872}} recommends that all hosts support discovery of NAT64 prefixes as described in {{RFC8781}}.
 
 
 # Application Support
@@ -1161,7 +1161,7 @@ The Router Alert option has been deprecated for use by new protocols, per {{RFC9
 Sending Router Advertisements and processing Router
 Solicitations MUST be supported.
 
-Routers SHOULD support {{RFC9131}} to avoid packet lost.
+Routers SHOULD support {{RFC9131}} to avoid packet loss.
 
 {{Section 7 of RFC6275}} includes some mobility-specific
 extensions to Neighbor Discovery.
@@ -1313,19 +1313,19 @@ This section highlights the changes since RFC 8504.
 
 1. Removed the SEND Section due to limited use.
 
-1. Added Discovery of translation prefixes section (10.1.2) which includes RFC 8781 and 7050.
+1. Added Discovery of translation prefixes section (10.1.2) which includes RFC 8781 and 9872.
 
 1. Added Discovery of encrypted DNS resolver, RFC 9463.
 
-1. Added requirement to support PMTUD (RFC 8201) and PLPMTUD (RFC 4821 and 8899).
+1. Added requirement to support PMTUD (RFC 8201) and PLPMTUD (RFC 4821, 8899, and 9869).
 
-1. Added Hop by Hop Processing (RFC 9673)
+1. Added Hop-by-Hop Options processing (RFC 9673) as a MUST.
 
 1. Added Port Control Protocol (PCP) to allow for IPv6 host to control incoming IPv6 packets with simple firewalls.
 
-1. Added using DHCPv6 Prefix Delegation to allocated IPv6 prefxies to hosts.
+1. Added RFC 9663 for using DHCPv6 Prefix Delegation to allocate IPv6 prefixes to hosts.
 
-1. Added a SHOULD requirement for RFC 8781 and a MAY requirement for RFC 7050 for discovery of IPv6 prefix for IPv6 address synthesis.
+1. Added a SHOULD requirement for RFC 8781 for discovery of IPv6 prefix for IPv6 address synthesis.
 
 1. Added DHCPv4 Option 108 for allowing hosts to specify support for IPv6-only networks.
 
@@ -1348,6 +1348,10 @@ This section highlights the changes since RFC 8504.
 1. Updated the reference for basic requirements for IPv6 customer edge routers from RFC 7084 to draft-ietf-v6ops-rfc7084bis.
 
 1. Added RFC 9805, noting that the IPv6 Router Alert option is deprecated for use by new protocols.
+
+1. RFC 8028 was updated from a SHOULD to a MUST for hosts in multihomed environments, with an exception for constrained hosts.
+
+1. Updated the reference for overlapping fragment handling from RFC 5722 to Section 4.5 of RFC 8200.
 
 # Changes from RFC 6434 to RFC 8504
 
