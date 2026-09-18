@@ -123,6 +123,7 @@ normative:
   RFC9673:
   RFC9740:
   RFC9762:
+  RFC9844:
   RFC9869:
   I-D.ietf-6man-rfc6724-update:
 informative:
@@ -158,7 +159,6 @@ informative:
   RFC6563:
   RFC6980:
   RFC7050:
-  RFC7084:
   RFC7123:
   RFC7371:
   RFC7421:
@@ -172,6 +172,7 @@ informative:
   RFC8273:
   RFC8781:
   RFC9663:
+  I-D.draft-ietf-v6ops-rfc7084bis:
   POSIX:
     target: https://ieeexplore.ieee.org/document/8277153
     title: Information Technology -- Portable Operating System Interface (POSIX(R))
@@ -1014,12 +1015,13 @@ Nodes MAY also support [RFC7050] as a fallback mechanism for NAT64 prefix discov
 
 # Application Support
 
-## Textual Representation of IPv6 Addresses - RFC 5952
+## Textual Representation of IPv6 Addresses
 
 Software that allows users and operators to input IPv6
 addresses in text form SHOULD support "A Recommendation for
-IPv6 Address Text Representation" {{RFC5952}}.
-
+IPv6 Address Text Representation" {{RFC5952}}. Such software
+SHOULD also support entering the zone identifier of an IPv6
+scoped address as specified in {{RFC9844}}.
 
 ## Application Programming Interfaces (APIs)
 
@@ -1145,7 +1147,7 @@ updates or replacements to {{RFC8247}}.
 
 This section defines general host considerations for IPv6 nodes
 that act as routers.  Currently, this section does not discuss
-detailed routing-specific requirements. For the case of typical home routers, {{RFC7084}} defines basic requirements for customer edge routers.
+detailed routing-specific requirements. For the case of typical home routers, {{I-D.draft-ietf-v6ops-rfc7084bis}} defines basic requirements for customer edge routers.
 
 ## IPv6 Router Alert Option - RFC 2711
 
@@ -1183,13 +1185,16 @@ In simple deployments, consisting of a single router and
 either a single LAN or multiple LANs attached to the single
 router, together with a WAN connection, a DHCP server
 embedded within the router is one common deployment scenario
-(e.g., {{RFC7084}}). There is no need
+(e.g., {{I-D.draft-ietf-v6ops-rfc7084bis}}). There is no need
 for relay agents in such scenarios.
 
 In more complex deployment scenarios, such as within enterprise or service provider networks, the use of DHCP requires some level of configuration, in order to configure relay agents, prefixes for delegation, DHCP servers, etc. In such environments, the DHCP server might even be run on a traditional server, rather than as part of a router.
 
-Because of the wide range of deployment scenarios, support for DHCP server functionality on routers is optional.  However, routers targeted for deployment within more complex scenarios (as described above) SHOULD support relay agent functionality including support for support DHCPv6-PD as defined in [RFC3633](?).  Note that "Basic Requirements for IPv6 Customer Edge Routers" [RFC7084] requires implementation of a DHCPv6 server function in IPv6 Customer Edge (CE) routers.
-
+Because of the wide range of deployment scenarios, support for DHCP server functionality on routers is optional.  However,
+routers targeted for deployment within more complex scenarios (as described above) SHOULD support relay agent functionality
+including support for support DHCPv6-PD as defined in {{RFC8415}}.  Note that "Basic Requirements for IPv6 Customer Edge
+Routers" {{I-D.draft-ietf-v6ops-rfc7084bis}} requires implementation of a DHCPv6 server function in IPv6 Customer Edge
+(CE) routers.
 
 ## IPv6 Prefix Length Recommendation for Forwarding - BCP 198
 
@@ -1340,6 +1345,10 @@ This section highlights the changes since RFC 8504.
 1. Added RFC 9762 for signalling the availability of DHCPv6 prefix delegation through the P flag in the Prefix Information Option.
 
 1. Updated the Default Address Selection for IPv6 requirement to reference draft-ietf-6man-rfc6724-update, which updates RFC 6724.
+
+1. Added RFC 9844 for entering the zone identifier of an IPv6 scoped address in user interfaces.
+
+1. Updated the reference for basic requirements for IPv6 customer edge routers from RFC 7084 to draft-ietf-v6ops-rfc7084bis.
 
 # Changes from RFC 6434 to RFC 8504
 
@@ -1529,5 +1538,4 @@ comprehensive list of all changes.
   Droms,
   Christian Huitema, Adam Machalek, Thomas Narten, Juha Ollila, and Pekka
   Savola for their comments.
-
 
