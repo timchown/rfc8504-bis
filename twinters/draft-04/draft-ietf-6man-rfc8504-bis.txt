@@ -103,7 +103,7 @@ Table of Contents
      6.3.  IPv6 Stateless Address Autoconfiguration - RFC 4862
      6.4.  Privacy Extensions for Address Configuration in IPv6 - RFC
            8981
-     6.5.  Stateful Address Autoconfiguration (DHCPv6) - RFC 8415
+     6.5.  Stateful Address Autoconfiguration (DHCPv6) - RFC 9915
      6.6.  Default Address Selection for IPv6 - RFC 6724
      6.7.  Prefer IPv6-Only
    7.  DNS
@@ -122,7 +122,7 @@ Table of Contents
                - RFC 4213
        10.1.2.  Support for discovery of translation prefixes
    11. Application Support
-     11.1.  Textual Representation of IPv6 Addresses - RFC 5952
+     11.1.  Textual Representation of IPv6 Addresses
      11.2.  Application Programming Interfaces (APIs)
    12. Security
      12.1.  Requirements
@@ -130,7 +130,7 @@ Table of Contents
    13. Router-Specific Functionality
      13.1.  IPv6 Router Alert Option - RFC 2711
      13.2.  Neighbor Discovery for IPv6 - RFC 4861
-     13.3.  Stateful Address Autoconfiguration (DHCPv6) - RFC 8415
+     13.3.  Stateful Address Autoconfiguration (DHCPv6) - RFC 9915
      13.4.  IPv6 Prefix Length Recommendation for Forwarding - BCP 198
    14. Constrained Devices
    15. IPv6 Node Management
@@ -394,12 +394,6 @@ Table of Contents
    rationale for this guideline is that the purpose of padding is for
    alignment and 8 bytes is the maximum alignment used in IPv6.
 
-   A host MAY disallow unknown options in destination options or hop-by-
-   hop options.  This SHOULD be configurable where the default is to
-   accept unknown options and process them per [RFC8200].  If a packet
-   with unknown options is received and the host is configured to
-   disallow them, then the packet SHOULD be silently discarded.
-
    A host MAY impose a limit on the maximum number of non-padding
    options allowed in the destination options and hop-by-hop extension
    headers.  If this feature is supported, the maximum number SHOULD be
@@ -536,9 +530,9 @@ Table of Contents
    over paths where delivery of ICMPv6 messages to a host is not
    assured.
 
-   A node MUST implement a PMTU discovery method and this must be
-   enabled by default (see [RFC8899] and [RFC9869]), except in minimal
-   IPv6 implementations.
+   A node MUST implement a PMTU discovery method and this MUST be
+   enabled by default (see [RFC8899] and [RFC9869] for UDP Options),
+   except in minimal IPv6 implementations.
 
 5.6.2.  Minimum MTU Considerations
 
@@ -710,10 +704,10 @@ Table of Contents
    possible for a third-party device to track the activities of the node
    they communicate, as that node moves around the network.  Privacy
    Extensions for Stateless Address Autoconfiguration [RFC8981] address
-   this concern by allowing nodes to configure an additional temporary
-   address where the IID is effectively randomly generated.  Privacy
-   addresses are then used as source addresses for new communications
-   initiated by the node.
+   this concern by allowing nodes to configure an temporary address
+   where the IID is effectively randomly generated.  Privacy addresses
+   are then used as source addresses for new communications initiated by
+   the node.
 
    General issues regarding privacy issues for IPv6 addressing are
    discussed in [RFC7721].
@@ -732,9 +726,9 @@ Table of Contents
    Consult "Reserved IPv6 Interface Identifiers" [RFC5453] for more
    details.
 
-6.5.  Stateful Address Autoconfiguration (DHCPv6) - RFC 8415
+6.5.  Stateful Address Autoconfiguration (DHCPv6) - RFC 9915
 
-   DHCPv6 [RFC8415] can be used to obtain and configure addresses.  In
+   DHCPv6 [RFC9915] can be used to obtain and configure addresses.  In
    general, a network may provide for the configuration of addresses
    through SLAAC, DHCPv6, or both.  There will be a wide range of IPv6
    deployment models and differences in address assignment requirements,
@@ -762,8 +756,11 @@ Table of Contents
 
 6.7.  Prefer IPv6-Only
 
-   IPv6 nodes that support IPv6-only operation MAY forego obtaining IPv4
-   address by using the IPv4 DHCP Option 108 specified in [RFC8925].
+   IPv6 nodes that support IPv6-only operation MAY forego obtaining an
+   IPv4 address by using the IPv4 DHCP Option 108 specified in
+   [RFC8925], if the node has provisions in place to support connecting
+   to IPv4-only resources.  A node without such provisions would be
+   unable to reach IPv4-only resources.
 
 7.  DNS
 
@@ -788,20 +785,20 @@ Table of Contents
    Those nodes are RECOMMENDED to support DNS security extensions
    [RFC4033] [RFC4034] [RFC4035].
 
-   Discover of encrypted DNS resolvers per [RFC9463] SHOULD be
+   Discovery of encrypted DNS resolvers per [RFC9463] SHOULD be
    implemented.
 
    A6 Resource Records [RFC2874] are classified as Historic per
    [RFC6563].  These were defined with Experimental status in [RFC3363].
 
-   Nodes SHOULD support [RFC8781] and MAY support [RFC7050] to perform
-   local IPv6 address synthesis when in IPv6-only environments.
+   Nodes SHOULD support [RFC8781] to perform local IPv6 address
+   synthesis when in IPv6-only environments.
 
    For a dual-stack node with addresses and routes configured for both
    IPv4 and IPv6, any IPv4-mapped IPv6 addresses encountered within the
    response of a DNS request nodes with the AAAA record MUST be
    discarded and returned as NXDOMAIN or the "ANY" record MUST be
-   discarded.:W
+   discarded.
 
    A IPv6-only node MUST NOT discard it if it's the only address within
    the response otherwise (when also a non IPv4-mapped IPv6-address is
@@ -811,7 +808,7 @@ Table of Contents
 
 8.1.  DHCP for Other Configuration Information
 
-   DHCP [RFC8415] specifies a mechanism for IPv6 nodes to obtain address
+   DHCP [RFC9915] specifies a mechanism for IPv6 nodes to obtain address
    configuration information (see Section 6.5) and to obtain additional
    (non-address) configuration.  If a host implementation supports
    applications or other protocols that require configuration that is
@@ -819,7 +816,7 @@ Table of Contents
    specialized devices on which no such configuration need is present,
    DHCP may not be necessary.
 
-   An IPv6 node can use the subset of DHCP (described in [RFC8415]) to
+   An IPv6 node can use the subset of DHCP (described in [RFC9915]) to
    obtain other configuration information.
 
    If an IPv6 node implements DHCP, it MUST implement the DNS options
@@ -911,18 +908,18 @@ Table of Contents
    Advertisements (RAs) to communicate prefixes of Network Address and
    Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to
    hosts.  In order to support migration to and operation of IPv6-mostly
-   and IPv6-only network environments, it is recommended that all hosts
-   support discovery of NAT64 prefixes as described in [RFC8781].  Nodes
-   MAY also support [RFC7050] as a fallback mechanism for NAT64 prefix
-   discovery.
+   and IPv6-only network environments, [RFC9872] recommends that all
+   hosts support discovery of NAT64 prefixes as described in [RFC8781].
 
 11.  Application Support
 
-11.1.  Textual Representation of IPv6 Addresses - RFC 5952
+11.1.  Textual Representation of IPv6 Addresses
 
    Software that allows users and operators to input IPv6 addresses in
    text form SHOULD support "A Recommendation for IPv6 Address Text
-   Representation" [RFC5952].
+   Representation" [RFC5952].  Such software SHOULD also support
+   entering the zone identifier of an IPv6 scoped address as specified
+   in [RFC9844].
 
 11.2.  Application Programming Interfaces (APIs)
 
@@ -1042,7 +1039,8 @@ Table of Contents
    This section defines general host considerations for IPv6 nodes that
    act as routers.  Currently, this section does not discuss detailed
    routing-specific requirements.  For the case of typical home routers,
-   [RFC7084] defines basic requirements for customer edge routers.
+   [I-D.ietf-v6ops-rfc7084bis] defines basic requirements for customer
+   edge routers.
 
 13.1.  IPv6 Router Alert Option - RFC 2711
 
@@ -1052,20 +1050,23 @@ Table of Contents
    Router Alert option will need to be implemented whenever such
    protocols that mandate its use are implemented.  See Section 5.10.
 
+   The Router Alert option has been deprecated for use by new protocols,
+   per [RFC9805].
+
 13.2.  Neighbor Discovery for IPv6 - RFC 4861
 
    Sending Router Advertisements and processing Router Solicitations
    MUST be supported.
 
-   Routers SHOULD support [RFC9131] to avoid packet lost.
+   Routers SHOULD support [RFC9131] to avoid packet loss.
 
    Section 7 of [RFC6275] includes some mobility-specific extensions to
    Neighbor Discovery.  Routers SHOULD implement Sections 7.3 and 7.5,
    even if they do not implement home agent functionality.
 
-13.3.  Stateful Address Autoconfiguration (DHCPv6) - RFC 8415
+13.3.  Stateful Address Autoconfiguration (DHCPv6) - RFC 9915
 
-   A single DHCP server ([RFC8415] or [RFC4862]) can provide
+   A single DHCP server ([RFC9915] or [RFC4862]) can provide
    configuration information to devices directly attached to a shared
    link, as well as to devices located elsewhere within a site.
    Communication between a client and a DHCP server located on different
@@ -1074,8 +1075,8 @@ Table of Contents
    In simple deployments, consisting of a single router and either a
    single LAN or multiple LANs attached to the single router, together
    with a WAN connection, a DHCP server embedded within the router is
-   one common deployment scenario (e.g., [RFC7084]).  There is no need
-   for relay agents in such scenarios.
+   one common deployment scenario (e.g., [I-D.ietf-v6ops-rfc7084bis]).
+   There is no need for relay agents in such scenarios.
 
    In more complex deployment scenarios, such as within enterprise or
    service provider networks, the use of DHCP requires some level of
@@ -1088,8 +1089,8 @@ Table of Contents
    server functionality on routers is optional.  However, routers
    targeted for deployment within more complex scenarios (as described
    above) SHOULD support relay agent functionality including support for
-   support DHCPv6-PD as defined in RFC3633 (?).  Note that "Basic
-   Requirements for IPv6 Customer Edge Routers" [RFC7084] requires
+   DHCPv6-PD as defined in [RFC9915].  Note that "Basic Requirements for
+   IPv6 Customer Edge Routers" [I-D.ietf-v6ops-rfc7084bis] requires
    implementation of a DHCPv6 server function in IPv6 Customer Edge (CE)
    routers.
 
@@ -1493,12 +1494,6 @@ Table of Contents
               RFC 8344, DOI 10.17487/RFC8344, March 2018,
               <https://www.rfc-editor.org/rfc/rfc8344>.
 
-   [RFC8415]  Mrugalski, T., Siodelski, M., Volz, B., Yourtchenko, A.,
-              Richardson, M., Jiang, S., Lemon, T., and T. Winters,
-              "Dynamic Host Configuration Protocol for IPv6 (DHCPv6)",
-              RFC 8415, DOI 10.17487/RFC8415, November 2018,
-              <https://www.rfc-editor.org/rfc/rfc8415>.
-
    [RFC8815]  Abrahamsson, M., Chown, T., Giuliano, L., and T. Eckert,
               "Deprecating Any-Source Multicast (ASM) for Interdomain
               Multicast", BCP 229, RFC 8815, DOI 10.17487/RFC8815,
@@ -1551,12 +1546,29 @@ Table of Contents
               DOI 10.17487/RFC9762, June 2025,
               <https://www.rfc-editor.org/rfc/rfc9762>.
 
+   [RFC9844]  Carpenter, B. and R. Hinden, "Entering IPv6 Zone
+              Identifiers in User Interfaces", RFC 9844,
+              DOI 10.17487/RFC9844, August 2025,
+              <https://www.rfc-editor.org/rfc/rfc9844>.
+
    [RFC9869]  Fairhurst, G. and T. Jones, "Datagram Packetization Layer
               Path MTU Discovery (DPLPMTUD) for UDP Options", RFC 9869,
               DOI 10.17487/RFC9869, October 2025,
               <https://www.rfc-editor.org/rfc/rfc9869>.
 
+   [RFC9915]  Mrugalski, T., Volz, B., Richardson, M., Jiang, S., and T.
+              Winters, "Dynamic Host Configuration Protocol for IPv6
+              (DHCPv6)", STD 102, RFC 9915, DOI 10.17487/RFC9915,
+              January 2026, <https://www.rfc-editor.org/rfc/rfc9915>.
+
 18.2.  Informative References
+
+   [I-D.ietf-v6ops-rfc7084bis]
+              Lencse, G., Martinez, J. P., Patton, B., and T. Winters,
+              "Basic Requirements for IPv6 Customer Edge Routers", Work
+              in Progress, Internet-Draft, draft-ietf-v6ops-rfc7084bis-
+              06, 6 July 2026, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-v6ops-rfc7084bis-06>.
 
    [POSIX]    IEEE, "Information Technology -- Portable Operating System
               Interface (POSIX(R)) Base Specifications, Issue 7", IEEE
@@ -1709,16 +1721,6 @@ Table of Contents
               DOI 10.17487/RFC6980, August 2013,
               <https://www.rfc-editor.org/rfc/rfc6980>.
 
-   [RFC7050]  Savolainen, T., Korhonen, J., and D. Wing, "Discovery of
-              the IPv6 Prefix Used for IPv6 Address Synthesis",
-              RFC 7050, DOI 10.17487/RFC7050, November 2013,
-              <https://www.rfc-editor.org/rfc/rfc7050>.
-
-   [RFC7084]  Singh, H., Beebee, W., Donley, C., and B. Stark, "Basic
-              Requirements for IPv6 Customer Edge Routers", RFC 7084,
-              DOI 10.17487/RFC7084, November 2013,
-              <https://www.rfc-editor.org/rfc/rfc7084>.
-
    [RFC7123]  Gont, F. and W. Liu, "Security Implications of IPv6 on
               IPv4 Networks", RFC 7123, DOI 10.17487/RFC7123, February
               2014, <https://www.rfc-editor.org/rfc/rfc7123>.
@@ -1781,6 +1783,15 @@ Table of Contents
               RFC 9663, DOI 10.17487/RFC9663, October 2024,
               <https://www.rfc-editor.org/rfc/rfc9663>.
 
+   [RFC9805]  Bonica, R., "Deprecation of the IPv6 Router Alert Option
+              for New Protocols", RFC 9805, DOI 10.17487/RFC9805, June
+              2025, <https://www.rfc-editor.org/rfc/rfc9805>.
+
+   [RFC9872]  Buraglio, N., Jensen, T., and J. Linkova, "Recommendations
+              for Discovering IPv6 Prefix Used for IPv6 Address
+              Synthesis", RFC 9872, DOI 10.17487/RFC9872, September
+              2025, <https://www.rfc-editor.org/rfc/rfc9872>.
+
    [USGv6]    National Institute of Standards and Technology, "A Profile
               for IPv6 in the U.S. Government - Version 1.0",
               NIST SP500-267, July 2008,
@@ -1790,7 +1801,7 @@ Appendix A.  Changes from RFC 8504
 
    This section highlights the changes since RFC 8504.
 
-   1.   Updated obsoleted RFCs including 3315 and 3736 (both to 8415)
+   1.   Updated obsoleted RFCs including 3315 and 3736 (both to 9915)
         and 4941 to 8981.  RFC 793 has been obsoleted by 9293 but the
         latter does not include the the robustness principle for which
         RFC 793 is cited in this document.
@@ -1805,31 +1816,30 @@ Appendix A.  Changes from RFC 8504
    5.   Removed the SEND Section due to limited use.
 
    6.   Added Discovery of translation prefixes section (10.1.2) which
-        includes RFC 8781 and 7050.
+        includes RFC 8781 and 9872.
 
    7.   Added Discovery of encrypted DNS resolver, RFC 9463.
 
    8.   Added requirement to support PMTUD (RFC 8201) and PLPMTUD (RFC
-        4821 and 8899).
+        4821, 8899, and 9869).
 
-   9.   Added Hop by Hop Processing (RFC 9673)
+   9.   Added Hop-by-Hop Options processing (RFC 9673) as a MUST.
 
    10.  Added Port Control Protocol (PCP) to allow for IPv6 host to
         control incoming IPv6 packets with simple firewalls.
 
-   11.  Added using DHCPv6 Prefix Delegation to allocated IPv6 prefxies
-        to hosts.
+   11.  Added RFC 9663 for using DHCPv6 Prefix Delegation to allocate
+        IPv6 prefixes to hosts.
 
-   12.  Added a SHOULD requirement for RFC 8781 and a MAY requirement
-        for RFC 7050 for discovery of IPv6 prefix for IPv6 address
-        synthesis.
+   12.  Added a SHOULD requirement for RFC 8781 for discovery of IPv6
+        prefix for IPv6 address synthesis.
 
    13.  Added DHCPv4 Option 108 for allowing hosts to specify support
         for IPv6-only networks.
 
    14.  Added additional text for supporting IPv4-mapped DNS entries.
 
-   15.  Added RFC 9740 for better visiblity with extension headers in
+   15.  Added RFC 9740 for better visibility with extension headers in
         networks.
 
    16.  Added a Differentiated Services (Diffserv) section (RFC 2474 and
@@ -1849,6 +1859,22 @@ Appendix A.  Changes from RFC 8504
    20.  Updated the Default Address Selection for IPv6 requirement to
         reference draft-ietf-6man-rfc6724-update, which updates RFC
         6724.
+
+   21.  Added RFC 9844 for entering the zone identifier of an IPv6
+        scoped address in user interfaces.
+
+   22.  Updated the reference for basic requirements for IPv6 customer
+        edge routers from RFC 7084 to draft-ietf-v6ops-rfc7084bis.
+
+   23.  Added RFC 9805, noting that the IPv6 Router Alert option is
+        deprecated for use by new protocols.
+
+   24.  RFC 8028 was updated from a SHOULD to a MUST for hosts in
+        multihomed environments, with an exception for constrained
+        hosts.
+
+   25.  Updated the reference for overlapping fragment handling from RFC
+        5722 to Section 4.5 of RFC 8200.
 
 Appendix B.  Changes from RFC 6434 to RFC 8504
 

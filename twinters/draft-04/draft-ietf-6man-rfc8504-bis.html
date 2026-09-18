@@ -1252,7 +1252,7 @@ situations and deployments.<a href="#section-abstract-1" class="pilcrow">¶</a><
                 <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-privacy-extensions-for-addr" class="internal xref">Privacy Extensions for Address Configuration in IPv6 - RFC 8981</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.5">
-                <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="auto internal xref">6.5</a>.  <a href="#name-stateful-address-autoconfig" class="internal xref">Stateful Address Autoconfiguration (DHCPv6) - RFC 8415</a></p>
+                <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="auto internal xref">6.5</a>.  <a href="#name-stateful-address-autoconfig" class="internal xref">Stateful Address Autoconfiguration (DHCPv6) - RFC 9915</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.6">
                 <p id="section-toc.1-1.6.2.6.1"><a href="#section-6.6" class="auto internal xref">6.6</a>.  <a href="#name-default-address-selection-f" class="internal xref">Default Address Selection for IPv6 - RFC 6724</a></p>
@@ -1308,7 +1308,7 @@ situations and deployments.<a href="#section-abstract-1" class="pilcrow">¶</a><
             <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-application-support" class="internal xref">Application Support</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1">
-                <p id="section-toc.1-1.11.2.1.1"><a href="#section-11.1" class="auto internal xref">11.1</a>.  <a href="#name-textual-representation-of-i" class="internal xref">Textual Representation of IPv6 Addresses - RFC 5952</a></p>
+                <p id="section-toc.1-1.11.2.1.1"><a href="#section-11.1" class="auto internal xref">11.1</a>.  <a href="#name-textual-representation-of-i" class="internal xref">Textual Representation of IPv6 Addresses</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.2">
                 <p id="section-toc.1-1.11.2.2.1"><a href="#section-11.2" class="auto internal xref">11.2</a>.  <a href="#name-application-programming-int" class="internal xref">Application Programming Interfaces (APIs)</a></p>
@@ -1336,7 +1336,7 @@ situations and deployments.<a href="#section-abstract-1" class="pilcrow">¶</a><
                 <p id="section-toc.1-1.13.2.2.1"><a href="#section-13.2" class="auto internal xref">13.2</a>.  <a href="#name-neighbor-discovery-for-ipv6-" class="internal xref">Neighbor Discovery for IPv6 - RFC 4861</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.3">
-                <p id="section-toc.1-1.13.2.3.1"><a href="#section-13.3" class="auto internal xref">13.3</a>.  <a href="#name-stateful-address-autoconfigu" class="internal xref">Stateful Address Autoconfiguration (DHCPv6) - RFC 8415</a></p>
+                <p id="section-toc.1-1.13.2.3.1"><a href="#section-13.3" class="auto internal xref">13.3</a>.  <a href="#name-stateful-address-autoconfigu" class="internal xref">Stateful Address Autoconfiguration (DHCPv6) - RFC 9915</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13.2.4">
                 <p id="section-toc.1-1.13.2.4.1"><a href="#section-13.4" class="auto internal xref">13.4</a>.  <a href="#name-ipv6-prefix-length-recommen" class="internal xref">IPv6 Prefix Length Recommendation for Forwarding - BCP 198</a></p>
@@ -1696,25 +1696,20 @@ than 8. In such a case, if a PADN option is present that has a
 length greater than 7, the packet <span class="bcp14">SHOULD</span> be silently discarded. The
 rationale for this guideline is that the purpose of padding is for
 alignment and 8 bytes is the maximum alignment used in IPv6.<a href="#section-5.3-3" class="pilcrow">¶</a></p>
-<p id="section-5.3-4">A host <span class="bcp14">MAY</span> disallow unknown options in destination options or
-hop-by-hop options. This <span class="bcp14">SHOULD</span> be configurable where the default is
-to accept unknown options and process them per <span>[<a href="#RFC8200" class="cite xref">RFC8200</a>]</span>. If a packet
-with unknown options is received and the host is configured to
-disallow them, then the packet <span class="bcp14">SHOULD</span> be silently discarded.<a href="#section-5.3-4" class="pilcrow">¶</a></p>
-<p id="section-5.3-5">A host <span class="bcp14">MAY</span> impose a limit on the maximum number of non-padding
+<p id="section-5.3-4">A host <span class="bcp14">MAY</span> impose a limit on the maximum number of non-padding
 options allowed in the destination options and hop-by-hop extension
 headers. If this feature is supported, the maximum number <span class="bcp14">SHOULD</span> be
 configurable, and the default value <span class="bcp14">SHOULD</span> be set to 8. The limits
 for destination options and hop-by-hop options may be separately
 configurable. If a packet is received and the number of destination
 or hop-by-hop options exceeds the limit, then the packet <span class="bcp14">SHOULD</span> be
-silently discarded.<a href="#section-5.3-5" class="pilcrow">¶</a></p>
-<p id="section-5.3-6">A host <span class="bcp14">MAY</span> impose a limit on the maximum length of Destination
+silently discarded.<a href="#section-5.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.3-5">A host <span class="bcp14">MAY</span> impose a limit on the maximum length of Destination
 Options or Hop-by-Hop Options extension headers. This value <span class="bcp14">SHOULD</span>
 be configurable, and the default is to accept options of any length.
 If a packet is received and the length of the Destination or
 Hop-by-Hop Options extension header exceeds the length limit, then
-the packet <span class="bcp14">SHOULD</span> be silently discarded.<a href="#section-5.3-6" class="pilcrow">¶</a></p>
+the packet <span class="bcp14">SHOULD</span> be silently discarded.<a href="#section-5.3-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="ND">
@@ -1850,8 +1845,8 @@ recommendation in <span>[<a href="#RFC4890" class="cite xref">RFC4890</a>]</span
 found in <span>[<a href="#RFC4821" class="cite xref">RFC4821</a>]</span> and <span>[<a href="#RFC8899" class="cite xref">RFC8899</a>]</span>, which defines a method for Packetization
 Layer Path MTU Discovery (PLPMTUD) designed for use over paths where
 delivery of ICMPv6 messages to a host is not assured.<a href="#section-5.6.1-5" class="pilcrow">¶</a></p>
-<p id="section-5.6.1-6">A node <span class="bcp14">MUST</span> implement a PMTU discovery method and this must be enabled by default
-(see <span>[<a href="#RFC8899" class="cite xref">RFC8899</a>]</span> and <span>[<a href="#RFC9869" class="cite xref">RFC9869</a>]</span>), except in minimal IPv6 implementations.<a href="#section-5.6.1-6" class="pilcrow">¶</a></p>
+<p id="section-5.6.1-6">A node <span class="bcp14">MUST</span> implement a PMTU discovery method and this <span class="bcp14">MUST</span> be enabled by default
+(see <span>[<a href="#RFC8899" class="cite xref">RFC8899</a>]</span> and <span>[<a href="#RFC9869" class="cite xref">RFC9869</a>]</span> for UDP Options), except in minimal IPv6 implementations.<a href="#section-5.6.1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="minimum-mtu-considerations">
@@ -2072,7 +2067,7 @@ the node they
 communicate, as that node moves around the network.  Privacy Extensions
 for Stateless Address
 Autoconfiguration <span>[<a href="#RFC8981" class="cite xref">RFC8981</a>]</span> address this
-concern by allowing nodes to configure an additional temporary address
+concern by allowing nodes to configure an temporary address
 where the IID is effectively randomly generated.  Privacy addresses
 are then used as source addresses for new communications initiated by the
 node.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
@@ -2095,9 +2090,9 @@ Identifiers" <span>[<a href="#RFC5453" class="cite xref">RFC5453</a>]</span> for
 <div id="stateful1">
 <section id="section-6.5">
         <h3 id="name-stateful-address-autoconfig">
-<a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-stateful-address-autoconfig" class="section-name selfRef">Stateful Address Autoconfiguration (DHCPv6) - RFC 8415</a>
+<a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-stateful-address-autoconfig" class="section-name selfRef">Stateful Address Autoconfiguration (DHCPv6) - RFC 9915</a>
         </h3>
-<p id="section-6.5-1">DHCPv6 <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span> can be used to obtain and
+<p id="section-6.5-1">DHCPv6 <span>[<a href="#RFC9915" class="cite xref">RFC9915</a>]</span> can be used to obtain and
 configure addresses. In general, a network may provide for the
 configuration of addresses through SLAAC,
 DHCPv6, or both.  There will be a wide range of IPv6 deployment
@@ -2131,8 +2126,9 @@ IPv6 document <span>[<a href="#RFC6724" class="cite xref">RFC6724</a>]</span>, a
         <h3 id="name-prefer-ipv6-only">
 <a href="#section-6.7" class="section-number selfRef">6.7. </a><a href="#name-prefer-ipv6-only" class="section-name selfRef">Prefer IPv6-Only</a>
         </h3>
-<p id="section-6.7-1">IPv6 nodes that support IPv6-only operation <span class="bcp14">MAY</span> forego obtaining IPv4 address by using the IPv4
-DHCP Option 108 specified in <span>[<a href="#RFC8925" class="cite xref">RFC8925</a>]</span>.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
+<p id="section-6.7-1">IPv6 nodes that support IPv6-only operation <span class="bcp14">MAY</span> forego obtaining an IPv4 address by using the IPv4
+DHCP Option 108 specified in <span>[<a href="#RFC8925" class="cite xref">RFC8925</a>]</span>, if the node has provisions in place to support
+connecting to IPv4-only resources. A node without such provisions would be unable to reach IPv4-only resources.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2171,11 +2167,11 @@ support.  All nodes <span class="bcp14">SHOULD</span> implement stub-resolver <s
       <dd class="break"></dd>
 </dl>
 <p id="section-7-3">Those nodes are <span class="bcp14">RECOMMENDED</span> to support DNS security extensions <span>[<a href="#RFC4033" class="cite xref">RFC4033</a>]</span>  <span>[<a href="#RFC4034" class="cite xref">RFC4034</a>]</span>  <span>[<a href="#RFC4035" class="cite xref">RFC4035</a>]</span>.<a href="#section-7-3" class="pilcrow">¶</a></p>
-<p id="section-7-4">Discover of encrypted DNS resolvers per <span>[<a href="#RFC9463" class="cite xref">RFC9463</a>]</span> <span class="bcp14">SHOULD</span> be implemented.<a href="#section-7-4" class="pilcrow">¶</a></p>
+<p id="section-7-4">Discovery of encrypted DNS resolvers per <span>[<a href="#RFC9463" class="cite xref">RFC9463</a>]</span> <span class="bcp14">SHOULD</span> be implemented.<a href="#section-7-4" class="pilcrow">¶</a></p>
 <p id="section-7-5">A6 Resource Records <span>[<a href="#RFC2874" class="cite xref">RFC2874</a>]</span> are classified as Historic per <span>[<a href="#RFC6563" class="cite xref">RFC6563</a>]</span>.  These were defined with Experimental status in <span>[<a href="#RFC3363" class="cite xref">RFC3363</a>]</span>.<a href="#section-7-5" class="pilcrow">¶</a></p>
-<p id="section-7-6">Nodes <span class="bcp14">SHOULD</span> support <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> and <span class="bcp14">MAY</span> support <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> to perform local IPv6 address synthesis when in IPv6-only environments.<a href="#section-7-6" class="pilcrow">¶</a></p>
+<p id="section-7-6">Nodes <span class="bcp14">SHOULD</span> support <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> to perform local IPv6 address synthesis when in IPv6-only environments.<a href="#section-7-6" class="pilcrow">¶</a></p>
 <p id="section-7-7">For a dual-stack node with addresses and routes configured for both IPv4 and IPv6,
-any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record <span class="bcp14">MUST</span> be discarded and returned as NXDOMAIN or the "ANY" record <span class="bcp14">MUST</span> be discarded.:W<a href="#section-7-7" class="pilcrow">¶</a></p>
+any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record <span class="bcp14">MUST</span> be discarded and returned as NXDOMAIN or the "ANY" record <span class="bcp14">MUST</span> be discarded.<a href="#section-7-7" class="pilcrow">¶</a></p>
 <p id="section-7-8">A IPv6-only node <span class="bcp14">MUST NOT</span> discard it if it's the only address within the response
 otherwise (when also a non IPv4-mapped IPv6-address is returned) the
 IPv4-mapped IPv6 address <span class="bcp14">MUST</span> be discarded.<a href="#section-7-8" class="pilcrow">¶</a></p>
@@ -2191,7 +2187,7 @@ IPv4-mapped IPv6 address <span class="bcp14">MUST</span> be discarded.<a href="#
         <h3 id="name-dhcp-for-other-configuratio">
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-dhcp-for-other-configuratio" class="section-name selfRef">DHCP for Other Configuration Information</a>
         </h3>
-<p id="section-8.1-1">DHCP <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span> specifies a mechanism for IPv6 nodes to obtain
+<p id="section-8.1-1">DHCP <span>[<a href="#RFC9915" class="cite xref">RFC9915</a>]</span> specifies a mechanism for IPv6 nodes to obtain
 address configuration information (see <a href="#stateful1" class="auto internal xref">Section 6.5</a>) and to
 obtain additional (non-address) configuration.  If a host
 implementation supports applications or other protocols that
@@ -2199,7 +2195,7 @@ require configuration that is only available via DHCP, hosts
 <span class="bcp14">SHOULD</span> implement DHCP. For specialized devices on which no
 such configuration need is present, DHCP may not be
 necessary.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
-<p id="section-8.1-2">An IPv6 node can use the subset of DHCP (described in <span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span>) to obtain other configuration
+<p id="section-8.1-2">An IPv6 node can use the subset of DHCP (described in <span>[<a href="#RFC9915" class="cite xref">RFC9915</a>]</span>) to obtain other configuration
 information.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
 <p id="section-8.1-3">If an IPv6 node implements DHCP, it <span class="bcp14">MUST</span> implement the DNS options <span>[<a href="#RFC3646" class="cite xref">RFC3646</a>]</span> as most deployments will expect that these options are available.<a href="#section-8.1-3" class="pilcrow">¶</a></p>
 </section>
@@ -2320,8 +2316,7 @@ DNS-SD <span class="bcp14">SHOULD</span> be supported.<a href="#section-9-2" cla
           <h4 id="name-support-for-discovery-of-tr">
 <a href="#section-10.1.2" class="section-number selfRef">10.1.2. </a><a href="#name-support-for-discovery-of-tr" class="section-name selfRef">Support for discovery of translation prefixes</a>
           </h4>
-<p id="section-10.1.2-1"><span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network environments, it is recommended that all hosts support discovery of NAT64 prefixes as described in <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.
-Nodes <span class="bcp14">MAY</span> also support <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> as a fallback mechanism for NAT64 prefix discovery.<a href="#section-10.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-10.1.2-1"><span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network environments, <span>[<a href="#RFC9872" class="cite xref">RFC9872</a>]</span> recommends that all hosts support discovery of NAT64 prefixes as described in <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-10.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2333,14 +2328,16 @@ Nodes <span class="bcp14">MAY</span> also support <span>[<a href="#RFC7050" clas
       <h2 id="name-application-support">
 <a href="#section-11" class="section-number selfRef">11. </a><a href="#name-application-support" class="section-name selfRef">Application Support</a>
       </h2>
-<div id="textual-representation-of-ipv6-addresses-rfc-5952">
+<div id="textual-representation-of-ipv6-addresses">
 <section id="section-11.1">
         <h3 id="name-textual-representation-of-i">
-<a href="#section-11.1" class="section-number selfRef">11.1. </a><a href="#name-textual-representation-of-i" class="section-name selfRef">Textual Representation of IPv6 Addresses - RFC 5952</a>
+<a href="#section-11.1" class="section-number selfRef">11.1. </a><a href="#name-textual-representation-of-i" class="section-name selfRef">Textual Representation of IPv6 Addresses</a>
         </h3>
 <p id="section-11.1-1">Software that allows users and operators to input IPv6
 addresses in text form <span class="bcp14">SHOULD</span> support "A Recommendation for
-IPv6 Address Text Representation" <span>[<a href="#RFC5952" class="cite xref">RFC5952</a>]</span>.<a href="#section-11.1-1" class="pilcrow">¶</a></p>
+IPv6 Address Text Representation" <span>[<a href="#RFC5952" class="cite xref">RFC5952</a>]</span>. Such software
+<span class="bcp14">SHOULD</span> also support entering the zone identifier of an IPv6
+scoped address as specified in <span>[<a href="#RFC9844" class="cite xref">RFC9844</a>]</span>.<a href="#section-11.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="application-programming-interfaces-apis">
@@ -2471,7 +2468,7 @@ updates or replacements to <span>[<a href="#RFC8247" class="cite xref">RFC8247</
       </h2>
 <p id="section-13-1">This section defines general host considerations for IPv6 nodes
 that act as routers.  Currently, this section does not discuss
-detailed routing-specific requirements. For the case of typical home routers, <span>[<a href="#RFC7084" class="cite xref">RFC7084</a>]</span> defines basic requirements for customer edge routers.<a href="#section-13-1" class="pilcrow">¶</a></p>
+detailed routing-specific requirements. For the case of typical home routers, <span>[<a href="#I-D.ietf-v6ops-rfc7084bis" class="cite xref">I-D.ietf-v6ops-rfc7084bis</a>]</span> defines basic requirements for customer edge routers.<a href="#section-13-1" class="pilcrow">¶</a></p>
 <div id="ipv6-router-alert-option-rfc-2711">
 <section id="section-13.1">
         <h3 id="name-ipv6-router-alert-option-rf">
@@ -2483,6 +2480,7 @@ with some protocols (e.g., RSVP <span>[<a href="#RFC2205" class="cite xref">RFC2
 Multicast Listener Discovery (MLDv2) <span>[<a href="#RFC3810" class="cite xref">RFC3810</a>]</span>).  The Router Alert option will
 need to be implemented whenever such protocols that mandate its
 use are implemented.  See <a href="#mld" class="auto internal xref">Section 5.10</a>.<a href="#section-13.1-1" class="pilcrow">¶</a></p>
+<p id="section-13.1-2">The Router Alert option has been deprecated for use by new protocols, per <span>[<a href="#RFC9805" class="cite xref">RFC9805</a>]</span>.<a href="#section-13.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="neighbor-discovery-for-ipv6-rfc-4861">
@@ -2492,7 +2490,7 @@ use are implemented.  See <a href="#mld" class="auto internal xref">Section 5.10
         </h3>
 <p id="section-13.2-1">Sending Router Advertisements and processing Router
 Solicitations <span class="bcp14">MUST</span> be supported.<a href="#section-13.2-1" class="pilcrow">¶</a></p>
-<p id="section-13.2-2">Routers <span class="bcp14">SHOULD</span> support <span>[<a href="#RFC9131" class="cite xref">RFC9131</a>]</span> to avoid packet lost.<a href="#section-13.2-2" class="pilcrow">¶</a></p>
+<p id="section-13.2-2">Routers <span class="bcp14">SHOULD</span> support <span>[<a href="#RFC9131" class="cite xref">RFC9131</a>]</span> to avoid packet loss.<a href="#section-13.2-2" class="pilcrow">¶</a></p>
 <p id="section-13.2-3"><span><a href="https://rfc-editor.org/rfc/rfc6275#section-7" class="relref">Section 7</a> of [<a href="#RFC6275" class="cite xref">RFC6275</a>]</span> includes some mobility-specific
 extensions to Neighbor Discovery.
 Routers <span class="bcp14">SHOULD</span> implement
@@ -2500,12 +2498,12 @@ Sections 7.3 and 7.5, even if they do not implement home
 agent functionality.<a href="#section-13.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="stateful-address-autoconfiguration-dhcpv6-rfc-8415">
+<div id="stateful-address-autoconfiguration-dhcpv6-rfc-9915">
 <section id="section-13.3">
         <h3 id="name-stateful-address-autoconfigu">
-<a href="#section-13.3" class="section-number selfRef">13.3. </a><a href="#name-stateful-address-autoconfigu" class="section-name selfRef">Stateful Address Autoconfiguration (DHCPv6) - RFC 8415</a>
+<a href="#section-13.3" class="section-number selfRef">13.3. </a><a href="#name-stateful-address-autoconfigu" class="section-name selfRef">Stateful Address Autoconfiguration (DHCPv6) - RFC 9915</a>
         </h3>
-<p id="section-13.3-1">A single DHCP server (<span>[<a href="#RFC8415" class="cite xref">RFC8415</a>]</span> or <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) can provide configuration information to
+<p id="section-13.3-1">A single DHCP server (<span>[<a href="#RFC9915" class="cite xref">RFC9915</a>]</span> or <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) can provide configuration information to
 devices directly attached to a shared link, as well as to
 devices located elsewhere within a site. Communication between
 a client and a DHCP server located on different links requires
@@ -2514,10 +2512,14 @@ the use of DHCP relay agents on routers.<a href="#section-13.3-1" class="pilcrow
 either a single LAN or multiple LANs attached to the single
 router, together with a WAN connection, a DHCP server
 embedded within the router is one common deployment scenario
-(e.g., <span>[<a href="#RFC7084" class="cite xref">RFC7084</a>]</span>). There is no need
+(e.g., <span>[<a href="#I-D.ietf-v6ops-rfc7084bis" class="cite xref">I-D.ietf-v6ops-rfc7084bis</a>]</span>). There is no need
 for relay agents in such scenarios.<a href="#section-13.3-2" class="pilcrow">¶</a></p>
 <p id="section-13.3-3">In more complex deployment scenarios, such as within enterprise or service provider networks, the use of DHCP requires some level of configuration, in order to configure relay agents, prefixes for delegation, DHCP servers, etc. In such environments, the DHCP server might even be run on a traditional server, rather than as part of a router.<a href="#section-13.3-3" class="pilcrow">¶</a></p>
-<p id="section-13.3-4">Because of the wide range of deployment scenarios, support for DHCP server functionality on routers is optional.  However, routers targeted for deployment within more complex scenarios (as described above) <span class="bcp14">SHOULD</span> support relay agent functionality including support for support DHCPv6-PD as defined in <a href="?">RFC3633</a>.  Note that "Basic Requirements for IPv6 Customer Edge Routers" <span>[<a href="#RFC7084" class="cite xref">RFC7084</a>]</span> requires implementation of a DHCPv6 server function in IPv6 Customer Edge (CE) routers.<a href="#section-13.3-4" class="pilcrow">¶</a></p>
+<p id="section-13.3-4">Because of the wide range of deployment scenarios, support for DHCP server functionality on routers is optional.  However,
+routers targeted for deployment within more complex scenarios (as described above) <span class="bcp14">SHOULD</span> support relay agent functionality
+including support for DHCPv6-PD as defined in <span>[<a href="#RFC9915" class="cite xref">RFC9915</a>]</span>.  Note that "Basic Requirements for IPv6 Customer Edge
+Routers" <span>[<a href="#I-D.ietf-v6ops-rfc7084bis" class="cite xref">I-D.ietf-v6ops-rfc7084bis</a>]</span> requires implementation of a DHCPv6 server function in IPv6 Customer Edge
+(CE) routers.<a href="#section-13.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="ipv6-prefix-length-recommendation-for-forwarding-bcp-198">
@@ -2918,10 +2920,6 @@ individual protocols.<a href="#section-16-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Bjorklund, M.</span>, <span class="refTitle">"A YANG Data Model for IP Management"</span>, <span class="seriesInfo">RFC 8344</span>, <span class="seriesInfo">DOI 10.17487/RFC8344</span>, <time datetime="2018-03" class="refDate">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8344">https://www.rfc-editor.org/rfc/rfc8344</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC8415">[RFC8415]</dt>
-        <dd>
-<span class="refAuthor">Mrugalski, T.</span>, <span class="refAuthor">Siodelski, M.</span>, <span class="refAuthor">Volz, B.</span>, <span class="refAuthor">Yourtchenko, A.</span>, <span class="refAuthor">Richardson, M.</span>, <span class="refAuthor">Jiang, S.</span>, <span class="refAuthor">Lemon, T.</span>, and <span class="refAuthor">T. Winters</span>, <span class="refTitle">"Dynamic Host Configuration Protocol for IPv6 (DHCPv6)"</span>, <span class="seriesInfo">RFC 8415</span>, <span class="seriesInfo">DOI 10.17487/RFC8415</span>, <time datetime="2018-11" class="refDate">November 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8415">https://www.rfc-editor.org/rfc/rfc8415</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC8815">[RFC8815]</dt>
         <dd>
 <span class="refAuthor">Abrahamsson, M.</span>, <span class="refAuthor">Chown, T.</span>, <span class="refAuthor">Giuliano, L.</span>, and <span class="refAuthor">T. Eckert</span>, <span class="refTitle">"Deprecating Any-Source Multicast (ASM) for Interdomain Multicast"</span>, <span class="seriesInfo">BCP 229</span>, <span class="seriesInfo">RFC 8815</span>, <span class="seriesInfo">DOI 10.17487/RFC8815</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8815">https://www.rfc-editor.org/rfc/rfc8815</a>&gt;</span>. </dd>
@@ -2962,9 +2960,17 @@ individual protocols.<a href="#section-16-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Colitti, L.</span>, <span class="refAuthor">Linkova, J.</span>, <span class="refAuthor">Ma, X., Ed.</span>, and <span class="refAuthor">D. Lamparter</span>, <span class="refTitle">"Using Router Advertisements to Signal the Availability of DHCPv6 Prefix Delegation to Clients"</span>, <span class="seriesInfo">RFC 9762</span>, <span class="seriesInfo">DOI 10.17487/RFC9762</span>, <time datetime="2025-06" class="refDate">June 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9762">https://www.rfc-editor.org/rfc/rfc9762</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC9844">[RFC9844]</dt>
+        <dd>
+<span class="refAuthor">Carpenter, B.</span> and <span class="refAuthor">R. Hinden</span>, <span class="refTitle">"Entering IPv6 Zone Identifiers in User Interfaces"</span>, <span class="seriesInfo">RFC 9844</span>, <span class="seriesInfo">DOI 10.17487/RFC9844</span>, <time datetime="2025-08" class="refDate">August 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9844">https://www.rfc-editor.org/rfc/rfc9844</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9869">[RFC9869]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Fairhurst, G.</span> and <span class="refAuthor">T. Jones</span>, <span class="refTitle">"Datagram Packetization Layer Path MTU Discovery (DPLPMTUD) for UDP Options"</span>, <span class="seriesInfo">RFC 9869</span>, <span class="seriesInfo">DOI 10.17487/RFC9869</span>, <time datetime="2025-10" class="refDate">October 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9869">https://www.rfc-editor.org/rfc/rfc9869</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9915">[RFC9915]</dt>
+      <dd>
+<span class="refAuthor">Mrugalski, T.</span>, <span class="refAuthor">Volz, B.</span>, <span class="refAuthor">Richardson, M.</span>, <span class="refAuthor">Jiang, S.</span>, and <span class="refAuthor">T. Winters</span>, <span class="refTitle">"Dynamic Host Configuration Protocol for IPv6 (DHCPv6)"</span>, <span class="seriesInfo">STD 102</span>, <span class="seriesInfo">RFC 9915</span>, <span class="seriesInfo">DOI 10.17487/RFC9915</span>, <time datetime="2026-01" class="refDate">January 2026</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9915">https://www.rfc-editor.org/rfc/rfc9915</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -2975,6 +2981,10 @@ individual protocols.<a href="#section-16-1" class="pilcrow">¶</a></p>
 <a href="#section-18.2" class="section-number selfRef">18.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="I-D.ietf-v6ops-rfc7084bis">[I-D.ietf-v6ops-rfc7084bis]</dt>
+        <dd>
+<span class="refAuthor">Lencse, G.</span>, <span class="refAuthor">Martinez, J. P.</span>, <span class="refAuthor">Patton, B.</span>, and <span class="refAuthor">T. Winters</span>, <span class="refTitle">"Basic Requirements for IPv6 Customer Edge Routers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-v6ops-rfc7084bis-06</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-v6ops-rfc7084bis-06">https://datatracker.ietf.org/doc/html/draft-ietf-v6ops-rfc7084bis-06</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="POSIX">[POSIX]</dt>
         <dd>
 <span class="refAuthor">IEEE</span>, <span class="refTitle">"Information Technology -- Portable Operating System Interface (POSIX(R)) Base Specifications, Issue 7"</span>, <span class="seriesInfo">IEEE Std 1003.1-2017</span>, <span class="seriesInfo">DOI: 10.1109/IEEESTD.2018.8277153</span>, <time datetime="2018-01" class="refDate">January 2018</time>, <span>&lt;<a href="https://ieeexplore.ieee.org/document/8277153">https://ieeexplore.ieee.org/document/8277153</a>&gt;</span>. </dd>
@@ -3103,14 +3113,6 @@ individual protocols.<a href="#section-16-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Gont, F.</span>, <span class="refTitle">"Security Implications of IPv6 Fragmentation with IPv6 Neighbor Discovery"</span>, <span class="seriesInfo">RFC 6980</span>, <span class="seriesInfo">DOI 10.17487/RFC6980</span>, <time datetime="2013-08" class="refDate">August 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6980">https://www.rfc-editor.org/rfc/rfc6980</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC7050">[RFC7050]</dt>
-        <dd>
-<span class="refAuthor">Savolainen, T.</span>, <span class="refAuthor">Korhonen, J.</span>, and <span class="refAuthor">D. Wing</span>, <span class="refTitle">"Discovery of the IPv6 Prefix Used for IPv6 Address Synthesis"</span>, <span class="seriesInfo">RFC 7050</span>, <span class="seriesInfo">DOI 10.17487/RFC7050</span>, <time datetime="2013-11" class="refDate">November 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7050">https://www.rfc-editor.org/rfc/rfc7050</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC7084">[RFC7084]</dt>
-        <dd>
-<span class="refAuthor">Singh, H.</span>, <span class="refAuthor">Beebee, W.</span>, <span class="refAuthor">Donley, C.</span>, and <span class="refAuthor">B. Stark</span>, <span class="refTitle">"Basic Requirements for IPv6 Customer Edge Routers"</span>, <span class="seriesInfo">RFC 7084</span>, <span class="seriesInfo">DOI 10.17487/RFC7084</span>, <time datetime="2013-11" class="refDate">November 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7084">https://www.rfc-editor.org/rfc/rfc7084</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC7123">[RFC7123]</dt>
         <dd>
 <span class="refAuthor">Gont, F.</span> and <span class="refAuthor">W. Liu</span>, <span class="refTitle">"Security Implications of IPv6 on IPv4 Networks"</span>, <span class="seriesInfo">RFC 7123</span>, <span class="seriesInfo">DOI 10.17487/RFC7123</span>, <time datetime="2014-02" class="refDate">February 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7123">https://www.rfc-editor.org/rfc/rfc7123</a>&gt;</span>. </dd>
@@ -3163,6 +3165,14 @@ individual protocols.<a href="#section-16-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Colitti, L.</span>, <span class="refAuthor">Linkova, J., Ed.</span>, and <span class="refAuthor">X. Ma, Ed.</span>, <span class="refTitle">"Using DHCPv6 Prefix Delegation (DHCPv6-PD) to Allocate Unique IPv6 Prefixes per Client in Large Broadcast Networks"</span>, <span class="seriesInfo">RFC 9663</span>, <span class="seriesInfo">DOI 10.17487/RFC9663</span>, <time datetime="2024-10" class="refDate">October 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9663">https://www.rfc-editor.org/rfc/rfc9663</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC9805">[RFC9805]</dt>
+        <dd>
+<span class="refAuthor">Bonica, R.</span>, <span class="refTitle">"Deprecation of the IPv6 Router Alert Option for New Protocols"</span>, <span class="seriesInfo">RFC 9805</span>, <span class="seriesInfo">DOI 10.17487/RFC9805</span>, <time datetime="2025-06" class="refDate">June 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9805">https://www.rfc-editor.org/rfc/rfc9805</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9872">[RFC9872]</dt>
+        <dd>
+<span class="refAuthor">Buraglio, N.</span>, <span class="refAuthor">Jensen, T.</span>, and <span class="refAuthor">J. Linkova</span>, <span class="refTitle">"Recommendations for Discovering IPv6 Prefix Used for IPv6 Address Synthesis"</span>, <span class="seriesInfo">RFC 9872</span>, <span class="seriesInfo">DOI 10.17487/RFC9872</span>, <time datetime="2025-09" class="refDate">September 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9872">https://www.rfc-editor.org/rfc/rfc9872</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="USGv6">[USGv6]</dt>
       <dd>
 <span class="refAuthor">National Institute of Standards and Technology</span>, <span class="refTitle">"A Profile for IPv6 in the U.S. Government - Version 1.0"</span>, <span class="seriesInfo">NIST SP500-267</span>, <time datetime="2008-07" class="refDate">July 2008</time>, <span>&lt;<a href="https://www.nist.gov/programs-projects/usgv6-program">https://www.nist.gov/programs-projects/usgv6-program</a>&gt;</span>. </dd>
@@ -3180,7 +3190,7 @@ individual protocols.<a href="#section-16-1" class="pilcrow">¶</a></p>
 <p id="appendix-A-1">This section highlights the changes since RFC 8504.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="appendix-A-2">
 <li id="appendix-A-2.1">
-          <p id="appendix-A-2.1.1">Updated obsoleted RFCs including 3315 and 3736 (both to 8415) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.<a href="#appendix-A-2.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-A-2.1.1">Updated obsoleted RFCs including 3315 and 3736 (both to 9915) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.<a href="#appendix-A-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.2">
           <p id="appendix-A-2.2.1">Added support for Gratuitous Neighbor Discovery Creating Neighbor Cache Entries on First‑Hop Routers, RFC 9131.<a href="#appendix-A-2.2.1" class="pilcrow">¶</a></p>
@@ -3195,25 +3205,25 @@ individual protocols.<a href="#section-16-1" class="pilcrow">¶</a></p>
           <p id="appendix-A-2.5.1">Removed the SEND Section due to limited use.<a href="#appendix-A-2.5.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.6">
-          <p id="appendix-A-2.6.1">Added Discovery of translation prefixes section (10.1.2) which includes RFC 8781 and 7050.<a href="#appendix-A-2.6.1" class="pilcrow">¶</a></p>
+          <p id="appendix-A-2.6.1">Added Discovery of translation prefixes section (10.1.2) which includes RFC 8781 and 9872.<a href="#appendix-A-2.6.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.7">
           <p id="appendix-A-2.7.1">Added Discovery of encrypted DNS resolver, RFC 9463.<a href="#appendix-A-2.7.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.8">
-          <p id="appendix-A-2.8.1">Added requirement to support PMTUD (RFC 8201) and PLPMTUD (RFC 4821 and 8899).<a href="#appendix-A-2.8.1" class="pilcrow">¶</a></p>
+          <p id="appendix-A-2.8.1">Added requirement to support PMTUD (RFC 8201) and PLPMTUD (RFC 4821, 8899, and 9869).<a href="#appendix-A-2.8.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.9">
-          <p id="appendix-A-2.9.1">Added Hop by Hop Processing (RFC 9673)<a href="#appendix-A-2.9.1" class="pilcrow">¶</a></p>
+          <p id="appendix-A-2.9.1">Added Hop-by-Hop Options processing (RFC 9673) as a <span class="bcp14">MUST</span>.<a href="#appendix-A-2.9.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.10">
           <p id="appendix-A-2.10.1">Added Port Control Protocol (PCP) to allow for IPv6 host to control incoming IPv6 packets with simple firewalls.<a href="#appendix-A-2.10.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.11">
-          <p id="appendix-A-2.11.1">Added using DHCPv6 Prefix Delegation to allocated IPv6 prefxies to hosts.<a href="#appendix-A-2.11.1" class="pilcrow">¶</a></p>
+          <p id="appendix-A-2.11.1">Added RFC 9663 for using DHCPv6 Prefix Delegation to allocate IPv6 prefixes to hosts.<a href="#appendix-A-2.11.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.12">
-          <p id="appendix-A-2.12.1">Added a <span class="bcp14">SHOULD</span> requirement for RFC 8781 and a <span class="bcp14">MAY</span> requirement for RFC 7050 for discovery of IPv6 prefix for IPv6 address synthesis.<a href="#appendix-A-2.12.1" class="pilcrow">¶</a></p>
+          <p id="appendix-A-2.12.1">Added a <span class="bcp14">SHOULD</span> requirement for RFC 8781 for discovery of IPv6 prefix for IPv6 address synthesis.<a href="#appendix-A-2.12.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.13">
           <p id="appendix-A-2.13.1">Added DHCPv4 Option 108 for allowing hosts to specify support for IPv6-only networks.<a href="#appendix-A-2.13.1" class="pilcrow">¶</a></p>
@@ -3222,7 +3232,7 @@ individual protocols.<a href="#section-16-1" class="pilcrow">¶</a></p>
           <p id="appendix-A-2.14.1">Added additional text for supporting IPv4-mapped DNS entries.<a href="#appendix-A-2.14.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.15">
-          <p id="appendix-A-2.15.1">Added RFC 9740 for better visiblity with extension headers in networks.<a href="#appendix-A-2.15.1" class="pilcrow">¶</a></p>
+          <p id="appendix-A-2.15.1">Added RFC 9740 for better visibility with extension headers in networks.<a href="#appendix-A-2.15.1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.16">
           <p id="appendix-A-2.16.1">Added a Differentiated Services (Diffserv) section (RFC 2474 and RFC 2475), including a <span class="bcp14">SHOULD</span> requirement for an API to set and access the DSCP.<a href="#appendix-A-2.16.1" class="pilcrow">¶</a></p>
@@ -3238,6 +3248,21 @@ individual protocols.<a href="#section-16-1" class="pilcrow">¶</a></p>
 </li>
         <li id="appendix-A-2.20">
           <p id="appendix-A-2.20.1">Updated the Default Address Selection for IPv6 requirement to reference draft-ietf-6man-rfc6724-update, which updates RFC 6724.<a href="#appendix-A-2.20.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-A-2.21">
+          <p id="appendix-A-2.21.1">Added RFC 9844 for entering the zone identifier of an IPv6 scoped address in user interfaces.<a href="#appendix-A-2.21.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-A-2.22">
+          <p id="appendix-A-2.22.1">Updated the reference for basic requirements for IPv6 customer edge routers from RFC 7084 to draft-ietf-v6ops-rfc7084bis.<a href="#appendix-A-2.22.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-A-2.23">
+          <p id="appendix-A-2.23.1">Added RFC 9805, noting that the IPv6 Router Alert option is deprecated for use by new protocols.<a href="#appendix-A-2.23.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-A-2.24">
+          <p id="appendix-A-2.24.1">RFC 8028 was updated from a <span class="bcp14">SHOULD</span> to a <span class="bcp14">MUST</span> for hosts in multihomed environments, with an exception for constrained hosts.<a href="#appendix-A-2.24.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-A-2.25">
+          <p id="appendix-A-2.25.1">Updated the reference for overlapping fragment handling from RFC 5722 to Section 4.5 of RFC 8200.<a href="#appendix-A-2.25.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
 </section>
