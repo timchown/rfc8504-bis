@@ -798,7 +798,7 @@ the node they
 communicate, as that node moves around the network.  Privacy Extensions
 for Stateless Address
 Autoconfiguration {{RFC8981}} address this
-concern by allowing nodes to configure an additional temporary address
+concern by allowing nodes to configure an temporary address
 where the IID is effectively randomly generated.  Privacy addresses
 are then used as source addresses for new communications initiated by the
 node.
