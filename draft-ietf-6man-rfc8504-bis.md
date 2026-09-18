@@ -113,16 +113,18 @@ normative:
   RFC8343:
   RFC8344:
   RFC8415:
+  RFC8815:
   RFC8899:
   RFC8925:
   RFC8981:
   RFC9131:
   RFC9460:
   RFC9463:
-  RFC9663:
   RFC9673:
   RFC9740:
+  RFC9762:
   RFC9869:
+  I-D.ietf-6man-rfc6724-update:
 informative:
   RFC0793:
   RFC2205:
@@ -155,6 +157,7 @@ informative:
   RFC6275:
   RFC6563:
   RFC6980:
+  RFC7050:
   RFC7084:
   RFC7123:
   RFC7371:
@@ -168,7 +171,7 @@ informative:
   RFC8096:
   RFC8273:
   RFC8781:
-  RFC7050:
+  RFC9663:
   POSIX:
     target: https://ieeexplore.ieee.org/document/8277153
     title: Information Technology -- Portable Operating System Interface (POSIX(R))
@@ -604,7 +607,7 @@ found in {{RFC4821}} and {{RFC8899}}, which defines a method for Packetization
 Layer Path MTU Discovery (PLPMTUD) designed for use over paths where
 delivery of ICMPv6 messages to a host is not assured.
 
-A node MUST implement a PMTU discovery method and this must be enabled by default 
+A node MUST implement a PMTU discovery method and this must be enabled by default
 (see {{RFC8899}} and {{RFC9869}}), except in minimal IPv6 implementations.
 
 ### Minimum MTU Considerations
@@ -660,7 +663,8 @@ on all nodes.  Since participation of any
 MLDv1-only nodes on a link require that all other nodes on the link then
 operate in version 1 compatibility mode, the requirement to support MLDv2
 on all nodes was upgraded to a MUST. Further, SSM is now the preferred
-multicast distribution method, rather than Any-Source Multicast (ASM).
+multicast distribution method, and {{RFC8815}} deprecates the use of
+Any-Source Multicast (ASM) for interdomain multicast.
 
 Note that Neighbor Discovery (as used on most link types -- see {{ND}})
 depends on multicast and requires that nodes join Solicited Node
@@ -718,9 +722,11 @@ A host SHOULD support assigning multiple addresses as described in
 {{RFC7934}}.
 
 Nodes SHOULD support the capability to be assigned a prefix per host as
-documented in {{RFC8273}} and {{RFC9663}}.
-Such an approach can offer improved host
-isolation, enhanced subscriber management, scalibity, and ability to extend the network.
+documented in {{RFC8273}} and {{RFC9663}}. Routers SHOULD set the P flag in
+the Prefix Information Option to signal the availability of DHCPv6 prefix
+delegation, and hosts SHOULD process it, as specified in {{RFC9762}}.
+Such an approach can offer improved host isolation, enhanced subscriber
+management, scalability, and ability to extend the network.
 
 
 ## IPv6 Stateless Address Autoconfiguration - RFC 4862
@@ -844,7 +850,7 @@ such anonymity profiles.
 IPv6 nodes will invariably have multiple addresses configured simultaneously
 and thus will need to choose which addresses to use for which communications.
 The rules specified in the Default Address Selection for
-IPv6 document {{RFC6724}} MUST be implemented. {{RFC8028}} updates Rule 5.5 from {{RFC6724}}; implementations MUST implement this rule.
+IPv6 document {{RFC6724}}, as updated by {{I-D.ietf-6man-rfc6724-update}}, MUST be implemented.
 
 ## Prefer IPv6-Only
 
@@ -1307,8 +1313,6 @@ This section highlights the changes since RFC 8504.
 
 1. Added Discovery of translation prefixes section (10.1.2) which includes RFC 8781 and 7050.
 
-1. Added MUST requirement for Rule 5.5 in RFC 6724 and 8208.
-
 1. Added Discovery of encrypted DNS resolver, RFC 9463.
 
 1. Added requirement to support PMTUD (RFC 8201) and PLPMTUD (RFC 4821 and 8899).
@@ -1330,6 +1334,12 @@ This section highlights the changes since RFC 8504.
 1. Added a Differentiated Services (Diffserv) section (RFC 2474 and RFC 2475), including a SHOULD requirement for an API to set and access the DSCP.
 
 1. Added SVCB and HTTPS Resource Records (RFC 9460) to the list of stub-resolver support, noting their use for conveying IPv6 hints.
+
+1. Added RFC 8815, noting the deprecation of Any-Source Multicast (ASM) for interdomain multicast.
+
+1. Added RFC 9762 for signalling the availability of DHCPv6 prefix delegation through the P flag in the Prefix Information Option.
+
+1. Updated the Default Address Selection for IPv6 requirement to reference draft-ietf-6man-rfc6724-update, which updates RFC 6724.
 
 # Changes from RFC 6434 to RFC 8504
 
