@@ -112,7 +112,6 @@ normative:
   RFC8247:
   RFC8343:
   RFC8344:
-  RFC8415:
   RFC8815:
   RFC8899:
   RFC8925:
@@ -125,6 +124,7 @@ normative:
   RFC9762:
   RFC9844:
   RFC9869:
+  RFC9915:
   I-D.ietf-6man-rfc6724-update:
 informative:
   RFC0793:
@@ -172,7 +172,8 @@ informative:
   RFC8273:
   RFC8781:
   RFC9663:
-  I-D.draft-ietf-v6ops-rfc7084bis:
+  RFC9805:
+  I-D.ietf-v6ops-rfc7084bis:
   POSIX:
     target: https://ieeexplore.ieee.org/document/8277153
     title: Information Technology -- Portable Operating System Interface (POSIX(R))
@@ -823,9 +824,9 @@ temporary addresses. Consult "Reserved IPv6 Interface
 Identifiers" {{RFC5453}} for more details.
 
 
-## Stateful Address Autoconfiguration (DHCPv6) - RFC 8415 {#stateful1}
+## Stateful Address Autoconfiguration (DHCPv6) - RFC 9915 {#stateful1}
 
-DHCPv6 {{RFC8415}} can be used to obtain and
+DHCPv6 {{RFC9915}} can be used to obtain and
 configure addresses. In general, a network may provide for the
 configuration of addresses through SLAAC,
 DHCPv6, or both.  There will be a wide range of IPv6 deployment
@@ -905,7 +906,7 @@ IPv4-mapped IPv6 address MUST be discarded.
 
 ## DHCP for Other Configuration Information
 
-DHCP {{RFC8415}} specifies a mechanism for IPv6 nodes to obtain
+DHCP {{RFC9915}} specifies a mechanism for IPv6 nodes to obtain
 address configuration information (see {{stateful1}}) and to
 obtain additional (non-address) configuration.  If a host
 implementation supports applications or other protocols that
@@ -914,7 +915,7 @@ SHOULD implement DHCP. For specialized devices on which no
 such configuration need is present, DHCP may not be
 necessary.
 
-An IPv6 node can use the subset of DHCP (described in {{RFC8415}}) to obtain other configuration
+An IPv6 node can use the subset of DHCP (described in {{RFC9915}}) to obtain other configuration
 information.
 
 If an IPv6 node implements DHCP, it MUST implement the DNS options {{RFC3646}} as most deployments will expect that these options are available.
@@ -1147,7 +1148,7 @@ updates or replacements to {{RFC8247}}.
 
 This section defines general host considerations for IPv6 nodes
 that act as routers.  Currently, this section does not discuss
-detailed routing-specific requirements. For the case of typical home routers, {{I-D.draft-ietf-v6ops-rfc7084bis}} defines basic requirements for customer edge routers.
+detailed routing-specific requirements. For the case of typical home routers, {{I-D.ietf-v6ops-rfc7084bis}} defines basic requirements for customer edge routers.
 
 ## IPv6 Router Alert Option - RFC 2711
 
@@ -1157,6 +1158,8 @@ with some protocols (e.g., RSVP {{RFC2205}} or
 Multicast Listener Discovery (MLDv2) {{RFC3810}}).  The Router Alert option will
 need to be implemented whenever such protocols that mandate its
 use are implemented.  See {{mld}}.
+
+The Router Alert option has been deprecated for use by new protocols, per {{RFC9805}}.
 
 
 ## Neighbor Discovery for IPv6 - RFC 4861
@@ -1173,9 +1176,9 @@ Sections 7.3 and 7.5, even if they do not implement home
 agent functionality.
 
 
-## Stateful Address Autoconfiguration (DHCPv6) - RFC 8415
+## Stateful Address Autoconfiguration (DHCPv6) - RFC 9915
 
-A single DHCP server ({{RFC8415}} or {{RFC4862}}) can provide configuration information to
+A single DHCP server ({{RFC9915}} or {{RFC4862}}) can provide configuration information to
 devices directly attached to a shared link, as well as to
 devices located elsewhere within a site. Communication between
 a client and a DHCP server located on different links requires
@@ -1185,15 +1188,15 @@ In simple deployments, consisting of a single router and
 either a single LAN or multiple LANs attached to the single
 router, together with a WAN connection, a DHCP server
 embedded within the router is one common deployment scenario
-(e.g., {{I-D.draft-ietf-v6ops-rfc7084bis}}). There is no need
+(e.g., {{I-D.ietf-v6ops-rfc7084bis}}). There is no need
 for relay agents in such scenarios.
 
 In more complex deployment scenarios, such as within enterprise or service provider networks, the use of DHCP requires some level of configuration, in order to configure relay agents, prefixes for delegation, DHCP servers, etc. In such environments, the DHCP server might even be run on a traditional server, rather than as part of a router.
 
 Because of the wide range of deployment scenarios, support for DHCP server functionality on routers is optional.  However,
 routers targeted for deployment within more complex scenarios (as described above) SHOULD support relay agent functionality
-including support for support DHCPv6-PD as defined in {{RFC8415}}.  Note that "Basic Requirements for IPv6 Customer Edge
-Routers" {{I-D.draft-ietf-v6ops-rfc7084bis}} requires implementation of a DHCPv6 server function in IPv6 Customer Edge
+including support for DHCPv6-PD as defined in {{RFC9915}}.  Note that "Basic Requirements for IPv6 Customer Edge
+Routers" {{I-D.ietf-v6ops-rfc7084bis}} requires implementation of a DHCPv6 server function in IPv6 Customer Edge
 (CE) routers.
 
 ## IPv6 Prefix Length Recommendation for Forwarding - BCP 198
@@ -1306,7 +1309,7 @@ This document has no IANA actions.
 
 This section highlights the changes since RFC 8504.
 
-1. Updated obsoleted RFCs including 3315 and 3736 (both to 8415) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.
+1. Updated obsoleted RFCs including 3315 and 3736 (both to 9915) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.
 
 1. Added support for Gratuitous Neighbor Discovery Creating Neighbor Cache Entries on First‑Hop Routers, RFC 9131.
 
@@ -1334,7 +1337,7 @@ This section highlights the changes since RFC 8504.
 
 1. Added additional text for supporting IPv4-mapped DNS entries.
 
-1. Added RFC 9740 for better visiblity with extension headers in networks.
+1. Added RFC 9740 for better visibility with extension headers in networks.
 
 1. Added a Differentiated Services (Diffserv) section (RFC 2474 and RFC 2475), including a SHOULD requirement for an API to set and access the DSCP.
 
@@ -1349,6 +1352,8 @@ This section highlights the changes since RFC 8504.
 1. Added RFC 9844 for entering the zone identifier of an IPv6 scoped address in user interfaces.
 
 1. Updated the reference for basic requirements for IPv6 customer edge routers from RFC 7084 to draft-ietf-v6ops-rfc7084bis.
+
+1. Added RFC 9805, noting that the IPv6 Router Alert option is deprecated for use by new protocols.
 
 # Changes from RFC 6434 to RFC 8504
 
