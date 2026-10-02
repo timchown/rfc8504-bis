@@ -112,6 +112,7 @@ normative:
   RFC8247:
   RFC8343:
   RFC8344:
+  RFC8781:
   RFC8815:
   RFC8899:
   RFC8925:
@@ -169,7 +170,6 @@ informative:
   RFC8087:
   RFC8096:
   RFC8273:
-  RFC8781:
   RFC9663:
   RFC9805:
   RFC9872:
@@ -887,7 +887,7 @@ Discovery of encrypted DNS resolvers per {{RFC9463}} SHOULD be implemented.
 
 A6 Resource Records {{RFC2874}} are classified as Historic per {{RFC6563}}.  These were defined with Experimental status in {{RFC3363}}.
 
-Nodes SHOULD support {{RFC8781}} to perform local IPv6 address synthesis when in IPv6-only environments.
+Nodes SHOULD support {{RFC8781}} to perform local IPv6 address synthesis when in IPv6-only environments (see {{pref64}}).
 
 For a dual-stack node with addresses and routes configured for both IPv4 and IPv6,
 any IPv4-mapped IPv6 addresses encountered within the response of a DNS request nodes with the AAAA record MUST be discarded and returned as NXDOMAIN or the "ANY" record MUST be discarded.
@@ -1003,10 +1003,13 @@ IPv6 nodes MAY support IPv4.
 
 If an IPv6 node implements dual stack and tunneling, then {{RFC4213}} MUST be supported.
 
-### Support for discovery of translation prefixes
+### Support for discovery of translation prefixes {#pref64}
 
-[RFC8781] describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network environments, {{RFC9872}} recommends that all hosts support discovery of NAT64 prefixes as described in {{RFC8781}}.
-
+[RFC8781] describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to
+communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers
+(NAT64) to hosts. In order to support migration to and operation of IPv6-mostly and IPv6-only network
+environments, nodes SHOULD support discovery of NAT64 prefixes as described in {{RFC8781}}.
+{{RFC9872}} provides guidance on NAT64 prefix discovery.
 
 # Application Support
 
