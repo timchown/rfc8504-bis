@@ -341,6 +341,8 @@ The node MUST follow the packet transmission rules in RFC 8200.
 All conformant IPv6 implementations MUST be
 capable of sending and receiving IPv6 packets; forwarding
 functionality MAY be supported.
+
+## IPv6 Fragments
 Nodes MUST always be able to send, receive, and process
 Fragment headers.
 
@@ -361,6 +363,8 @@ any other fragments that match this packet should be processed independently.
 To mitigate a variety of potential attacks,
 nodes SHOULD avoid using predictable Fragment Identification values
 in Fragment headers, as discussed in {{RFC7739}}.
+
+## IPv6 Flow Label
 
 All nodes SHOULD support the setting and use of the IPv6 Flow
 Label field as defined in the IPv6 Flow Label specification {{RFC6437}}.
@@ -1359,6 +1363,9 @@ comprehensive list of all changes.
 1. Updated the reference for overlapping fragment handling from RFC 5722 to Section 4.5 of RFC 8200.
 
 1. Removed Teredo (RFC 4380) due to lack of current deployment.
+
+1. Split the fragment and Flow Label text from the Internet Protocol Version 6 section into new IPv6 Fragments and IPv6 Flow Label sections.
+
 
 # Changes from RFC 6434 to RFC 8504
 
