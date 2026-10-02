@@ -1301,7 +1301,10 @@ This document has no IANA actions.
 
 # Changes from RFC 8504
 
-This section highlights the changes since RFC 8504.
+There have been many editorial clarifications as well as
+significant additions and updates. While this section highlights
+some of the changes, readers should not rely on this section for a
+comprehensive list of all changes.
 
 1. Updated obsoleted RFCs including 3315 and 3736 (both to 9915) and 4941 to 8981. RFC 793 has been obsoleted by 9293 but the latter does not include the the robustness principle for which RFC 793 is cited in this document.
 
