@@ -145,7 +145,6 @@ informative:
   RFC4294:
   RFC4302:
   RFC4338:
-  RFC4380:
   RFC4429:
   RFC4584:
   RFC4821:
@@ -327,8 +326,6 @@ In addition to traditional physical link layers, it is also
 possible to tunnel IPv6 over other protocols. Examples
 include:
 
-- Teredo: Tunneling IPv6 over UDP through Network Address Translations
-  (NATs) {{RFC4380}}
 - Basic Transition Mechanisms for IPv6 Hosts and Routers (see {{Section
   3 of RFC4213}})
 
@@ -1360,6 +1357,8 @@ comprehensive list of all changes.
 1. RFC 8028 was updated from a SHOULD to a MUST for hosts in multihomed environments, with an exception for constrained hosts.
 
 1. Updated the reference for overlapping fragment handling from RFC 5722 to Section 4.5 of RFC 8200.
+
+1. Removed Teredo (RFC 4380) due to lack of current deployment.
 
 # Changes from RFC 6434 to RFC 8504
 
