@@ -1319,6 +1319,8 @@ comprehensive list of all changes.
 
 1. Removed the SEND Section due to limited use.
 
+1. Removed the text allowing a host to disallow unknown destination options or hop-by-hop options.
+
 1. Added Discovery of translation prefixes section (10.1.2) which includes RFC 8781 and 9872.
 
 1. Added Discovery of encrypted DNS resolver, RFC 9463.
