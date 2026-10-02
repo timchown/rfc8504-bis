@@ -573,18 +573,6 @@ anticipation of a future usage.
 
 ### Path MTU Discovery - RFC 8201
 
-"Support for Path MTU Discovery for IP version 6" {{RFC8201}} as documented in {{RFC8200}}:
-
->
-It is strongly recommended that IPv6 nodes implement
-Path MTU Discovery {{RFC8201}}, in order to
-discover and
-take advantage of path MTUs greater than 1280 octets.
-However, a minimal IPv6 implementation (e.g., in a boot
-ROM) may simply restrict itself to sending packets no
-larger than 1280 octets, and omit implementation of Path
-MTU Discovery.
-
 The rules in {{RFC8200}} and {{RFC5722}} MUST be followed for packet
 fragmentation and reassembly.
 
@@ -1366,6 +1354,7 @@ comprehensive list of all changes.
 
 1. Split the fragment and Flow Label text from the Internet Protocol Version 6 section into new IPv6 Fragments and IPv6 Flow Label sections.
 
+1. Remove quoted text from 8200 in Path MTU Discovery.
 
 # Changes from RFC 6434 to RFC 8504
 
