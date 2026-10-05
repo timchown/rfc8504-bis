@@ -173,6 +173,7 @@ informative:
   RFC9805:
   RFC9872:
   I-D.ietf-v6ops-rfc7084bis:
+  I-D.ietf-v6ops-ipv6-only:
   POSIX:
     target: https://ieeexplore.ieee.org/document/8277153
     title: Information Technology -- Portable Operating System Interface (POSIX(R))
@@ -184,13 +185,13 @@ informative:
       IEEE Std: 1003.1-2017
       'DOI:': 10.1109/IEEESTD.2018.8277153
   USGv6:
-    target: https://www.nist.gov/programs-projects/usgv6-program
-    title: A Profile for IPv6 in the U.S. Government - Version 1.0
+    target: https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.500-267Ar1.pdf
+    title: NIST IPv6 Profile
     author:
     - org: National Institute of Standards and Technology
-    date: 2008-07
+    date: 2020-11
     seriesinfo:
-      NIST: SP500-267
+      NIST: SP500-267A
 
 --- abstract
 
@@ -707,11 +708,11 @@ A host SHOULD support assigning multiple addresses as described in
 {{RFC7934}}.
 
 Nodes SHOULD support the capability to be assigned a prefix per host as
-documented in {{RFC8273}} and {{RFC9663}}. Routers SHOULD set the P flag in
-the Prefix Information Option to signal the availability of DHCPv6 prefix
-delegation, and hosts SHOULD process it, as specified in {{RFC9762}}.
-Such an approach can offer improved host isolation, enhanced subscriber
-management, scalability, and ability to extend the network.
+documented in {{RFC8273}} and {{RFC9663}}. Routers SHOULD support the P flag in
+the Prefix Information Option where the network supports DHCPv6 prefix delegation,
+and hosts SHOULD process it, as specified in {{RFC9762}}. Such an approach can
+offer improved host isolation, enhanced subscriber management, scalability, and
+ability to extend the network.
 
 
 ## IPv6 Stateless Address Autoconfiguration - RFC 4862
@@ -783,7 +784,7 @@ the node they
 communicate, as that node moves around the network.  Privacy Extensions
 for Stateless Address
 Autoconfiguration {{RFC8981}} address this
-concern by allowing nodes to configure an temporary address
+concern by allowing nodes to configure a temporary address
 where the IID is effectively randomly generated.  Privacy addresses
 are then used as source addresses for new communications initiated by the
 node.
@@ -839,7 +840,7 @@ IPv6 document {{RFC6724}}, as updated by {{I-D.ietf-6man-rfc6724-update}}, MUST 
 
 ## Prefer IPv6-Only
 
-IPv6 nodes that support IPv6-only operation MAY forego obtaining an IPv4 address by using the IPv4
+IPv6 nodes that support IPv6-only operation, as defined in {{I-D.ietf-v6ops-ipv6-only}}, MAY forego obtaining an IPv4 address by using the IPv4
 DHCP Option 108 specified in {{RFC8925}}, if the node has provisions in place to support
 connecting to IPv4-only resources. A node without such provisions would be unable to reach IPv4-only resources.
 
@@ -1336,7 +1337,7 @@ comprehensive list of all changes.
 
 1. Added RFC 8815, noting the deprecation of Any-Source Multicast (ASM) for interdomain multicast.
 
-1. Added RFC 9762 for signalling the availability of DHCPv6 prefix delegation through the P flag in the Prefix Information Option.
+1. Added RFC 9762 for support of the P flag in the Prefix Information Option, used to signal the availability of DHCPv6 prefix delegation.
 
 1. Updated the Default Address Selection for IPv6 requirement to reference draft-ietf-6man-rfc6724-update, which updates RFC 6724.
 
@@ -1355,6 +1356,8 @@ comprehensive list of all changes.
 1. Split the fragment and Flow Label text from the Internet Protocol Version 6 section into new IPv6 Fragments and IPv6 Flow Label sections.
 
 1. Remove quoted text from 8200 in Path MTU Discovery.
+
+1. Added a reference to draft-ietf-v6ops-ipv6-only in the Prefer IPv6-Only section for the definition of IPv6-only operation.
 
 # Changes from RFC 6434 to RFC 8504
 
