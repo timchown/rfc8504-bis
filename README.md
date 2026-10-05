@@ -1,11 +1,13 @@
+<!-- regenerate: on (set to off if you edit this file) -->
+
 # IPv6 Node Requirements
 
-This is the working area for the individual Internet-Draft, "IPv6 Node Requirements".
+This is the working area for the IETF [6MAN Working Group](https://datatracker.ietf.org/group/6man/documents/) Internet-Draft, "IPv6 Node Requirements".
 
 * [Editor's Copy](https://timchown.github.io/rfc8504-bis/#go.draft-ietf-6man-rfc8504-bis.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-6man-rfc8504-bis)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ietf-6man-rfc8504-bis)
-* [Compare Editor's Copy to Individual Draft](https://timchown.github.io/rfc8504-bis/#go.draft-ietf-6man-rfc8504-bis.diff)
+* [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-6man-rfc8504-bis)
+* [Compare Editor's Copy to Working Group Draft](https://timchown.github.io/rfc8504-bis/#go.draft-ietf-6man-rfc8504-bis.diff)
 
 
 ## Contributing
@@ -13,9 +15,8 @@ This is the working area for the individual Internet-Draft, "IPv6 Node Requireme
 See the
 [guidelines for contributions](https://github.com/timchown/rfc8504-bis/blob/main/CONTRIBUTING.md).
 
-Contributions can be made by creating pull requests.
-The GitHub interface supports creating pull requests using the Edit (✏) button.
-
+The contributing file also has tips on how to make contributions, if you
+don't already know how to do that.
 
 ## Command Line Usage
 
